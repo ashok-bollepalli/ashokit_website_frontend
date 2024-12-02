@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="card-header mt-5 p-2">
+        <h1 class="mt-3"><b>Batch Notification</b></h1>
+    </div>
+    <div class="card-body mt-5 mb-5 p-5">
+
+        <form [formGroup]="batchNotificationForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="trainerName" class="form-label required-label"><b>Trainer Name</b></label>
+                    <select id="trainerId" name="trainerId" class="form-select" formControlName="trainerId">
+                        <option value="">-Select-</option>
+                        <option *ngFor="let trainer of trainers" [ngValue]="trainer.trainerId">{{ trainer.trainerName }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="courseStatus" class="form-label required-label"><b>Course Status</b></label>
+                    <select id="courseStatus" name="courseStatus" class="form-select" formControlName="courseStatus"
+                        (change)="findBatchByCourseStatus($event)">
+                        <option value="">-Select-</option>
+                        <option value="In-Progress">In-Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="scheduleName" class="form-label required-label"><b>Select Batch</b></label>
+
+                    <select id="scheduleName" name="scheduleName" class="form-select" formControlName="batchId">
+                        <option value="">-Select-</option>
+                        <option *ngFor="let batch of selectedBatches; let i = index" [value]="batch.id">{{batch.batchCode}}
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="watiTemplates" class="form-label required-label"><b>Select WATI Template</b></label>
+                    <select id="watiTemplates" name="watiTemplates" class="form-select" formControlName="templateName">
+                        <option value="">-Select-</option>
+                        <option *ngFor="let watiTemplate of watiTemplates; let i = index"
+                            [value]="watiTemplate.elementName">
+                            {{watiTemplate.elementName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                    <button type="submit" class="btn btn-submit float-end">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

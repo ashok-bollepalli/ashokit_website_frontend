@@ -1,0 +1,181 @@
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #FAFAFA;
+}
+
+.container {
+  margin: 5%;
+  margin-left: 13%;
+  margin-right: auto;
+}
+
+.card-container {
+  // position: relative;
+  // margin-top: 2.5%;
+  // margin-bottom: 2.5%;
+}
+
+.card-main {
+  z-index: 1;
+  padding: 5%;
+  border: none;
+  box-shadow: 0 4px 8px #a1cdf1;
+}
+
+.card-secondary {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 2% 6%;
+  margin-left: 3%;
+  background-color: #fff;
+  box-shadow: 0 4px 8px #A1CDF1;
+  border: none;
+}
+
+.register ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.registration {
+  text-align: center;
+  color: green;
+}
+
+.register li {
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 1.5%;
+  position: relative;
+}
+
+.register li::before {
+  content: '✓ ';
+  color: #72BFF2;
+  position: relative;
+  font-size: 1.4em;
+  line-height: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
+.or-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #747272;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.or-divider:not(:empty)::before {
+  margin-right: .25em;
+}
+
+.or-divider:not(:empty)::after {
+  margin-left: .25em;
+}
+
+
+@media (max-width: 1200px) {
+  .card-secondary {
+    width: 100%;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    margin: 5%;
+  }
+
+  .card-main {
+    padding: 4%;
+  }
+
+  .card-secondary {
+    padding: 4% 6%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 5%;
+  }
+
+  .card-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .card-main {
+    padding: 3%;
+  }
+
+  .card-secondary {
+    width: 90%;
+    padding: 3% 4%;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .card-main,
+  .card-secondary {
+    padding: 2%;
+  }
+
+  .card-secondary {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .register li {
+    font-size: 0.9em;
+  }
+}
+
+.btn-submit {
+  background-color: #002147;
+  color: white;
+  height: 40px;
+  width: 150px;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn-submit:hover {
+  background-color: rgb(36, 110, 253);
+}
+
+.col-lg-4{
+  margin-top: -27px;
+}
+
+.modal-title  {
+  margin-left: 150px;
+}

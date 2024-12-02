@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="card-header mt-5 mb-5 p-3">
+    <h1>Upload Zoom Report</h1>
+    <div class="col-md-6">
+      <a href="/assets/uploads/bulkupload.xlsx" download>
+        <button type="button" class="btn bg-dark text-white">Download Sample Excel File(.xlsx)</button>
+      </a>
+    </div>
+  </div>
+  <div class="card-body mt-5 mb-5 p-5">
+    <form [formGroup]="zoomReportForm" (ngSubmit)="submitZoomReport()">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+          <label for="trainerId" class="form-label required-label"><b>Trainer Name</b></label>
+          <select id="trainerId" class="form-select" [(ngModel)]="trainerId" formControlName="trainerId"
+            (change)="findBatchByTrainer($event)">
+            <option *ngFor="let trainer of trainers" [value]="trainer.trainerId">
+              {{ trainer.trainerName }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+          <label for="courseStatus" class="form-label required-label"><b>Course Status</b></label>
+          <select id="courseStatus" class="form-select" formControlName="courseStatus"
+            (change)="findBatchByCourseStatus($event)">
+            <option selected disabled>Select a course status</option>
+            <option value="In-Progress">In-Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Aborted">Aborted</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+          <label for="sourceBatch" class="form-label required-label"><b>Batch</b></label>
+          <select class="form-select" id="id" name="id" class="form-control" formControlName="id">
+            <option *ngFor="let batch of selectedBatches; let i = index" [value]="batch.id">
+              {{batch.batchCode}}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="fileInput" class="form-label required-label"><b>Upload File</b></label>
+          <input type="file" class="form-control" id="fileInput" (change)="handleFileInput($event)" accept=".csv">
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-submit float-end">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

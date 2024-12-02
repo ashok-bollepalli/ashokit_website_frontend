@@ -1,0 +1,53 @@
+<div class="container">
+    <section class="edit student jobs">
+        <div class="card-header mt-5 p-2">
+            <h1 class="mt-3"><b>Edit Student Jobs</b></h1>
+        </div>
+    </section>
+    <div class="card-body mt-5 mb-5 p-5">
+        <div class="row">
+            <div class="col-mb-6 col-sm-6 col-lg-6 col-mb-3">
+                <label for="fullName" class="form-label required-label"><b>Full Name</b></label>
+                <input type="text" id="fullName" name="fullName" class="form-control" [(ngModel)]="studentJob.fullName">
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                <label for="phone" class="form-label required-label"><b>Mobile Number</b></label>
+                <input type="tel" id="phone" name="phone" [(ngModel)]="studentJob.phone" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                <label for="course" class="form-label required-label"><b>Enroll Course </b></label>
+                <input type="course" id="course" name="course" [(ngModel)]="studentJob.courseId" class="form-control">
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                <label for="image" class="form-label required-label"><b>Photos </b></label>
+                <input type="file" id="image" name="image" [(ngModel)]="studentJob.image" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                <label for="exp" class="form-label required-label"><b>Experience </b></label>
+                <input type="number" id="exp" name="exp" [(ngModel)]="studentJob.exp" class="form-control">
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                <label for="salPackage" class="form-label required-label"><b>Package </b></label>
+                <input type="number" id="salPackage" name="salPackage" [(ngModel)]="studentJob.salPackage"
+                    class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                <label for="companyName" class="form-label required-label"><b>Company Name </b></label>
+                <input type="text" id="companyName" name="companyName" class="form-control" [(ngModel)]="studentJob.companyName">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <button type="submit" (click)="onSubmit()" class="btn-submit float-end">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

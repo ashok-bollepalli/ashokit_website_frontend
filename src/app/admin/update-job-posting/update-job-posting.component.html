@@ -1,0 +1,68 @@
+<div class="container">
+    <section>
+        <div class="card-header mt-5 p-2">
+            <h1 class="mt-3"><b>Update Job Posting</b></h1>
+        </div>
+    </section>
+    <div class="card-body mt-5 mb-5 p-5">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="jobTitle" class="required-label">Job Title</label>
+                <input type="text" id="jobTitle" name="jobTitle" class="form-control"  [(ngModel)]="jobPostings.jobTitle">
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="companyName" class="required-label">Company Name</label>
+                <input type="text" id="companyName" name="companyName" class="form-control"  [(ngModel)]="jobPostings.companyName">
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="jobLocation" class="required-label">Job Location</label>
+                <input type="text" id="jobLocation" name="jobLocation" class="form-control" [(ngModel)]="jobPostings.jobLocation" >
+            </div>
+
+             <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="package" class="required-label">Package</label>
+                <input type="text" id="package"  class="form-control" [(ngModel)]="jobPostings.packageOffering" >
+            </div> 
+
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="slug" class="required-label">Slug</label>
+                <input type="text" id="slug"  class="form-control" [(ngModel)]="jobPostings.slug" >
+            </div> 
+
+             <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="eligibility" class="required-label">Eligibility</label>
+                <ckeditor [editor]="Editor" tagName="textarea" class="" [(ngModel)]="jobPostings.eligibility">
+                </ckeditor>
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="qualification" class="required-label">Qualification</label>
+                <ckeditor [editor]="Editor" tagName="textarea"  class="" [(ngModel)]="jobPostings.qualifications">
+                </ckeditor>
+            </div> 
+
+        <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="companyImageFile" class="form-label">Image</label>
+                <input type="file" id="companyImageFile" name="companyImageFile" (change)="onFileChange($event)" accept="image/*" class="form-control">
+            </div>  
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="jobType" class="required-label">Type</label>
+                <select id="jobType" class="form-select" [(ngModel)]="jobPostings.jobType">
+                    <option value="Job">Job</option>
+                    <option value="Internship">Internship</option>
+                </select>
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="linkToApply" class="required-label">Link To Apply</label>
+                <input type="url" id="link" class="form-control" [(ngModel)]="jobPostings.link">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                <button type="submit" (click)="onSubmit()" class="btn-submit float-end">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

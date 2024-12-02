@@ -1,0 +1,20 @@
+.required-label::after {
+    content: '*';
+    color: red;
+    margin-left: 0.2em;
+}
+ .btn{
+    background-color: #212529;
+    color: white;
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+    border: none;
+
+}
+.btn:hover{
+    background-color: rgb(36, 110, 253);
+
+}
+
+

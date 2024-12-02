@@ -1,0 +1,159 @@
+<div class="container">
+    <div class="card-header  mt-5 p-2">
+        <h1 class="mt-3"><b>Update Schedule Batch</b></h1>
+    </div>
+    <div class="card-body mt-5 mb-5 p-5">
+        <!-- {{scheduleBatch |json}} -->
+        <form (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class=" col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="courseName" class="form-label required-label"><b>Course Name</b> </label>
+                    <select name="course_name" id="course_name" class="form-control" required [(ngModel)]="scheduleBatch.courseId">
+                        <option *ngFor="let course of courses; let i = index" [value]="course.courseId">
+                            {{ course.courseName }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="scheduleName" class="form-label required-label"><b>Label Name</b></label>
+                    <input type="text"  name="schedule_name" id="schedule_name" class="form-control" required
+                        [(ngModel)]="scheduleBatch.scheduleName">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="coursePrice" class="form-label required-label"><b>Course Price</b></label>
+                    <input type="text" name="course_code" id="course_code" class="form-control" required
+                        [(ngModel)]="scheduleBatch.coursePrice">
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="trainer" class="form-label required-label"><b>Trainer</b></label>
+                    <select name="trainerId" id="trainerId" class="form-control" [(ngModel)]="scheduleBatch.trainerId">
+                        <option *ngFor="let trainer of trainers" [value]="trainer.trainerId">
+                            {{ trainer.trainerName }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="offerPrice" class="form-label required-label"><b>Offer price</b> </label>
+                    <input type="text" name="offerPrice" id="offerPrice" class="form-control" required
+                        [(ngModel)]="scheduleBatch.offerPrice">
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="counsellor" class="form-label required-label"><b>Counsellor</b></label>
+                    <select name="counsellorId" id="counsellorId" class="form-control" [(ngModel)]="scheduleBatch.counsellorId">
+                        <option *ngFor="let counsellor of counsellors" [value]="counsellor.counsellorId">{{
+                            counsellor.counsellorName }}</option>
+
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="courseMode" class="form-label required-label"><b>Batch Type</b> </label>
+                    <select id="scheduleType" name="scheduleType" class="form-select" [(ngModel)]="scheduleBatch.scheduleType">
+                        <option>-Select-</option>
+                        <option *ngFor="let trgMode of trainingModes" [value]="trgMode.trainingType">{{trgMode.trainingType}}</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="batchCode" class="form-label required-label"><b>Batch Code</b> </label>
+                    <input type="text" readonly name="batchCode" id="batchCode" class="form-control" required
+                        [(ngModel)]="scheduleBatch.batchCode">
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="backupVideos" class="form-label"><b>Backup Videos Available</b> </label>
+                    <select name="backupVideos" id="backupVideos" class="form-control">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="backupVideosFee" class="form-label"><b>Backup Videos Fee</b> </label>
+                    <input type="text" name="backupVideosFee" id="backupVideosFee" class="form-control" required
+                        [(ngModel)]="scheduleBatch.backupVideosFee">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="batchTimings" class="form-label required-label"><b>Timings</b></label>
+                    <input type="text" name="batchTimings" id="batchTimings" class="form-control" required 
+                        [(ngModel)]="scheduleBatch.batchTimings">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="meridianType" class="form-label required-label"><b>AM / PM ?</b></label>
+                    <select id="meridianType" name="meridianType" class="form-select" [(ngModel)]="scheduleBatch.meridianType">
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="exampleDate" class="form-label required-label"><b>Select Start Date:</b></label>
+                    <input type="date" class="form-control" id="exampleDate"
+                        [(ngModel)]="scheduleBatch.startDate">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="exampleDate" class="form-label required-label"><b>Select End Date:</b></label>
+                    <input type="date" class="form-control" id="exampleDate"
+                        [(ngModel)]="scheduleBatch.endDate">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="duration" class="form-label required-label"><b>Duration </b></label>
+                    <input type="text" name="duration" id="duration" class="form-control" required
+                        [(ngModel)]="scheduleBatch.duration">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="zoomId" class="form-label required-label"><b>Zoom Id</b></label>
+                    <input type="text" name="zoomId" id="zoomId" class="form-control" required
+                        [(ngModel)]="scheduleBatch.zoomId">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="whatsappLink" class="form-label required-label"><b>Whatsapp Link</b></label>
+                    <input type="text" name="whatsappLink" id="whatsappLink" class="form-control" required
+                        [(ngModel)]="scheduleBatch.whatsappLink">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="gitLink" class="form-label required-label"><b>Git Link</b></label>
+                    <input type="text" name="gitLink" id="gitLink" class="form-control" required
+                        [(ngModel)]="scheduleBatch.gitLink">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="zoomRegLink" class="form-label required-label"><b>Zoom Reg Link</b></label>
+                    <input type="text" name="zoomRegLink" id="zoomRegLink" class="form-control" required
+                        [(ngModel)]="scheduleBatch.zoomRegLink">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="teachableCourseId" class="form-label required-label"><b>Teachable Course</b></label>
+                    <select id="teachableCourseId" class="form-select" name="teachableCourseId"  [(ngModel)]="scheduleBatch.teachableCourseId">
+                        <option *ngFor="let teachableCourse of teachableCourses; let i = index" [value]="teachableCourse.id">{{teachableCourse.name}}
+                        </option>
+                    </select>
+                </div>
+                <!--<div class="row">-->
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                        <label for="courseStatus" class="form-label required-label"><b>Course Status</b></label>
+                        <select id="courseStatus" name="courseStatus" class="form-select" [(ngModel)]="scheduleBatch.courseStatus">
+                            <option value="In-Progress">In-Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                        <label for="demoStatus" class="form-label required-label"><b>Demo Status</b></label>
+                        <select id="demoStatus" name="demoStatus" class="form-select" [(ngModel)]="scheduleBatch.demoStatus">
+                            <option value="Running">Running</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+               <!-- </div>-->
+               
+               
+             
+                <div class="row mt-3">
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                        <button type="submit" class="btn btn-submit float-end" (click)="onSubmit()">Update</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

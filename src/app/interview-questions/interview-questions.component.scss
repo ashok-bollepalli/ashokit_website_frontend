@@ -1,0 +1,204 @@
+/* Ensure the carousel image is full width */
+.carousel-inner img {
+  width: 100%;
+  max-height: 400px;
+}
+
+@media (max-width: 767px) {
+  .carousel-item img {
+    height: 200px;
+  }
+}
+
+
+/* Style the caption to be vertically centered but aligned to the left */
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  padding: 0 100px;
+  /* Adjust as needed */
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  color: #fff;
+  /* Optional: Adjust text color for better readability */
+  background: rgba(0, 0, 0, 0.5);
+  /* Optional: Add background for better readability */
+}
+
+/* Adjust the font size and padding for responsiveness */
+.carousel-caption h1 {
+  font-size: 2.5rem;
+  /* Adjust for better responsiveness */
+  padding-bottom: 10px;
+  /* Adjust as needed */
+}
+
+.carousel-caption p {
+  font-size: 1.25rem;
+  /* Adjust for better responsiveness */
+}
+
+.tabs {
+  margin-top: 10px;
+  border-radius: 10px;
+  border-style: dashed !important;
+  border: 1px solid #212529;
+  padding: 0 10px;
+}
+
+.custom-btn {
+  color: white !important;
+  background-color: #212529 !important;
+}
+
+.card {
+  border: 1px solid #c7bfbf;
+  border-radius: 8px;
+  margin-top: 50px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.card-text {
+  color: #666;
+  font-size: 1rem;
+}
+
+.btn {
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+/* Specific styles */
+.gradient-bg {
+  padding: 20px;
+  background: linear-gradient(to bottom, #014282, #e8e5e5);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.ashokIt {
+  color: #ff2f15;
+  margin-top: 20px;
+  font-size: 2rem;
+  overflow: hidden;
+}
+
+.desc {
+  color: #e7e3e3d4;
+  font-size: 1.2rem;
+  overflow: hidden;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.totalStudents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-container:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+.active-tab {
+  color: white;
+  background-color: #212529;
+}
+
+.tab-custom-btn {
+  border-color: #212529;
+}
+
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .ashokIt {
+    margin-top: 20px;
+    font-size: 1.5rem;
+  }
+
+  .desc {
+    font-size: 1rem;
+  }
+
+  .card-img {
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .ashokIt {
+    font-size: 1.75rem;
+  }
+
+  .desc {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .ashokIt {
+    font-size: 2rem;
+  }
+
+  .desc {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 993px) {
+  .ashokIt {
+    font-size: 2.5rem;
+  }
+
+  .desc {
+    font-size: 1.3rem;
+  }
+}

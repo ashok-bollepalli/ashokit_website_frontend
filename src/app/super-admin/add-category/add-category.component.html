@@ -1,0 +1,52 @@
+<div class="container">
+    <section class="add_courses">
+        <div class="card-header mt-5 p-2">
+            <h1 class="mt-3"><b>Add Interview Questions Category</b></h1>
+        </div>
+    </section>
+    <div class="card-body mt-5 mb-5 p-5">
+        <form [formGroup]="interviewCategoryForm" (ngSubmit)="onSubmit()">
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="subjectName" class="form-label required-label"><b>Select Subject</b></label>
+                <select id="subjectName" formControlName="subjectName" class="form-select">
+                    <option vlue="">-Select-</option>
+                    <option vlue="Java">Java</option>
+                    <option vlue="Python">Python</option>
+                    <option vlue="UI">UI</option>
+                    <option vlue="DevOps">DevOps</option>
+                    <option vlue="AWS">AWS</option>
+                    <option vlue="AWS">Database</option>
+                    <option vlue="AWS">Testing</option>
+                </select>
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="name" class="form-label required-label"><b>Category Name</b></label>
+                <input type="text" id="name" name="name" formControlName="name" class="form-control">
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="slug" class="form-label required-label"><b>Category Slug</b></label>
+                <input type="text" id="slug" name="slug" formControlName="slug" class="form-control">
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="metaTitle" class="form-label "><b>Meta Title</b></label>
+                <input type="text" id="metaTitle" name="metaTitle" formControlName="metaTitle" class="form-control">
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="metaDescription" class="form-label "><b>Meta Description</b></label>
+                <input type="text" id="metaDescription" name="metaDescription" formControlName="metaDescription"
+                    class="form-control">
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="description" class="form-label required-label"><b>Description </b></label>
+                <input type="text" id="description" name="description" formControlName="description"
+                    class="form-control">
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                    <button type="submit" class="btn btn-submit float-end"
+                        [disabled]="interviewCategoryForm.invalid">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+.container{
+    padding: 30px;
+}
+
+/* Styles for interview category heading */
+h1 {
+    color: #333;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+/* Styles for interview questions */
+.box {
+    margin-bottom: 20px;
+    max-width: 60%;
+    padding: auto;
+}
+
+h3 {
+    color: #555;
+}
+
+p {
+    color: #777;
+}
+
+/* Styles for registration form */
+.card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+.course-select {
+    margin-bottom: 20px; /* Add desired margin/padding between the course select and the message textarea */
+}
+
+.message-textarea {
+    margin-top: 20px; /* Add desired margin/padding between the course select and the message textarea */
+}
+
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+button.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.btn-danger:hover {
+    background-color: #c82333;
+}

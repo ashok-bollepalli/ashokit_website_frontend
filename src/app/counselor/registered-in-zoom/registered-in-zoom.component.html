@@ -1,0 +1,189 @@
+<div class="container">
+    <h1 class="mt-3"><b>Zoom Registered Data</b></h1>
+    <div class="card-header mt-2 mb-2 p-3">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-3">
+                <label class="Show" class="form-label"><b>Show</b></label>
+                <select id="#" name="show" class="form-select" [(ngModel)]="pageSize">
+                    <option value="5">10</option>
+                    <option value="30">50</option>
+                    <option value="100">100</option>
+                    <option value="200">300</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                </select>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-3">
+                <label for="trainerName" class="form-label"><b>Trainer Name</b></label>
+                <select id="trainerName" class="form-select" [(ngModel)]="zoomRegDto.trainerId" name="trainerName">
+                    <option *ngFor="let trainer of trainers" [ngValue]="trainer.trainerId">{{ trainer.trainerName }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-3">
+                <label class="status" class="form-label"><b>Batch Status</b></label>
+                <select id="status" name="status" class="form-select" [(ngModel)]="status"
+                    (change)="findBatchByTrainerAndCourseStatus($event)">
+                    <option value="0">-Select-</option>
+                    <option value="In-Progress">In-Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Aborted">Aborted</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-lg-3 col mb-3">
+                <label class="form-label"><b>Batch Code</b></label>
+                <select id="scheduleName" class="form-select" name="scheduleName" [(ngModel)]="zoomRegDto.batchId">
+                    <option value="0">-Select-</option>
+                    <option *ngFor="let batch of selectedBatches" [ngValue]="batch.id"> {{batch.batchCode}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-3">
+                <label class="leadStatus" class="form-label"><b>Lead Status</b></label>
+                <select id="leadStatus" name="leadStatus" class="form-select" [(ngModel)]="zoomRegDto.status">
+                    <option value="0">-Select-</option>
+                    <option value="Open">Open</option>
+                    <option value="Closed">Closed</option>
+                    <option value="Answered">Answered</option>
+                    <option value="Not-Answered">Not-Answered</option>
+                    <option value="Callback">Call Back</option>
+                    <option value="Lost">Lost</option>
+                    <option value="Intrested">Intrested</option>
+                    <option value="Not Intrested">Not Intrested</option>
+                </select>
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-3">
+                <label for="from_date" class="form-label"><b>From Date</b></label>
+                <input type="date" id="from_date" name="from_date" class="form-control"
+                    [(ngModel)]="zoomRegDto.createdDate">
+            </div>
+
+            <!--  <div class="col-md-4 col-sm-4 col-lg-4 col mb-3">
+                <label for="from_date" class="form-label"><b>To Date</b></label>
+                <input type="date" id="to_date" name="to_date" class="form-control">
+            </div>-->
+            <div class="col-md-4 col-sm-4 col-lg-4 col  mt-4">
+                <button type="button" class="btn btn-dark text-white" (click)="applyFilter()">Filter</button>
+            </div>
+
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover mt-2">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>S.No</th>
+                        <th>Name</th>
+                        <th>Created Date</th>
+                        <th>Trainer Name</th>
+                        <th>Course Name</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>Enrollment Status</th>
+                        <th>Send Msg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let zoomRegister of (filteredZoom || []).slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+
+                        <td>{{i + 1 + (currentPage - 1) * pageSize}}</td>
+                        <td>{{ zoomRegister.name }}</td>
+                        <td>{{ zoomRegister.createdDate | date:'dd-MMM' }}</td>
+                        <td>{{ getTrainerName(zoomRegister.trainerId) }}</td>
+                        <td>{{ zoomRegister.courseName}}</td>
+                        <td>{{ zoomRegister.status }}</td>
+
+                        <td>
+                            <button class="btn btn-icon btn-success" (click)="openModal(zoomRegister)">
+                                <i class="fa fa-edit" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                        <td>
+                            {{ zoomRegister.enrollmentStatus }}
+                        </td>
+
+                        <td>
+                            <a href="https://api.whatsapp.com/send?phone={{ zoomRegister.countryCode }}{{ zoomRegister.phone}}&text=Hello, Welcome to Ashok IT..!!"
+                                target="_blank">Msg</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td *ngIf="zoomRegisters.length == 0" colspan="9" style="text-align:center">No records
+                            found<br><br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-end">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" aria-label="Previous" (click)="onPageChange(currentPage - 1)">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li *ngFor="let page of getPageArray()" class="page-item" [class.active]="page === currentPage">
+                <a class="page-link">{{ page }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+                <a class="page-link" aria-label="Next" (click)="onPageChange(currentPage + 1)">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <li class="page-item pt-2"> Total Records: {{ totalItems }}</li>
+        </ul>
+    </nav>
+</div>
+<div #myModal class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Update Status</h2>
+                <button type="button" class="btn-close ms-auto" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <p><b> Email:</b> {{zoomRegDto.email}} </p>
+                    <p> <b>Mobile:</b> {{zoomRegDto.phone}} </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                        <label class="selectedZoomRegistered.status" class="form-label"><b>Status</b></label>
+                        <select id="selectedZoomRegistered.status" name="selectedZoomRegistered.status"
+                            class="form-select" [(ngModel)]="zoomRegDto.status">
+                            <option value="Open">Open</option>
+                            <option value="Closed">Closed</option>
+                            <option value="Answered">Answered</option>
+                            <option value="Not-Answered">Not-Answered</option>
+                            <option value="Callback">Call Back</option>
+                            <option value="Lost">Lost</option>
+                            <option value="Intrested">Intrested</option>
+                            <option value="Not Intrested">Not Intrested</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                        <label class="selectedEnquiry.status" class="form-label"><b>Comment</b></label>
+                        <input name="text" class="form-control" id="comment" name="comment" placeholder="comment"
+                            [(ngModel)]="zoomRegDto.comment">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+                        <button type="button" class="btn btn-primary" (click)="updateStatus()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,50 @@
+<div class="container">
+    <section class="update-trainer">
+        <div class="card-header mt-5 p-2">
+            <h1 class="mt-3"><b>Update Student Enrollment</b></h1>
+        </div>
+    </section>
+
+
+<div class="card-body mt-5 mb-5 p-5">
+    
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                <label for="firstName" class="form-label required-label"><b>Student Name</b></label>
+                <input type="text" name="fullName" id="fullName" [(ngModel)]="student.fullName" class="form-control">
+            </div>
+      
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                <label for="studentEmail" class="form-label required-label"><b>Email</b></label>
+                <input type="email" name="studentEmail" id="studentEmail" readonly [(ngModel)]="student.studentEmail" class="form-control">
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                <label for="countryCode" class="form-label required-label"><b> CountryCode</b></label>
+                <select id="countryCode" class="form-select" [(ngModel)]="student.countryCode">
+                    <option value="0">--select--</option>
+                    <option *ngFor="let countryCode of countryCodes" [value]="countryCode.countryCode">{{ countryCode.countryCode+" - "+countryCode.countryName }}</option>
+                </select>
+            </div>
+    
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                <label for="mobileNumber" class="form-label required-label"><b>Mobile Number</b></label>
+                <input type="tel" name="mobileNumber" id="mobileNumber" [(ngModel)]="student.mobileNumber" class="form-control">
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                <button type="submit" class="btn-submit float-end" (click)="onSubmit()">Update</button>
+            </div>
+        </div>   
+
+        
+
+    </div>
+        
+  
+
+</div>

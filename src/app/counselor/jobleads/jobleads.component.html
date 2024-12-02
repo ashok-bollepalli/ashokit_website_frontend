@@ -1,0 +1,100 @@
+<div class="container">
+    <h1 class="mt-3 text-center"><b>Job Leads Data</b></h1>
+    <div class="card-header mt-2 mb-2 p-3">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+                <label for="Show" class="form-label"><b>Show</b></label>
+                <select name="show" class="form-control" [(ngModel)]="pageSize">
+                    <option value="">-Select-</option>
+                    <option value="5">10</option>
+                    <option value="30">50</option>
+                    <option value="100">100</option>
+                    <option value="200">300</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                </select>
+            </div>
+            <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+                <label for="event" class="form-label"><b>Select Job Title </b></label>
+                <select id="category" class="form-select" (change)="onJobTitleChange($event)">
+                    <option selected disabled>-Select-</option>
+                    <option value="java_fullstack">Java Fullstack</option>
+                    <option value="devops_aws">DevOps with AWS</option>
+                    <option value="python_fullstack">Python Fullstack</option>
+                    <option value="reactjs">React JS</option>
+                    <option value="angular">Angular</option>
+                    <option value="software_testing">Software Testing</option>
+                    <option value="cloud_engineer">Cloud Engineer</option>
+                    <option value="ui_fullstack">UI Fullstack</option>
+                    <option value="data_science">Data Science</option>
+                    <option value="internship">Internship</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+            <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+                <label for="event" class="form-label"><b>Select Exp</b></label>
+                <select id="category" class="form-select" (change)="onExpChange($event)">
+                    <option selected disabled>-Select-</option>
+                    <option value="Freshers">Freshers</option>
+                    <option value="Experienced">Experienced</option>
+                </select>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card-header mt-2 mb-2">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered mt-5">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th scope="col">S.No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Experience</th>
+                        <th scope="col">Qualification</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let jobLead of jobLeads.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+                        <td class="text-center">{{ i + 1 + (currentPage - 1) * pageSize }}</td>
+                        <td>{{jobLead.name}}</td>
+                        <td>{{jobLead.totalExp}}</td>
+                        <td>{{jobLead.ugDegree}}</td>
+                        <td>{{jobLead.ugYear}}</td>
+                        <td class="text-center">
+                            <a href="https://api.whatsapp.com/send?phone={{ jobLead.countryCode }}{{ jobLead.phone }}&text=Hello, Welcome to Ashok IT..!!"
+                                target="_blank">Msg</a>
+                        </td>
+                    </tr>
+                    <tr *ngIf="jobLeads.length == 0">
+                        <td colspan="5" class="text-center">No records found<br><br></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-end">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" aria-label="Previous" (click)="onPageChange(currentPage - 1)">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li *ngFor="let page of getPageArray()" class="page-item" [class.active]="page === currentPage">
+                <a class="page-link" (click)="onPageChange(page)">{{ page }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+                <a class="page-link" aria-label="Next" (click)="onPageChange(currentPage + 1)">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <li class="page-item pt-2 ms-3">
+                <span>Total Records: {{ totalItems }}</span>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,88 @@
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" routerLink="/"
+        ><i class="fas fa-home" style="color: red; margin-left: 10px"></i
+      ></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-center"
+        id="navbarNavDropdown"
+      >
+        <ul class="navbar-nav">
+          <!-- Example for student role -->
+          <li *ngIf="isLoggedIn() && getRole() === 'STUDENT'" class="nav-item">
+            <a class="nav-link" routerLink="/student/home">Dashboard</a>
+          </li>
+  
+          <li *ngIf="isLoggedIn() && getRole() === 'STUDENT'" class="nav-item">
+            <a class="nav-link" routerLink="/student/my-courses">My Courses</a>
+          </li>
+
+          <li *ngIf="isLoggedIn() && getRole() === 'STUDENT'" class="nav-item">
+            <a class="nav-link" routerLink="/student/my-courses">registered-events</a>
+          </li>
+
+          
+
+
+          <li class="nav-item">
+            <div class="dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                routerLink="/student/custommer-support"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+              Customer Support
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" routerLink="/student/raise-complaint">Raise Complaint</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" routerLink="/student/previou-complaints">Previous Complaints</a>
+                </li>
+              </ul>
+            </div>
+          </li>        
+          
+          
+
+          <li *ngIf="isLoggedIn() && getRole() === 'STUDENT'" class="nav-item">
+            <a class="nav-link" routerLink="/student/student-profile">Profile</a>
+          </li>
+  
+        
+          <li class="nav-item" *ngIf="!isLoggedIn()">
+            <a class="nav-link" routerLink="login">Login</a>
+          </li>
+          <li *ngIf="isLoggedIn()" class="nav-item">
+            <a class="nav-link" (click)="logout()">
+              <div class="d-flex align-items-center">
+                <div class="rounded-circle overflow-hidden profile-image-container">
+                  <img *ngIf="!socialUser?.photoUrl" class="profile-image" src="assets/default-avatar.png" alt="User Avatar">
+                  <img *ngIf="socialUser?.photoUrl" class="profile-image" [src]="socialUser?.photoUrl" alt="{{socialUser?.firstName}}">
+                </div>
+                <span class="ms-2">{{ socialUser?.firstName }} {{ socialUser?.lastName }}</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  

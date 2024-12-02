@@ -1,0 +1,318 @@
+<div id="carouselExampleIndicators" class="carousel slide banner-carousel" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" aria-current="true"
+      aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="active"
+      aria-label="Slide 3"></button>
+  </div>
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let banner of banners; let i = index" [class.active]="i === 0">
+        <img [src]="'../../assets/banners/' + banner.coverImage" alt="banner" />
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class="container">
+  <section class="explore_our_courses">
+    <div class="text-center mt-5 mb-5">
+      <h1 class=""><b>Elevate Your Career with Industry-Ready IT Courses</b></h1>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 card-container" *ngFor="let course of courses">
+        <div class="card mb-3">
+          <img src="../../assets/uploads/course/{{ course.coverImage }}" class="card-img-top" alt="Image" />
+          <div class="card-body">
+            <p class="card-text">
+              <b>Course Duration :</b> {{ course.courseDuration }}
+            </p>
+            <p class="card-text">
+              <span>
+                <b>Offer Price :</b> &#8377; {{ course.courseOfferFee }}&nbsp;
+              </span>
+              <span class="ms-3">
+                <del>&#8377; {{ course.courseFee }}</del>
+              </span>
+              <span class="ms-3 text-muted">
+                Rating :
+                <i class="fa fa-star star-icon"></i>
+                <i class="fa fa-star star-icon"></i>
+                <i class="fa fa-star star-icon"></i>
+                <i class="fa fa-star star-icon"></i>
+              </span>
+            </p>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-primary view_details_btn mb-2" (click)="edit(course)">
+              <i class="fas fa-eye"></i> View More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--<div class="row">
+    <div class="text-center mt-5 mb-4">
+      <h2 class=""><b>Why to choose Ashok IT</b></h2>      
+      <img src="../../assets/images/ashokit-home-features.webp" class="client-image img-fluid" alt="Image" />
+    </div>
+  </div>-->
+  <div class="row">
+    <div class="text-center mt-5 mb-4">
+      <h2 class=""><b>The Bright Place to Build The Best Career Value</b></h2>
+      <p>Best Opportunity To Learn From Currently Working Professionals</p>
+    </div>
+  </div>
+  <div class="row training-features ml-auto mr-auto">
+    <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-10 offset-md-1 ml-auto mr-auto">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 wow animate__animated animate__fadeInLeft" style="visibility: visible">
+          <!-- <a href="service.html#online"> -->
+          <div class="item box-bg1" style="background-color: rgb(53, 204, 87)">
+            <div class="ml-3">
+              <a [routerLink]="'/services'" fragment="onlineItTraining">
+                <h3>Online Training</h3>
+              </a>
+            </div>
+          </div>
+          <!-- </a> -->
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 wow animate__animated animate__fadeInUp" style="visibility: visible">
+          <a href="service.html#classroom">
+            <div class="item box-bg2" style="background-color: rgb(69, 137, 193)">
+              <div class="ml-3">
+                <a [routerLink]="'/services'" fragment="classroomTraining">
+                  <h3>Classroom Training</h3>
+                </a>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 wow animate__animated animate__fadeInRight" style="visibility: visible">
+          <a href="services.html#corporate">
+            <div class="item box-bg3" style="background-color: rgb(253, 126, 20)">
+              <div class="ml-3">
+                <a [routerLink]="'/services'" fragment="corporateTraining">
+                  <h3>Corporate Training</h3>
+                </a>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 wow animate__animated animate__fadeInLeft" style="visibility: visible">
+          <a href="weekend-workshops.html">
+            <div class="item box-bg4" style="background-color: rgb(136, 100, 195)">
+              <div class="ml-3">
+                <a [routerLink]="'/services'">
+                  <h3>Weekend Workshops</h3>
+                </a>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 wow animate__animated animate__fadeInUp" style="visibility: visible">
+          <a href="services.html#placement">
+            <div class="item box-bg5" style="background-color: rgb(226, 81, 24)">
+              <div class="ml-4">
+                <a [routerLink]="'/placements'">
+                  <h3>Placement</h3>
+                </a>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 wow animate__animated animate__fadeInRight" style="visibility: visible">
+          <a href="services.html#internship">
+            <div class="item box-bg6" style="background-color: rgb(39, 171, 155)">
+              <div class="ml-3">
+                <a [routerLink]="'/services'" fragment="internships">
+                  <h3>Internships</h3>
+                </a>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="training-features text-center mt-5">
+    <h1 class=""><b>Our Training Features</b></h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-3 mb-2" *ngFor="let card of cards">
+          <div class="card p-3 h-100 d-flex flex-column shadow-sm" [ngClass]="{ expanded: card.isExpanded }" [ngStyle]="{
+              transition: 'all 0.3s ease',
+              overflow: 'hidden'
+            }">
+            <i [ngClass]="[
+                'fas',
+                card.icon,
+                'fa-2x',
+                'mt-3',
+                'align-self-start'
+              ]" [ngStyle]="{ color: card.iconColor }"></i>
+            <div class="content-wrapper d-flex flex-column flex-grow-1">
+              <div class="text-wrapper">
+                <h2 class="mt-3">{{ card.title }}</h2>
+                <p class="text-content" [ngStyle]="{
+                    display: '-webkit-box',
+                    WebkitBoxOrient: 'vertical',
+                    WebkitLineClamp: card.isExpanded ? 'unset' : '3',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
+                  }" [attr.title]="card.description">
+                  {{ card.description }}
+                </p>
+                <p *ngIf="isTextOverflowed(card.description) && !card.isExpanded" (click)="toggleCard(card)"
+                  class="mt-auto text-primary font-weight-bold">
+                  Know more
+                </p>
+                <p *ngIf="card.isExpanded" (click)="toggleCard(card)" class="mt-auto text-primary font-weight-bold">
+                  Show less
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="text-center m-5">
+        <h2>
+          <b>What Our Students Say</b>
+        </h2>
+      </div>
+    </div>
+    <!-- Testimonial -->
+    <section>
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let chunk of chunkedTestimonials; let i = index" [class.active]="i === 0" class="carousel-item">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-md-4 col-sm-6 col-lg-4 col-xl-3 mb-4" *ngFor="let testimonial of chunk">
+                <div class="testimonial-box p-4 text-center">
+                  <img [src]="'../../assets/testimonial/' + testimonial.image"
+                    class="testimonial-image rounded-circle mb-3" alt="Image" />
+                  <h3 class="mb-2">{{ testimonial.name }}</h3>
+                  <h6 class="text-primary mb-3">
+                    {{ testimonial.designation }}
+                  </h6>
+                  <p class="px-xl-3">
+                    <i class="fas fa-quote-left pe-2"></i>{{ testimonial.description }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Controls for carousel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="mb-5 mt-3">
+      <h3 class="text-center"><b>Our Alumni Wokrng With</b></h3>
+      <div id="partnerCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let chunk of chunkedClients; let i = index" [class.active]="i === 0" class="carousel-item">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-md-3 col-sm-6 mb-4" *ngFor="let client of chunk">
+                <img [src]="'../../assets/client/' + client.image" class="client-image img-fluid" alt="Image" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#partnerCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#partnerCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+    <ng-container *ngIf="isChatBoxEnable">
+      <div id="whatsapp-chat-widget" class="mt-3">
+        <div id="wa-widget-send-button">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
+            class="wa-messenger-svg-whatsapp wh-svg-icon"></svg>
+        </div>
+        <div class="wa-chat-box" style="display: block">
+          <div class="wa-chat-box-header">
+            <img class="wa-chat-box-brand" (error)="handleError()" [src]="logoSrc" alt="Image" />
+            <div class="wa-chat-box-brand-text">
+              <div class="wa-chat-box-brand-name">Ashok IT</div>
+              <div class="wa-chat-box-brand-subtitle">
+                Learn Here.. Lead Anywhere..!!
+              </div>
+            </div>
+            <div class="wa-chat-bubble-close-btn" (click)="closePopup()">
+              <img style="display: table-row"
+                src="https://cdn.shopify.com/s/files/1/0070/3666/5911/files/Vector.png?574" alt="Image" />
+            </div>
+          </div>
+          <div class="wa-chat-box-content">
+            <div class="wa-chat-box-content-chat">
+              <div class="wa-chat-box-content-chat-brand">Ashok IT</div>
+              <div class="wa-chat-box-content-chat-welcome">
+                Hi there,<br />Welcome to Ashok IT..!!<br /><br />How can we
+                help you?<br /><br />
+              </div>
+            </div>
+          </div>
+          <div class="wa-chat-box-send">
+            <a role="button" target="_blank"
+              href="https://api.whatsapp.com/send?phone=919985396677&amp;text=Hello, I have a question about https%3A%2F%2Fwww.ashokitech.com%2F"
+              title="WhatsApp" class="wa-chat-box-content-send-btn">
+              <svg width="20" height="20" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+                clip-rule="evenodd" class="wa-chat-box-content-send-btn-icon">
+                <path
+                  d="M90,43.841c0,24.213-19.779,43.841-44.182,43.841c-7.747,0-15.025-1.98-21.357-5.455L0,90l7.975-23.522   c-4.023-6.606-6.34-14.354-6.34-22.637C1.635,19.628,21.416,0,45.818,0C70.223,0,90,19.628,90,43.841z M45.818,6.982   c-20.484,0-37.146,16.535-37.146,36.859c0,8.065,2.629,15.534,7.076,21.61L11.107,79.14l14.275-4.537   c5.865,3.851,12.891,6.097,20.437,6.097c20.481,0,37.146-16.533,37.146-36.857S66.301,6.982,45.818,6.982z M68.129,53.938   c-0.273-0.447-0.994-0.717-2.076-1.254c-1.084-0.537-6.41-3.138-7.4-3.495c-0.993-0.358-1.717-0.538-2.438,0.537   c-0.721,1.076-2.797,3.495-3.43,4.212c-0.632,0.719-1.263,0.809-2.347,0.271c-1.082-0.537-4.571-1.673-8.708-5.333   c-3.219-2.848-5.393-6.364-6.025-7.441c-0.631-1.075-0.066-1.656,0.475-2.191c0.488-0.482,1.084-1.255,1.625-1.882   c0.543-0.628,0.723-1.075,1.082-1.793c0.363-0.717,0.182-1.344-0.09-1.883c-0.27-0.537-2.438-5.825-3.34-7.977   c-0.902-2.15-1.803-1.792-2.436-1.792c-0.631,0-1.354-0.09-2.076-0.09c-0.722,0-1.896,0.269-2.889,1.344   c-0.992,1.076-3.789,3.676-3.789,8.963c0,5.288,3.879,10.397,4.422,11.113c0.541,0.716,7.49,11.92,18.5,16.223   C58.2,65.771,58.2,64.336,60.186,64.156c1.984-0.179,6.406-2.599,7.312-5.107C68.398,56.537,68.398,54.386,68.129,53.938z">
+                </path>
+              </svg>
+              <span class="wa-chat-box-content-send-btn-text">Start Chat</span>
+            </a>
+            <div class="wa-chat-box-poweredby">
+              ⚡ by
+              <a href="https://wati.io/?utm_source=shopify&amp;utm_medium=chat_widget&amp;utm_campaign=shopify_widget"
+                target="_blank" style="color: #006eff6e">wati.io</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div id="wa-widget-send-button" style="font-size: 18px">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
+        class="wa-messenger-svg-whatsapp wh-svg-icon" width="48" height="48">
+        <path
+          d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"
+          fill="#ffffff" fill-rule="evenodd"></path>
+      </svg>
+
+      <div style="margin-top: 5px" (click)="messageUs()">Message Us</div>
+    </div>
+  </div>
+</div>

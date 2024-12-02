@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="heading text-center mt-5">
+    <h1><b><i class="fas fa-book"></i> Course Details </b></h1>
+  </div>
+  <div class="course-details mt-5">
+    <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+          <div class="form-group">
+            <label for="courseName"><i class="fas fa-book"></i> Course Name</label>
+            <input type="text" class="form-control" id="courseName" formControlName="courseName" readonly>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+          <div class="form-group">
+            <label for="courseMode"><i class="fas fa-chalkboard"></i> Course Mode</label>
+            <input type="text" class="form-control" id="courseMode" formControlName="courseMode" readonly>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+          <div class="form-group">
+            <label for="trainerName"><i class="fas fa-user-tie"></i> Trainer Name</label>
+            <input type="text" class="form-control" id="trainerName" formControlName="trainerName" readonly>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+          <div class="form-group">
+            <label for="courseOfferFee"><i class="fas fa-money-bill"></i> Course Offer Fee (INR)</label>
+            <input type="text" class="form-control" id="courseOfferFee" formControlName="courseOfferFee" readonly>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+          <div class="form-group">
+            <label><i class="fas fa-video"></i> Do you want backup videos ?</label><br>
+            <select class="form-control" id="backVideos" formControlName="backVideos" (change)="onBackupVideosChange()">
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+          <div class="form-group">
+            <label for="backupVideosFee"><i class="fas fa-money-bill-wave"></i> Backup Videos Fee (INR)</label>
+            <input type="text" class="form-control" id="backupVideosFee" formControlName="backupVideosFee" readonly>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+          <div class="form-group">
+            <label for="gstPercentage"><i class="fas fa-percentage"></i> GST </label>
+            <input type="text" class="form-control" id="gstPercentage" formControlName="gstPercentage" readonly> 
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+          <div class="form-group">
+            <label for="totalAmount"><i class="fas fa-coins"></i> Total Price (INR)</label>
+            <input type="text" class="form-control" id="totalAmount" formControlName="totalAmount" readonly>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12  col-sm-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+          <button type="submit" class="btn btn-success">Proceed to Payment</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

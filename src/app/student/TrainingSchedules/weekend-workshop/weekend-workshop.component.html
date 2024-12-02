@@ -1,0 +1,40 @@
+<div class="container" *ngFor="let bannerPromotion of bannerPromotions">
+    <img src="./assets/images/{{ bannerPromotion.image }}" style="margin-top: 2%; margin-right: -5px;" height="10%" width="100%"
+        alt="banner">
+</div>
+<div class="container" style="margin-top: 2%;">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">COURSE</th>
+                    <th scope="col">TRAINER</th>
+                    <th scope="col">DATE</th>
+                    <th scope="col">TIME(IST)</th>
+                    <th scope="col">ZOOM DETAILS</th>
+                    <th scope="col">ENROLL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let workshop of workshops let i = index">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ getCourseName(workshop.courseId) }}</td>
+                    <td>{{ getTrainerName(workshop.trainerId) }}</td>
+                    <td>{{ workshop.startDate | date: 'yyyy-MM-dd' }}</td>
+                    <td>{{ workshop.batchTimings }}</td>
+                    <td><a class="zoom_link" [href]="workshop.zoomRegLink" target="_blank">.zoom.us/{{workshop.zoomId}}</a></td>
+                    <td><a type="button" class="btn btn-danger" [href]="workshop.whatsappLink" target="_blank">Register Now</a></td>
+                </tr>
+                <tr>
+                    <td *ngIf="workshops.length == 0" colspan="9" style="text-align:center;">Thank you for your
+                        interest, but there are no classroom batches available at this time.<br> Please check back at
+                        another time.
+                        <br> For any queries, do write us
+                        <a href="mailto:info@ashokitech.com">info@ashokitech.com </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

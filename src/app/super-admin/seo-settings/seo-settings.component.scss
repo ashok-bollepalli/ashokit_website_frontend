@@ -1,0 +1,37 @@
+/* Adjustments for form layout */
+.mat-tab-group {
+    margin-top: 20px; /* Adjust as needed */
+  }
+  
+  .example-small-box {
+    width: 100%; /* Adjust as needed */
+  }
+  
+  /* Custom styles for form inputs */
+  .mat-form-field {
+    width: 100%;
+  }
+  .float-end {
+    float: right;
+}
+
+  
+  /* Custom styles for CKEditor */
+  .custom-editor .ck.ck-editor__editable {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 200px; /* Ensure a minimum height */
+  }
+  
+  /* Adjustments for submit button */
+  .btn{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* Adjust as needed */
+  }
+  .btn-custom {
+    background-color: #140e38;
+    border-color: #140e38;
+    color: white; /* Ensure text color remains white */
+}

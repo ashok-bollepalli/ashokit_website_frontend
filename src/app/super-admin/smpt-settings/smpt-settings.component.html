@@ -1,0 +1,50 @@
+<div class="container">
+  <section class="add_event">
+    <div class="card-header mt-5 p-2">
+      <h1 class="mt-3"><b>SMTP Settings</b></h1>
+    </div>
+  </section>
+  <div class="card-body mt-5 mb-5 p-5">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group row mb-4">
+        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3 col required-label"><b>Protocol</b></label>
+        <div class="col-sm-12 col-md-7 col-lg-7 col-xl-7">
+          <input type="text" id="protocol" name="protocol" class="form-control" [(ngModel)]="smptSetting.protocol">
+        </div>
+      </div>
+      <div class="form-group row mb-4">
+        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3 required-label"><b>Smtp Host</b></label>
+        <div class="col-sm-12 col-md-7 col-lg-7 col-xl-7">
+          <input type="text" id="smtpHost" name="smtpHost" class="form-control" [(ngModel)]="smptSetting.smtpHost">
+        </div>
+      </div>
+
+      <div class="form-group row mb-4">
+        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3 required-label"><b>Smtp Port</b></label>
+        <div class="col-sm-12 col-md-7 col-lg-7 col-xl-7">
+          <input type="text" id="smtpPort" name="smtpPort" class="form-control" [(ngModel)]="smptSetting.smtpPort">
+        </div>
+      </div>
+
+      <div class="form-group row mb-4">
+        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3 required-label"><b>Smtp User</b></label>
+        <div class="col-sm-12 col-md-7 col-lg-7 col-xl-7">
+          <input type="text" id="smtpUser" name="smtpUser" class="form-control" [(ngModel)]="smptSetting.smtpUser">
+        </div>
+      </div>
+
+      <div class="form-group row mb-4">
+        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3 required-label"><b>Smtp Password</b></label>
+        <div class="col-sm-12 col-md-7 col-lg-7 col-xl-7">
+          <input type="password" name="smtp_pass" value="" class="form-control" [(ngModel)]="smptSetting.smtpPassword">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+          <button type="submit" class="btn-submit float-end">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

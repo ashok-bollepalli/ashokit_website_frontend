@@ -1,0 +1,58 @@
+<div class="container">
+    <section class="add student jobs">
+        <div class="card-header mt-5 p-2">
+            <h1 class="mt-3"><b>Add Student Jobs</b></h1>
+        </div>
+    </section>
+
+    <div class="card-body mt-5 mb-5 p-5">
+        <form [formGroup]="studentJobsForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-mb-6 col-sm-6 col-lg-6 col-mb-3">
+                    <label for="FullName" class="form-label required-label"><b>Full Name</b></label>
+                    <input type="text" id="fullName" formControlName="fullName" class="form-control">
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                    <label for="phone" class="form-label required-label"><b>Mobile Number</b></label>
+                    <input type="tel" id="phone" formControlName="phone" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                    <label for="course" class="form-label required-label"><b>Enroll Course </b></label>
+                    <select id="courseName" class="form-select" formControlName="courseId">
+                        <option *ngFor="let course of courses; let i=index" [value]="course.courseId">
+                            {{course.courseName}}</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                    <label for="image" class="form-label required-label"><b>Photos </b></label>
+                    <input type="file" id="image" formControlName="image" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                    <label for="Experience" class="form-label required-label"><b>Experience </b></label>
+                    <input type="number" id="exp" formControlName="exp" class="form-control">
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                    <label for="Package" class="form-label required-label"><b>Package </b></label>
+                    <input type="number" id="salPackage" formControlName="salPackage" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 mb-3">
+                    <label for="companyName" class="form-label required-label"><b>Company Name </b></label>
+                    <input type="text" id="companyName" formControlName="companyName" class="form-control">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <button type="submit" class="btn btn-submit float-end">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

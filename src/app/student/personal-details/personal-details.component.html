@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="col-md-12 mb-4 mt-4">
+        <h1 class="section-heading mb-4 text-center"> <b>Update Your Personal Details</b> </h1>
+    </div>
+    <div class="card-body mt-5 mb-5 p-5">
+        <form [formGroup]="personalDetailsForm" (ngSubmit)="onSubmit()">
+            <div class="row mt-2">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="fullName" class="form-label required-label"><b>Name</b></label>
+                    <input type="text" class="form-control" id="fullName" name="fullName" formControlName="fullName"
+                        placeholder="Enter Your Name" [value]="socialUser?.firstName" value="" [(ngModel)]="studentData.fullName">
+                </div>
+                <!--<div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="surname" class="form-label required-label"><b>Surname</b></label>
+                    <input type="text" class="form-control" id="surname" name="surname" placeholder="surname"
+                        formControlName="surname" [value]="socialUser?.lastName" value="">
+                </div>-->
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="studentEmail" class="form-label required-label"><b>Email</b></label>
+                    <input type="email" class="form-control" id="studentEmail" name="studentEmail" placeholder="email"
+                        formControlName="studentEmail" readonly [(ngModel)]="studentData.studentEmail">
+                </div>
+            </div>
+            <div class="row mt-2">               
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="gender" class="form-label required-label"><b>Gender</b></label>
+                    <select class="form-control" id="gender" name="gender" formControlName="gender" [(ngModel)]="studentData.gender">
+                        <option value="" disabled>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="aadhar" class="form-label required-label"><b>Aadhar Number</b></label>
+                    <input type="text" class="form-control" id="aadhar" name="aadhar" placeholder="Enter aadhar number"
+                        formControlName="aadhar" [(ngModel)]="studentData.aadhar">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="countryCode" class="form-label required-label"><b>Country Code</b></label>
+                    <select id="countryCode" name="countryCode" class="form-select" formControlName="countryCode" [(ngModel)]="studentData.countryCode">
+                        <option value="0">-Select-</option>
+                        <option *ngFor="let countryCode of countryCodes" [value]="countryCode.countryCode">{{
+                            countryCode.countryCode+" - "+countryCode.countryName }}</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="mobileNumber" class="form-label required-label"><b>Mobile Number</b></label>
+                    <input type="tel" id="mobileNumber" name="mobileNumber" class="form-control"
+                        formControlName="mobileNumber" placeholder="Enter mobile number" [(ngModel)]="studentData.mobileNumber">
+                </div>
+            </div>
+           <!-- <div class="row mt-2">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="address" class="form-label required-label"> <b>Address</b></label>
+                    <input type="text" class="form-control" id="address" name="address" formControlName="address"
+                        placeholder="enter address" value="">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="Pincode" class="form-label required-label"><b>Pincode</b></label>
+                    <input type="text" id="Pincode" name="Pincode" class="form-control" formControlName="pincode"
+                        value="">
+                </div>
+            </div>-->
+            <!--<div class="row mt-2">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="state" class="form-label required-label"><b>State</b></label>
+                    <input type="text" id="State" name="State" formControlName="state" class="form-control" value="">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="country" class="form-label required-label"><b>Country</b></label>
+                    <input type="text" id="country" name="country" formControlName="country" class="form-control"
+                        value="">
+                </div>
+            </div>-->
+            <div class="row mt-3">
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                    <button type="submit" class="btn btn-submit float-end">Save Data</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

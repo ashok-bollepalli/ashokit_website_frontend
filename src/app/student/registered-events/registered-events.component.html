@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 class="m-4"><b> My Registered Events</b></h1>
+    <div class="row">
+        <h1 *ngIf="events.length == 0">You have not registered for any events as of now.<a routerLink="/events"
+                title="nav-link" target="_blank">please click here to register now</a></h1>
+
+        <div class="col-md-4 col-sm-4 col-md-4 col-lg-4 mb-5" *ngFor="let event of events">
+            <div class="card">
+                <img src="../../assets/events/{{ event.eventThumbnail }}" class="card-image" alt="Image">
+                <div class="card-body">
+                    <h3 class="card-title"><b>{{ event.eventName }}</b></h3>
+                    <p class="card-text">
+                     
+                        Start Date : {{ event.eventStartDate | date : 'dd-MMM-yyyy'}}<br>
+                        Class Time : {{ event.eventStartTime }} {{event.startMeridianType}} (IST)<br><br>
+                    </p>  
+                    <a href="{{event.eventRegLink}}" class="btn btn-icon btn-success" target="_blank">Join Class</a>
+
+                    <!--
+                    <a *ngIf="event.eventClassStatus === 'Pending'" href="{{event.eventRegLink}}" class="btn btn-icon btn-success" target="_blank">Join Class</a>
+                    <p *ngIf="event.eventClassStatus === 'Completed'" class="text-success">The event is completed.</p>
+                    -->               
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>

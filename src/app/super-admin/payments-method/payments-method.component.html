@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="card-header mt-5 p-2">
+        <h1 class="mt-3"><b>Payment Settings</b></h1>
+    </div>
+    <div class="card-body mt-5 mb-5 p-5">
+        <form (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="keyId" class="form-label required-label"><b>Razorpay keyId</b></label>
+                    <input type="text" id="keyId" name="keyId" class="form-control" [(ngModel)]="paymentSetting.keyId">
+                    <!-- <input type="text" id="protocol" name="protocol" class="form-control" [(ngModel)]="smptSetting.protocol"> -->
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="keySecret" class="form-label required-label"><b>Razorpay keySecret</b></label>
+                    <input type="text" id="keySecret" name="keySecret" class="form-control"
+                        [(ngModel)]="paymentSetting.keySecret">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="displayCurrency" class="form-label required-label"><b>Razorpay Display Currency</b></label>
+                    <input type="tel" id="displayCurrency" name="displayCurrency" class="form-control"
+                        [(ngModel)]="paymentSetting.displayCurrency">
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="color" class="form-label required-label"><b>Color Code</b></label>
+                    <input type="color" id="color" name="color" class="form-control" [(ngModel)]="paymentSetting.color">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="image" class="form-label required-label"><b>Logo Image</b></label>
+                    <input type="file" id="image" name="image"  [(ngModel)]="paymentSetting.image"  (change)="onFileChange($event, 'image')" accept=".pdf,.jpg,.png"  class="form-control mt-3">
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                    <button type="submit" class="btn-submit float-end">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

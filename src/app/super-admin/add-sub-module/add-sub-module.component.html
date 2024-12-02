@@ -1,0 +1,52 @@
+<div class="container">
+  <section class="add-sub-modules">
+    <div class="card-header  mt-5 p-2">
+      <h1 class="mt-3"><b>Add Sub Module</b></h1>
+    </div>
+  </section>
+  <div class="card-body mt-5 mb-5 p-5">
+    <form [formGroup]="SubModuleForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+          <label for="CourseCategory" class="form-label  required-label"><b> Category</b> </label>
+          <select id="CourseCategory" formControlName="courseCategoryId" class="form-select" (change)="findCourseByCategory($event)">
+            <option value="0">-Select-</option>
+            <option *ngFor="let courseCategory of courseCategories; let i = index" [value]="courseCategory.courseCategoryId">
+              {{courseCategory.courseCategoryName}}</option>
+          </select>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3 mt-2">
+          <label for="CourseName" class="form-label required-label"><b>Course Name</b></label>
+          <select id="CourseName" class="form-select" formControlName="courseId" (change)="findModuleByCourse($event)">
+            <option value="0">-Select-</option>
+            <option *ngFor="let course of selectedCourses; let i = index" [value]="course.courseId">{{course.courseName}}
+            </option>
+          </select>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3 mt-2">
+            <label for="ModuleName" class="form-label required-label"><b>Module Name</b></label>
+            <select id="ModuleName" class="form-select" formControlName="moduleId">
+              <option value="0">-Select-</option>
+              <option *ngFor="let module of selectedModules; let i = index" [value]="module.moduleId">{{module.moduleName}}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3 mt-2">
+            <label for="SubModuleName" class="form-label required-label"><b>SubModule Name</b></label>
+            <input type="text" id="subModuleName" formControlName="subModuleName" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3 mt-2">
+          <label for="Description" class="form-label"><b>Description</b></label>
+          <textarea id="description" name="description" class="form-control" formControlName="description"></textarea>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+            <button type="submit" class="btn btn-submit float-end" [disabled]="SubModuleForm.invalid">Submit</button>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>

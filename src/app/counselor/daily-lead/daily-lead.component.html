@@ -1,0 +1,183 @@
+<div class="container">
+  <h1 class="mt-2"><b>View Daily Leads</b></h1>
+  <div class="card-header mt-2 mb-2 p-3">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+        <label for="Show" class="form-label"><b>Show</b></label>
+        <select name="show" class="form-control" [(ngModel)]="pageSize">
+          <option value="5">10</option>
+          <option value="30">50</option>
+          <option value="100">100</option>
+          <option value="200">300</option>
+          <option value="500">500</option>
+          <option value="1000">1000</option>
+        </select>
+      </div>
+      <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+        <label for="courseCategory" class="form-label"><b>Course Category </b></label>
+        <select id="courseCategory" class="form-select" [(ngModel)]="selectedDailyLead.courseCategoryId"
+          (change)="filterCourseByCategory()">
+          <option value="">-Select-</option>
+          <option *ngFor="let courseCategory of courseCategories; let i = index"
+            [value]="courseCategory.courseCategoryId">
+            {{courseCategory.courseCategoryName}}</option>
+        </select>
+      </div>
+      <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+        <label for="course" class="form-label"><b>Course </b></label>
+        <select id="course" class="form-select" [(ngModel)]="selectedDailyLead.courseId">
+          <option value="">-Select-</option>
+          <option *ngFor="let course of filteredCourses; let i = index" [value]="course.courseId">
+            {{course.courseName}}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+        <label for="counsellor" class="form-label"><b>Select Counsellor</b></label>
+        <select id="counsellor" class="form-select" [(ngModel)]="selectedDailyLead.counsellorId">
+          <option value="">-Select-</option>
+          <option *ngFor="let counsellor of counsellors" [value]="counsellor.counsellorId">
+            {{ counsellor.counsellorName }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+        <label class="selectedDailyLead.status" class="form-label"><b>Lead Status</b></label>
+        <select id="selectedDailyLead.status" name="selectedDailyLead.status" class="form-select"
+          [(ngModel)]="selectedDailyLead.status">
+          <option value="">-Select-</option>
+          <option value="Open">Open</option>
+          <option value="Closed">Closed</option>
+          <option value="Lost">Lost</option>
+        </select>
+      </div>
+
+      <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+        <label for="from_date" class="form-label"><b>From Date</b></label>
+        <input type="date" id="from_date" name="from_date" class="form-control"
+          [(ngModel)]="selectedDailyLead.createdAt">
+      </div>
+      <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+        <label for="filter" class="form-label"></label>
+        <section class="Filter">
+          <button class="btn-filter" (click)="getAllDailyLeadsWithFilter()">Filter</button>
+        </section>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover mt-2">
+        <thead class="table-dark text-center">
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Lead Status</th>
+            <th scope="col">WhatsApp Num</th>
+            <th scope="col">Created By</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Action</th>
+            <th scope="col">Send Msg</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let dailyLead of filteredDailyLeads.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+            <td>{{i + 1 + (currentPage - 1) * pageSize}}</td>
+            <td>{{ dailyLead.fullName }}</td>
+            <td>{{ getCourseName(dailyLead.courseId) }}</td>
+            <td>
+              <span class="badge" [ngClass]="{
+                'bg-success': dailyLead.status === 'Open',
+                'bg-secondary': dailyLead.status === 'Closed',
+                'bg-danger': dailyLead.status === 'Lost'
+              }">
+                {{ dailyLead.status }}
+              </span>
+            </td>
+            <td>{{ dailyLead.mobilNumber }}</td>
+            <td>{{ getCounsellorName(dailyLead.counsellorId) }}</td>
+            <td>{{ dailyLead.createdAt | date: 'dd-MMM-yyyy' }}</td>
+            <td>
+              <button class="btn btn-sm btn-outline-primary" (click)="openModal(dailyLead)">
+                <i class="fa fa-edit"></i> Edit
+              </button>
+            </td>
+            <td>
+              <a class="btn btn-sm btn-outline-success"
+                href="https://api.whatsapp.com/send?phone={{ dailyLead.wtCountryCode }}{{ dailyLead.whatsappNumber }}&text=Hello, Welcome to Ashok IT..!!"
+                target="_blank">
+                <i class="fa fa-whatsapp"></i> Msg
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td *ngIf="dailyLeads.length == 0" colspan="9" style="text-align:center">No records
+              found
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-end">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" aria-label="Previous" (click)="onPageChange(currentPage - 1)">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li *ngFor="let page of getPageArray()" class="page-item" [class.active]="page === currentPage">
+        <a class="page-link">{{ page }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+        <a class="page-link" aria-label="Next" (click)="onPageChange(currentPage + 1)">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      <li class="page-item pt-2"> Total Records: {{ totalItems }}</li>
+    </ul>
+  </nav>
+</div>
+
+<div #myModal class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Update Daily lead Status</h2>
+        <button type="button" class="btn-close ms-auto" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <p><b> Email:</b> {{selectedDailyLead.email}} </p>
+          <p> <b>Mobile:</b> {{selectedDailyLead.mobilNumber}} </p>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+            <label class="selectedDailyLead.status" class="form-label"><b>Daily Lead Status</b></label>
+            <select id="selectedDailyLead.status" name="selectedDailyLead.status" class="form-select"
+              [(ngModel)]="selectedDailyLead.status">
+
+              <option value="Open">Open</option>
+              <option value="Closed">Closed</option>
+              <option value="Lost">Lost</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+            <label class="selectedEnquiry.status" class="form-label"><b>Comment</b></label>
+            <input name="text" class="form-control" id="comment" name="comment" placeholder="comment"
+              [(ngModel)]="selectedDailyLead.comment">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="updateLeadStatus()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>

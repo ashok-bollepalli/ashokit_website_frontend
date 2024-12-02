@@ -1,0 +1,78 @@
+<app-starting-header></app-starting-header>
+<app-header></app-header>
+<div class="container m-0">
+  <div class="row card-container">
+    <div class="col-lg-8 col-md-8">
+      <div class="">
+        <div class="row">
+          <div class="col-md-11 d-flex justify-content-center" *ngIf="popupAvailable">
+            <img src="../../assets/course-popup/{{ coverImage }}" style="height: 80%; width: 80%" alt="popup_Image" >
+          </div>
+          <div class="col-md-11 d-flex justify-content-center" *ngIf="!popupAvailable">
+            <img src="../../assets/images/registerImage.png" style="height: 80%; width: 80%" alt="Register Image" />
+          </div>
+          <div class="col-md-1 d-flex justify-content-center">
+            <div class="vertical-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <div class="col-md-9 col-sm-4 col-lg-4 col-xl-4">
+      <div class="">
+        <div class="w-100 d-flex justify-content-center flex-row">
+          <!--<img
+            src="../../assets/images/logo2.jpg"
+            class="custom-image mb-3"
+            alt="AshokIT"
+            style="width: 60%"
+          />-->
+          <h2>Login Here</h2>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+          {{ errorMessage }}
+          <button type="button" class="btn-close" aria-label="Close" (click)="closeErrorMessage()"></button>
+        </div>
+        <form (ngSubmit)="login(loginForm)" #loginForm="ngForm" novalidate>
+          <div data-mdb-input-init class="form-outline mb-3">
+            <label for="email" class="form-label required-label"><b>Email</b></label>
+            <input type="email" class="form-control" id="email" name="email" ngModel required #email="ngModel" />
+            <div *ngIf="submitted && email.invalid" class="text-danger">
+              Email is required
+            </div>
+          </div>
+          <div data-mdb-input-init class="form-outline mb-3">
+            <label for="password" class="form-label required-label"><b>Password</b></label>
+            <input type="password" class="form-control" id="password" name="password" ngModel required
+              #password="ngModel" />
+            <div *ngIf="submitted && password.invalid" class="text-danger">
+              Password is required
+            </div>
+          </div>
+          <div class="d-flex justify-content-between mb-4">
+            <a routerLink="/student-registration">Create New Account</a>
+            <a routerLink="/forgot-password">Forgot Password?</a>
+          </div>
+          <div class="text-center mb-3">
+            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block gradient-custom-2 w-100"
+              type="submit" style="background-color: #002147; border: none">
+              Login
+            </button>
+          </div>
+          <!--
+          <div class="or-divider mb-3"><span> or </span></div>
+          <div class="text-center">
+            <button type="button" (click)="loginWithGoogle()" class="btn btn-danger w-100">
+              <div class="row align-items-center">
+                <div class="col">Login with Google</div>
+                <div class="col-auto">
+                  <asl-google-signin-button type="icon" size="medium"></asl-google-signin-button>
+                </div>
+              </div>
+            </button>
+          </div>-->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

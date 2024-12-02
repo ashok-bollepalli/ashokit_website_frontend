@@ -1,0 +1,59 @@
+<div class="p-3" style="box-shadow:  5px 10px 15px 5px rgb(212, 218, 219);">
+    <h1>Dashboard</h1>
+</div>
+
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+        <div class="card card1">
+            <a href="/super-admin/view-student">
+                <div class="card-statistic-4">
+                    <div class="align-items-center justify-content-between">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 bg-dark p-3"><i
+                                    class="fa fa-users fa-3x"></i></div>
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                <p><b>Total Students : <br></b>{{studentTotal}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+        <div class="card card2">
+            <a href="#">
+                <div class="card-statistic-4">
+                    <div class="align-items-center justify-content-between">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 bg-danger p-3"><i
+                                    class="fa fa-3x">&#xf0c0;</i>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                <P><b>Today Registered : <br></b>{{todaysStudentCount}}</P>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+        <div class="card card3">
+            <a href="/super-admin/view-courses">
+                <div class="card-statistic-4">
+                    <div class="align-items-center justify-content-between">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 bg-danger p-3"><i class="fa fa-3x">&#xf0c0;</i>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                <P><b>Total Courses :  <br></b>{{coursesCount}}
+                                </P>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

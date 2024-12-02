@@ -1,0 +1,93 @@
+<!-- <section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center p-10 gradient-custom-3">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+              <form [formGroup]="signupForm">
+                <div class="form-outline">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Full Name</mat-label>
+                    <input matInput formControlName="name" placeholder="Full Name" required/>
+                    <mat-error *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">
+                     Please enter a full name
+                   </mat-error>
+               </mat-form-field>
+                </div> 
+                <div class="form-outline mb-4">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="username" placeholder="Email Address" required/>
+                    <mat-error *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched">
+                     Please enter a valid email
+                   </mat-error>
+                   
+               </mat-form-field>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="{{ hidePassword ? 'password':'text'}}"  formControlName="password" placeholder="Password" required/>
+                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+                     Please enter a valid password
+                   </mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput type="{{ hidePassword ? 'password':'text'}}"  formControlName="confirmPassword" placeholder="confirmPassword" required/>
+                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched">
+                     Please enter a valid password
+                   </mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div class="form-outline">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Select a businessTitle</mat-label>
+                  <mat-select   formControlName="appUserRoles">
+                    <mat-option *ngFor="let role of appUserRoles" [value]="role">
+                      {{ role }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                </div>
+                <div class="form-outline mb-4">
+                  <input class="form-check-input me-2" type="checkbox"  formControlName="agreeCheckBox" id="form2Example3cg" required />
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+
+                  <mat-error *ngIf="signupForm.get('agreeCheckBox')?.invalid && signupForm.get('agreeCheckBox')?.touched">
+                    Please confirm terms.
+                  </mat-error>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid" (click)="onSubmit()">Sign Up</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a routerLink="/login"
+                    class="fw-bold text-body"><u>Login here</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->

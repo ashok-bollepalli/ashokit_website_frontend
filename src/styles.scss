@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// for header
+.card-header {
+    box-shadow: 3px 3px 5px 5px rgb(212, 218, 219);
+    border-radius: none;
+}
+
+// for body
+.card-body {
+    box-shadow: 3px 3px 5px 5px rgb(212, 218, 219);
+    border-radius: none;
+}
+
+.required-label::after {
+    content: '*';
+    color: red;
+    margin-left: 0.2em;
+}
+
+// for submit button
+.btn-submit {
+    background-color: #002147;
+    color: white;
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+    border: none;
+
+}
+.btn-submit:hover{
+    background-color: rgb(36, 110, 253);
+
+}
+
+// for filter button
+.btn-filter{
+    background-color: #212529;
+    color: white;
+    height: 40px;
+    width: 100px;
+    border-radius: 25px;
+    border: none;
+    padding: 5px;
+    margin-left: 20px;
+   
+}
+
+.btn-filter:hover{
+    background-color: rgb(36, 110, 253);
+}
+
+//for add button
+.btn-add {
+    background-color: #212529;
+    color: white;
+    height: 40px;
+    width: auto;
+    border-radius: 5px;
+    border: none;
+
+}
+.btn-add:hover{
+    background-color: rgb(36, 110, 253);
+
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

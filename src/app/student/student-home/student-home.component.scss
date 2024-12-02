@@ -1,0 +1,150 @@
+.sky-blue {
+  background-color: #564d8a;
+  color: white;
+}
+
+.sky-blue:hover {
+  background-color: #564d8a;
+}
+
+.accordion-button {
+  font-weight: bold;
+}
+
+.accordion-button:not(.collapsed) {
+  color: white;
+  background-color: #151B54;
+
+}
+
+.accordion-body {
+  background-color: #14A3C7;
+}
+
+li,
+a {
+  background-color: #14A3C7;
+  color: white;
+}
+
+.accordion-body {
+  width: 100%;
+  /* Ensure the accordion-body takes full width */
+}
+
+ul,
+li {
+  width: 100%;
+}
+
+.nav {
+  padding-left: 0;
+  list-style: none;
+  width: 100%;
+  /* Ensure the ul takes full width of accordion-body */
+}
+
+.nav-item {
+  width: 100%;
+  /* Ensure li elements take full width of ul */
+}
+
+.fa-edit {
+  color: blue;
+}
+
+.preview_btn {
+  color: blue;
+}
+
+.fa-star {
+  color: orange;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow wrapping to next line if there's not enough space */
+}
+
+.form-check {
+  margin-right: 20px;
+  /* Adjust spacing between radio buttons as needed */
+  margin-bottom: 0;
+  /* Remove bottom margin to keep items aligned horizontally */
+}
+
+.form-check-input {
+  margin-right: 5px;
+  /* Space between the radio button and the label */
+}
+
+/* Custom styles for the component */
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.rounded {
+  border-radius: 0.375rem;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Custom styles for course cards */
+.position-relative {
+  position: relative;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  padding: 5px 10px;
+  font-size: 1.25rem;
+  color: rgb(252, 12, 12);
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.25rem;
+}
+
+.new-badge {
+  background-color: #ffffff; /* Green color for New */
+  top: 10px;
+  right: 10px; /* Position "New" badge at top-right */
+}
+
+.offer-badge {
+  background-color: #dc3545; /* Red color for 50% Off */
+  top: 10px;
+  left: 10px; /* Position "50% Off" badge at top-left */
+}
+
+
+

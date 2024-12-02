@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 bg-light p-2 d-flex justify-content-flex-start align-items-center gap-2">
+      <div *ngFor="let trgMode of trainingModes">
+        <button class="btn custom-btn" [ngClass]="{ 'active-tab': activeTab === trgMode.trainingType }"
+          [class.active]="activeTab === 'Online'" (click)="selectTab(trgMode.trainingType)">
+          {{ trgMode.trainingType }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <!-- Online Training -->
+    <div class="tab-pane active" role="tabpanel">
+      <div class="container" *ngFor="let bannerPromotion of bannerPromotions">
+        <img src="../../assets/banner-promotions/{{ bannerPromotion.image }}" style="margin-top: 2%; margin-right: -5px"
+          height="10%" width="100%" alt="banner" />
+      </div>
+
+      <div class="container" style="margin-top: 2%">
+        <div class="medium-table table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Course</th>
+                <th scope="col">Trainer</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Time (IST)</th>
+                <th scope="col">Zoom Link</th>
+                <th scope="col">For More Upadates</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let trainin of trainings; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td><b>{{ getCourseName(trainin.courseId) }}</b></td>
+                <td>{{ getTrainerName(trainin.trainerId) }}</td>
+                <td>{{ trainin.startDate | date : "dd-MMM" }}</td>
+                <td>{{ trainin.batchTimings }} {{ trainin.meridianType }}</td>
+                <td>
+                  <a class="zoom_link" [href]="trainin.zoomRegLink" target="_blank">www.zoom.us/{{ trainin.zoomId }}</a>
+                </td>
+                <td>
+                  <a type="button" class="btn btn-success" [href]="trainin.whatsappLink" target="_blank">Join in
+                    WhatsApp
+                    Group</a>
+                </td>
+              </tr>
+              <tr>
+                <td *ngIf="trainings.length == 0" colspan="9" style="text-align: center">
+                  Thank you for your interest, but there are no online batches
+                  available at this time.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mobile-table">
+          <table class="table table-bordered table-striped">
+            <tbody *ngFor="let trainin of trainings; let i = index">
+              <tr>
+                <td class="txt-bold">S.No</td>
+                <td>{{ i + 1 }}</td>
+              </tr>
+              <tr>
+                <td class="txt-bold">Course</td>
+                <td><b>{{ getCourseName(trainin.courseId) }}</b></td>
+              </tr>
+              <tr>
+                <td class="txt-bold">Trainer</td>
+                <td>{{ getTrainerName(trainin.trainerId) }}</td>
+              </tr>
+              <tr>
+                <td class="txt-bold">Date</td>
+                <td>{{ trainin.startDate | date : "dd-MMM" }}</td>
+              </tr>
+              <tr>
+                <td class="txt-bold">Time (IST)</td>
+                <td>{{ trainin.batchTimings }} {{ trainin.meridianType }}</td>
+              </tr>
+              <tr>
+                <td class="txt-bold">Zoom Link</td>
+                <td>
+                  <a class="zoom_link" [href]="trainin.zoomRegLink" target="_blank">zoom.us/{{ trainin.zoomId }}</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="txt-bold">For More Upadates</td>
+                <td>
+                  <a type="button" class="btn btn-success" [href]="trainin.whatsappLink" target="_blank">Join In
+                    Whatsapp
+                    Group</a>
+                </td>
+              </tr>
+              <tr>
+                <br />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

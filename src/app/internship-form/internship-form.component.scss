@@ -1,0 +1,48 @@
+.heading{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-control, .form-select, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+
+.btn-primary {
+    margin-bottom: 50px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.col-6 {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    background-color: #f8f9fa; /* Light grey background for visibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for effect */
+    border-radius: 8px; /* Rounded corners for the card */
+    max-width: 80%; /* Ensures card doesn't exceed this width */
+    margin-left: 15%;
+}

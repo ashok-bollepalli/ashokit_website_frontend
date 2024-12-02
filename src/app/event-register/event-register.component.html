@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Master Class Registration</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <header>
+            <div class="row">
+                <img *ngIf="event?.eventBanner" [src]="'../../assets/events/' + event.eventBanner" alt="Event banner"
+                    class="event-banner">
+            </div>
+        </header>
+        <section class="section about" *ngIf="event">
+            <h2 style="color: red;">About the Master Class</h2>
+            <p class="mt-3" [innerHTML]="event.eventDesc"></p>
+            <h4>
+                <a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">
+                    <i class="fab fa-whatsapp social-icon whatsapp-icon mr-1"></i> Follow Us in WhatsApp Channel
+                    To Get Software Jobs Updates
+                </a>
+            </h4>
+        </section>
+
+        <section class="section benefits" *ngIf="event">
+            <h2 style="color: red;">Benefits of Attending</h2>
+            <p class="mt-3" [innerHTML]="event.eventBenefits"></p>
+            <h4>
+                <a href="https://www.instagram.com/ashokitschool/" target="_blank">
+                    <i class="fab fa-instagram social-icon instagram-icon mr-1"></i> Follow Us in Instagram For
+                    More Technology Updates
+                </a>
+            </h4>
+        </section>
+
+        <section class="section about" *ngIf="event">
+            <h2 style="color: red;">Master Class Date & Time</h2>
+            <p><b>Start Date:</b> {{ event.eventStartDate | date: 'dd-MMM-yyyy' }} <br />
+                <b>Start Time:</b> {{ event.eventStartTime }} {{ event.startMeridianType }} (IST) <br /><br />
+                <b>End Date:</b> {{ event.eventEndDate | date: 'dd-MMM-yyyy'}} <br />
+                <b>End Time:</b> {{ event.eventEndTime }} {{ event.endMeridianType }} (IST) <br /><br />
+                <b>Class Mode:</b> {{ event.eventVenue }}
+            </p>
+            <h4>
+                <a href="https://www.youtube.com/c/AshokIT?sub_confirmation=1" target="_blank">
+                    <i class="fab fa-youtube social-icon youtube-icon mr-1"></i> Subscribe to our Youtube
+                    channel to access our free tutorials
+                </a>
+            </h4>
+        </section>
+
+        <section class="section registration">
+            <h2>Register now for the free master class</h2>
+            <div class="col-md-4 col-sm-4 col-xl-4 col-lg-4" *ngIf="!showOtpScreen">
+                <form [formGroup]="eventRegisterForm" (ngSubmit)="onSubmit()">
+                    <div class="card-body p-3">
+                        <div *ngIf="isLoading" class="alert alert-info" role="alert">
+                            <p>Processing your registration, please wait ...</p>
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        <div *ngIf="!isLoading">
+                            <div class="form-group mb-3">
+                                <label for="fullName"><b>Name: </b></label>
+                                <input type="text" class="form-control" id="fullName" name="fullName"
+                                    placeholder="Enter Name" formControlName="fullName">
+                                <div *ngIf="submitted && f['fullName'].invalid" class="text-danger">
+                                    * Full Name is required
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="email"><b>Email:</b> </label>
+                                <small class="form-text text-muted mt-1" style="display: block;">
+                                    Password will be sent to this email for login
+                                  </small>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Enter Valid Email Address" formControlName="email">
+                                <div *ngIf="submitted && f['email'].invalid" class="text-danger">* Email is required
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="countryCode"><b>Select Country Code:</b> </label>
+                                <select class="form-select" id="countryCode" name="countryCode"
+                                    formControlName="countryCode">                                 
+                                    <option *ngFor="let countryCode of countryCodes" [value]="countryCode.countryCode">
+                                        {{ countryCode.countryName + " ( +" + countryCode.countryCode }} )</option>
+                                </select>
+                                <div *ngIf="submitted && f['countryCode'].invalid" class="text-danger">
+                                    * Country Code is required
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="mobileNumber"><b>WhatsApp Number:</b> </label>
+                                <small class="form-text text-muted mt-1" style="display: block;">
+                                    OTP will be sent in WhatsApp to this number for verification
+                                  </small>
+                                <input type="tel" id="mobileNumber" name="mobileNumber" class="form-control"
+                                    placeholder="Enter WhatsApp Number" formControlName="mobileNumber" maxlength="10"
+                                    (input)="onInputChange($event)" title="Please enter a valid WhatsApp number">
+                                <div *ngIf="submitted && f['mobileNumber'].invalid" class="text-danger">
+                                    * WhatsApp number is required</div>
+                            </div>
+
+
+                            <hr />
+                            <div class="row mb-3">
+                                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                                    <span style="color: red;">{{ totalRegisteredStudents }} Students Already
+                                        Registered</span>
+                                    <hr>
+                                    <button type="submit" class="btn btn-danger float-end">Register Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xl-4 col-lg-4" *ngIf="showOtpScreen">
+                <div class="card-body p-3">
+                    <h2><b>Validate OTP</b></h2>
+                    <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                        {{ errorMessage }}
+                    </div>
+                    <form [formGroup]="eventRegOtpForm" (ngSubmit)="verifyOTP()">
+
+                        <div>
+                            <span><b>OTP Sent to {{ selectedEventRegister.mobileNumber }} in WhatsApp</b></span>
+                        </div>
+                        <div id="selectedStudentRegistration.otp" name="selectedEventRegister.otp"
+                            class="inputs d-flex mt-2">
+                            <input type="number" id="otp" class="form-control" formControlName="otp" />
+                        </div>
+
+                        <div class="text-center mb-5">
+                            <button data-mdb-button-init data-mdb-ripple-init
+                                class="btn btn-primary" type="submit">
+                                Validate OTP
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

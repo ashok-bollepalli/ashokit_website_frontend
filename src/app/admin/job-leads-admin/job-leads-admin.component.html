@@ -1,0 +1,88 @@
+<div class="container">
+
+    <h1>Upload Job Leads</h1>
+
+
+    <div class="card-body mt-5 mb-5 p-5">
+        <form [formGroup]="zoomReportForm" enctype="multipart/form-data" (ngSubmit)="jobLeadsBulkUpload()">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="jobTitle" class="form-label required-label"><b>Select Job Title</b></label>
+                    <select id="jobTitle" class="form-select" [(ngModel)]="jobTitle" formControlName="jobTitle">
+                        <option selected disabled>-Select-</option>
+                        <option value="java_fullstack">Java Fullstack</option>
+                        <option value="devops_aws">DevOps with AWS</option>
+                        <option value="python_fullstack">Python Fullstack</option>
+                        <option value="reactjs">React JS</option>
+                        <option value="angular">Angular</option>
+                        <option value="software_testing">Software Testing</option>
+                        <option value="cloud_engineer">Cloud Engineer</option>
+                        <option value="ui_fullstack">UI Fullstack</option>
+                        <option value="data_science">Data Science</option>
+                        <option value="internship">Internship</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="fileInput" class="form-label required-label"><b>Upload File</b></label>
+                    <input type="file" class="form-control" id="fileInput" (change)="handleFileInput($event)"
+                        accept=".xlsx">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                    <button type="submit" class="btn-submit  float-end">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--
+    <div class="card-body mt-5 mb-5 p-5">
+        <form [formGroup]="zoomReportForm" enctype="multipart/form-data" (ngSubmit)="jobLeadsBulkUpload()">
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3" *ngIf="trainers && trainers.length > 0">
+                    <label for="inputTrainer" class="form-label required-label"><b>Trainer</b></label>
+                    <select id="inputTrainer" class="form-select" [(ngModel)]="trainerId" formControlName="trainerId">
+                        <option selected disabled>-Select-</option>
+                        <option *ngFor="let trainer of trainers" [value]="trainer.trainerId">{{trainer.trainerName}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="courseStatus" class="form-label required-label"><b>Batch Status</b></label>
+                    <select id="courseStatus" class="form-select" formControlName="courseStatus" (change)="findBatchByCourseStatus($event)">
+                        <option selected disabled>Select Batch Status</option>
+                        <option value="In-Progress">In-Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>                
+            </div>
+            <div class="row">               
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="inputTrainer" class="form-label required-label"><b>Select Batch</b></label>
+                    <select id="inputTrainer" class="form-select" formControlName="id" name="id">
+                        <option selected disabled>-Select Batch-</option>
+                        <option *ngFor="let batch of selectedBatches" [value]="batch.id">{{batch.batchCode}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="previousBatchCode" class="form-label required-label"><b>Enter Previous Batch Code</b></label>
+                    <input type="text" class="form-control" formControlName="previousBatchCode" name="previousBatchCode">
+                </div>
+            </div>            
+            <div class="row mt-3">
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                    <button type="submit" class="btn-submit  float-end">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>-->

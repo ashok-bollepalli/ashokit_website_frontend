@@ -1,0 +1,125 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    color: red; /* Red color for the heading */
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.sidebar-left, .sidebar-right {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar-left img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.sidebar-right ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-right ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar-right ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.sidebar-right ul li a:hover {
+    text-decoration: underline;
+}
+
+.job-details {
+    flex: 2;
+}
+
+.job-details h2 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.detail {
+    margin-bottom: 20px;
+}
+
+.detail h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.detail p, .detail ul {
+    margin: 0;
+    color: #555;
+}
+
+.detail ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.btn-danger {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #dc3545;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .sidebar-left, .sidebar-right {
+        flex: none;
+        width: 100%;
+    }
+
+    .sidebar-right {
+        margin-top: 20px;
+    }
+}

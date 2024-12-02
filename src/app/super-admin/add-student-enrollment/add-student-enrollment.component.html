@@ -1,0 +1,140 @@
+<div class="container">
+    <section class="add_courses">
+        <div class="card-header mt-5 p-2">
+            <h1 class="mt-3"><b> Add Student Enrollment</b></h1>
+        </div>
+    </section>
+
+    <div *ngIf="isLoading" class="alert alert-info" role="alert">
+        <p>Processing your request, please wait ...</p>
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div class="card-body mt-5 mb-5 p-5" *ngIf="!isLoading">
+        <form [formGroup]="addStudentEnrollmentForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="fullName" class="form-label required-label"><b>Student Name</b></label>
+                    <input type="text" id="fullName" class="form-control" formControlName="fullName">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="studentEmail" class="form-label required-label"><b>Email</b></label>
+                    <input type="email" id="studentEmail" class="form-control" formControlName="studentEmail"
+                        aria-describedby="emailHelp">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="countryCode" class="form-label required-label"><b>Country Code</b></label>
+                    <select id="countryCode" class="form-select" formControlName="countryCode">
+                        <option *ngFor="let countryCode of countryCodes" [value]="countryCode.countryCode">{{
+                            countryCode.countryCode+" - "+countryCode.countryName }}</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="mobileNumber" class="form-label required-label"><b>Mobile Number</b></label>
+                    <input type="tel" class="form-control" id="mobileNumber" formControlName="mobileNumber"
+                        placeholder="Enter mobile number">
+                </div>
+            </div>
+            <!--
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="wtCountryCode" class="form-label required-label"><b>Whatsapp Country Code</b></label>
+                    <select id="wtCountryCode" class="form-select" formControlName="wtCountryCode">
+                        <option value="0">--select--</option>
+                        <option *ngFor="let countryCode of countryCodes" [value]="countryCode.countryCode">{{ countryCode.countryCode+" - "+countryCode.countryName }}</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="whatsappNumber" class="form-label required-label"><b>Whatsapp mobile Number</b></label>
+                    <input type="tel" class="form-control" id="whatsappNumber" formControlName="whatsappNumber"
+                        placeholder="Enter mobile number">
+                </div>
+            </div>-->
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="trainerId" class="form-label required-label"><b>Trainer Name</b></label>
+                    <select id="trainerId" class="form-select" [(ngModel)]="trainerId" formControlName="trainerId"
+                        (change)="findBatchByTrainer($event)">
+                        <option value="0" selected>-Select-</option>
+                        <option *ngFor="let trainer of trainers" [value]="trainer.trainerId">
+                            {{ trainer.trainerName }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="courseStatus" class="form-label required-label"><b>Batch Status</b></label>
+                    <select id="courseStatus" class="form-select" formControlName="courseStatus"
+                        (change)="findBatchByCourseStatus($event)">
+                        <option value="In-Progress">In-Progress</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Aborted">Aborted</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="sourceBatch" class="form-label required-label"><b>Select Batch</b></label>
+                    <select class="form-select" id="id" name="id" class="form-control" formControlName="id">
+                        <option value="0" selected>-Select-</option>
+                        <option *ngFor="let batch of selectedBatches; let i = index" [value]="batch.id">
+                            {{batch.batchCode}}
+                        </option>
+                    </select>
+                </div>
+                <!-- <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="teachableCourseId" class="form-label required-label"><b>Teachable Course</b></label>
+                    <select id="teachableCourseId" class="form-select" formControlName="teachableCourseId">
+                        <option *ngFor="let teachableCourse of teachableCourses; let i = index"
+                            [value]="teachableCourse.id">{{teachableCourse.name}}
+                        </option>
+                    </select>
+                </div>-->
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="amountPaid" class="form-label required-label"><b>Amount Paid</b></label>
+                    <input type="text" id="amountPaid" class="form-control" formControlName="amountPaid"
+                        aria-describedby="amountPaid">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="dueAmount" class="form-label required-label"><b>Due Amount</b></label>
+                    <input type="text" class="form-control" id="dueAmount" formControlName="dueAmount"
+                        placeholder="Enter due amount">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="videoAccess" class="form-label required-label"><b>Videos Access</b></label>
+                    <select id="videoAccess" class="form-select" formControlName="videosAccess">
+                        <option selected>--Select--</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+            </div><br>
+
+            <div class="row">
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="classType" class="form-label required-label"><b>Training Mode</b></label>
+                    <select id="classType" class="form-select" formControlName="classType">
+                        <option>-Select-</option>
+                        <option *ngFor="let trgModes of trainingModes" [value]="trgModes.trainingType">
+                            {{ trgModes.trainingType }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                    <button type="submit" class="btn btn-submit float-end">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

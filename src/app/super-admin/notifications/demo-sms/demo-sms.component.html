@@ -1,0 +1,96 @@
+<div class="container">
+    <section class="workshop_email">
+        <div class="card-header mt-5 p-3">
+            <h1><b>Free Demo SMS Notifications</b></h1>
+        </div>
+    </section>
+    <div class="card-body mt-5 mb-5 p-5">
+        <form [formGroup]="demoSmsForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="demoRegistered" class="form-label required-label"><b>Demo Registered</b></label>
+                    <input type="text" id="demoRegistered" name="demoRegistered" formControlName="demoRegistered"
+                        class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="fromDate" class="form-label required-label"><b>From Date</b></label>
+                    <input type="datetime-local" id="fromDate" name="fromDate" formControlName="fromDate"
+                        class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="toDate" class="form-label required-label"><b>To Date</b></label>
+                    <input type="datetime-local" id="toDate" name="toDate" formControlName="toDate" class="form-control">
+                </div>
+            </div>
+            <hr>
+    
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="enrolledStudent" class="form-label required-label"><b>Enrolled Student</b></label>
+                    <input type="text" id="enrolledStudent" name="enrolledStudent" formControlName="enrolledStudent"
+                        class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="fromDate" class="form-label required-label"><b>From Date</b></label>
+                    <input type="datetime-local" id="fromDate" name="fromDate" formControlName="fromDate"
+                        class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="toDate" class="form-label required-label"><b>To Date</b></label>
+                    <input type="datetime-local" id="toDate" name="toDate" formControlName="toDate" class="form-control">
+                </div>
+            </div>
+            <hr>
+    
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="courseName" class="form-label required-label"><b>Course Name</b></label>
+                    <input type="text" id="courseName" name="courseName" formControlName="courseName" class="form-control">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="date" class="form-label required-label"><b>Date</b></label>
+                    <input type="date" id="date" name="date" formControlName="date" class="form-control">
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="time" class="form-label required-label"><b>Time</b></label>
+                    <input type="time" id="time" name="time" formControlName="time" class="form-control">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="zone" class="form-label required-label"><b>Zone</b></label>
+                    <select class="form-select" name="zone" required>
+                        <option value="">Select Zone</option>
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                </div>
+    
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="trainerName" class="form-label required-label"><b>Trainer Name</b></label>
+                    <input type="text" id="trainerName" name="trainerName" formControlName="trainerName"
+                        class="form-control">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="linkToJoin" class="form-label required-label"><b>Link To Join</b></label>
+                    <input type="text" id="linkToJoin" name="linkToJoin" formControlName="linkToJoin" class="form-control">
+                </div>
+    
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="password" class="form-label required-label"><b>Password</b></label>
+                    <input type="password" id="password" name="password" formControlName="password" class="form-control">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <button type="submit" class="btn float-end" [disabled]="demoSmsForm.invalid">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 10px; /* Gap between columns */
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}

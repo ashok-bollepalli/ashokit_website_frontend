@@ -1,0 +1,209 @@
+<div class="container-fluid">
+  <div class="box1">
+    <div class="title-head">
+      <h1
+        class="wow animate__animated animate__fadeInUp animated text-lg-left"
+        style="visibility: visible; font-size: 35px; font-family: sans-serif"
+      >
+        <b>Software Development</b>
+      </h1>
+    </div>
+  </div>
+  <div class="title">
+    <h1 class=""><b>What We Build</b></h1>
+  </div>
+  <div class="row">
+    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div
+            class="card value_box_content d-flex flex-column align-items-center text-center"
+          >
+            <img
+              src="../../assets/images/web-dev.png"
+              alt="Image"
+              class="image"
+            />
+            <h2>Web Development</h2>
+            <p>
+              Web development is the work involved in developing a Web site for
+              the Internet or an...
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div
+            class="card value_box_content d-flex flex-column align-items-center text-center"
+          >
+            <img
+              src="../../assets/images/mobile-app.png"
+              alt="Image"
+              class="image"
+            />
+            <h4><b>Mobile App Development</b></h4>
+            <p>
+              It is the act or process by which a mobile app is developed for
+              mobile devices, such as
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div
+            class="card value_box_content d-flex flex-column align-items-center text-center"
+          >
+            <img
+              src="../../assets/images/cloud-service.png"
+              alt="Image"
+              class="image"
+            />
+            <h2>Cloud Services</h2>
+            <p>
+              Cloud computing is the on-demand availability of computer system
+              resources,
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div
+            class="card value_box_content d-flex flex-column align-items-center text-center"
+          >
+            <img
+              src="../../assets/images/digital-marketing.png"
+              alt="Image"
+              class="image"
+            />
+            <h2>Digital Marketing</h2>
+            <p>
+              Digital marketing is the component of marketing that uses internet
+              and online based
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div
+            class="card value_box_content d-flex flex-column align-items-center text-center"
+          >
+            <img
+              src="../../assets/images/application-security.png"
+              alt="Image"
+              class="image"
+            />
+            <h2>Application Security</h2>
+            <p>
+              Application security (short AppSec) includes all tasks that
+              introduce a secure software
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div
+            class="card value_box_content d-flex flex-column align-items-center text-center"
+          >
+            <img
+              src="../../assets/images/graphic-design.png"
+              alt="Image"
+              class="image"
+            />
+            <h1 class="">Graphic Design</h1>
+            <p>
+              Graphic design is the profession and academic discipline whose
+              activity
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+      <div class="form-card">
+        <div class="contact">
+          <h1 class="">Contact Us</h1>
+        </div>
+        <form [formGroup]="contactUsForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name" class="form-label"><b>Name</b></label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              formControlName="name"
+            />
+            <div *ngIf="submitted && f['name'].errors" class="text-danger">
+              Name is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label"><b>Email</b></label>
+            <input
+              type="email"
+              class="form-control"
+              id="emailId"
+              name="emailId"
+              placeholder="Enter your email"
+              formControlName="emailId"
+            />
+            <div *ngIf="submitted && f['emailId'].errors" class="text-danger">
+              email id is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="countryCode" class="form-label"
+              ><b>Country Code</b></label
+            >
+            <select
+              name="countryCode"
+              class="form-control"
+              id="countryCode"
+              formControlName="countryCode"
+            >
+              <option value="">-- Select Country Code --</option>
+              <option
+                *ngFor="let countryCode of countryCodes"
+                [value]="countryCode.countryCode"
+              >
+                {{ countryCode.countryCode + " - " + countryCode.countryName }}
+              </option>
+            </select>
+            <div
+              *ngIf="submitted && f['countryCode'].errors"
+              class="text-danger"
+            >
+              Country Code id required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phoneNo" class="form-label"><b>Phone Number</b></label>
+            <input
+              type="tel"
+              class="form-control"
+              id="phoneNo"
+              name="phoneNo"
+              placeholder="Enter your phone number"
+              formControlName="phoneNo"
+            />
+            <div *ngIf="submitted && f['phoneNo'].errors" class="text-danger">
+              phone No is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label"><b>Message</b></label>
+            <textarea
+              class="form-control"
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Enter Your Message"
+              formControlName="message"
+            ></textarea>
+          </div>
+          <div class="Register-button">
+            <button type="submit" class="btn btn-custom">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

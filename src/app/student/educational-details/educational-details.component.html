@@ -1,0 +1,304 @@
+<div class="container">
+    <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-4 mt-4">
+        <h1 class="section-heading mb-4 text-center"><b>Educational Details</b></h1>
+    </div>
+    <div class="card-body mt-5 mb-5 p-5">
+        <form [formGroup]="educationalDetailsForm" (ngSubmit)="onSubmit()">
+            <div class="row mt-2">
+                <!-- Sub-accordion for Schooling Details -->
+
+                <!-- <div class="accordion">
+                    <div class="card mt-1">
+                        <h2 class="accordion-header" id="schoolingDetailsHeader">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#schoolingDetailsCollapse" aria-expanded="false"
+                                aria-controls="schoolingDetailsCollapse">
+                                <b> Schooling Details</b> <span class="mr-3"></span>
+                            </button>
+                        </h2>
+                        <div id="schoolingDetailsCollapse" class="accordion-collapse collapse"
+                            aria-labelledby="schoolingDetailsHeader" data-bs-parent=".accordion-item">
+                            <div class="accordion-body">
+                                <div class="row mt-2">
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">School Name</label>
+                                        <input type="text" class="form-control" value="" id="schoolName"
+                                            name="schoolName" formControlName="schoolName">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">City</label>
+                                        <input type="text" class="form-control" value="" id="city" name="city"
+                                            formControlName="schoolCity">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">Percentage</label>
+                                        <input type="text" class="form-control" value="" id="schoolPercentage"
+                                            name="schoolPercentage" formControlName="schoolPercentage">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">State</label>
+                                        <input type="text" class="form-control" value="" id="state" name="state"
+                                            formControlName="schoolState">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">Student Passing Year</label>
+                                        <input type="text" class="form-control" value="" id="schoolPassingYear"
+                                            name="schoolPassingYear" formControlName="schoolPassingYear">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">Country</label>
+                                        <input type="text" class="form-control" value="" id="schoolCountry"
+                                            name="schoolCountry" formControlName="schoolCountry">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- Sub-accordion for Intermediate Details -->
+                <!-- <div class="accordion">
+                    <div class="card mt-2">
+                        <h2 class="accordion-header" id="intermediateDetailsHeader">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#intermediateDetailsCollapse" aria-expanded="false"
+                                aria-controls="intermediateDetailsCollapse">
+                                <b>Intermediate Details </b><span class="mr-3"></span>
+                            </button>
+                        </h2>
+                        <div id="intermediateDetailsCollapse" class="accordion-collapse collapse"
+                            aria-labelledby="intermediateDetailsHeader" data-bs-parent=".accordion-item">
+                            <div class="accordion-body">
+                                <div class="row mt-2">
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">College Name</label>
+                                        <input type="text" class="form-control" value="" id="interCollegeName"
+                                            name="interCollegeName" formControlName="interCollegeName">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">City</label>
+                                        <input type="text" class="form-control" value="" id="interCollegeCity"
+                                            name="interCollegeCity" formControlName="interCollegeCity">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">Percentage</label>
+                                        <input type="text" class="form-control" value="" id="interPercentage"
+                                            name="interPercentage" formControlName="interPercentage">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">State</label>
+                                        <input type="text" class="form-control" value="" id="interCollegeState"
+                                            name="interCollegeState" formControlName="interCollegeState">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">Student Passing Year</label>
+                                        <input type="text" class="form-control" value="" id="interPassingYear"
+                                            name="interPassingYear" formControlName="interPassingYear">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">Country</label>
+                                        <input type="text" class="form-control" value="" id="interCountry"
+                                            name="interCountry" formControlName="interCountry">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">Specialization</label>
+                                        <input type="text" class="form-control" id="interSpecialization"
+                                            name="interSpecialization" formControlName="interSpecialization">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- Sub-accordion for Graduation Details -->
+                <div class="accordion">
+                    <div class="card mt-2">
+                        <h2 class="accordion-header" id="graduationDetailsHeader">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#graduationDetailsCollapse" aria-expanded="false"
+                                aria-controls="graduationDetailsCollapse">
+                                <b>Higher Education Details </b><span class="mr-3"></span>
+                            </button>
+                        </h2>
+                        <div id="graduationDetailsCollapse" class="accordion-collapse collapse"
+                            aria-labelledby="graduationDetailsHeader" data-bs-parent=".accordion-item">
+                            <div class="accordion-body">
+                                <!-- <div class="row mt-2">
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">College Name</label>
+                                        <input type="text" class="form-control" value="" id="graduationCollegeName"
+                                            name="graduationCollegeName" formControlName="graduationCollegeName">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">City</label>
+                                        <input type="text" class="form-control" value="" id="graduationCity"
+                                            name="graduationCity" formControlName="graduationCity">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">Percentage</label>
+                                        <input type="text" class="form-control" value="" id="graduationPercentage"
+                                            name="graduationPercentage" formControlName="graduationPercentage">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label class="labels">State</label>
+                                        <input type="text" class="form-control" value="" id="graduationState"
+                                            name="graduationState" formControlName="graduationState">
+                                    </div>
+                                </div> -->
+                                <div class="row mt-2">
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                                        <label for="higherEducation" class="form-label required-label"><b>Higher
+                                                Education</b></label>
+                                        <select id="higherEducation" name="higherEducation" class="form-control"
+                                            formControlName="higherEducation">
+                                            <option value="">Select Higher Education</option>
+                                            <option value="Bachelor's Of Technology">B.E/B.Tech</option>
+                                            <option value="Master's Of Technology">M.Tech</option>
+                                            <option value="Doctorate">MCA</option>
+                                            <option value="Professional Degree">MBA</option>
+                                            <option value="Diploma">Degree</option>
+                                            <option value="Diploma">Diploma</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                                        <label for="graduationYear" class="form-label required-label"><b>Graduation
+                                                Year</b></label>
+                                        <select id="graduationYear" name="graduationYear" class="form-control"
+                                            formControlName="graduationYear">
+                                            <option value="">Select Graduation Year</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2027">2027</option>
+                                            <option value="2028">2028</option>
+                                            <option value="2029">2029</option>
+                                            <option value="2030">2030</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                                        <label for="specialization"
+                                            class="form-label required-label"><b>Specialization</b></label>
+                                        <select id="specialization" name="specialization" class="form-control"
+                                            formControlName="specialization">
+                                            <option value="">Select Specialization</option>
+                                            <option value="Computer Science">CSE</option>
+                                            <option value="Information Technology">IT</option>
+                                            <option value="Electrical Engineering">ECE</option>
+                                            <option value="Electrical Engineering">EEE</option>
+                                            <option value="Mechanical Engineering">Mechanical</option>
+                                            <option value="Civil Engineering">Civil</option>
+                                            <option value="Chemical Engineering">Chemical</option>
+                                            <option value="Chemical Engineering">Physics</option>
+                                            <option value="Aerospace Engineering">Aerospace</option>
+                                            <option value="Finance">Finance</option>
+                                            <option value="Marketing">Marketing</option>
+                                            <option value="Human Resources">Human Resources</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label for="percentage"
+                                            class="form-label required-label"><b>Pass Percentage</b></label>
+                                        <input type="percentage" class="form-control" id="percentage" name="percentage" formControlName="percentage">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <label for="university"
+                                            class="form-label required-label"><b>University</b></label>
+                                        <input type="text" class="form-control" id="university" name="university" formControlName="university">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sub-accordion for Post Graduation Details -->
+                <!-- <div class="accordion">
+                        <div class="card mt-2">
+                            <h2 class="accordion-header" id="postGraduationDetailsHeader">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#postGraduationDetailsCollapse" aria-expanded="false"
+                                    aria-controls="postGraduationDetailsCollapse">
+                                    <b> Post Graduation Details</b> <span class="mr-3"></span>
+                                </button>
+                            </h2>
+                            <div id="postGraduationDetailsCollapse" class="accordion-collapse collapse"
+                                aria-labelledby="postGraduationDetailsHeader" data-bs-parent=".accordion-item">
+                                <div class="accordion-body">
+                                    <div class="row mt-2">
+                                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                            <label class="labels">College Name</label>
+                                            <input type="text" class="form-control" value="" id="pgCollegeName"
+                                                name="pgCollegeName" formControlName="pgCollegeName">
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                            <label class="labels">City</label>
+                                            <input type="text" class="form-control" value="" id="pgCity" name="pgCity"
+                                                formControlName="pgCity">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md- col-sm-6 col-lg-6 col-xl-6">
+                                            <label class="labels">Percentage</label>
+                                            <input type="text" class="form-control" value="" id="pgPercentage"
+                                                name="pgPercentage" formControlName="pgPercentage">
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                            <label class="labels">State</label>
+                                            <input type="text" class="form-control" value="" id="pgState" name="pgState"
+                                                formControlName="pgState">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                            <label class="labels">Student Passing Year</label>
+                                            <input type="text" class="form-control" value="" id="pgPassingYear"
+                                                name="pgPassingYear" formControlName="pgPassingYear">
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                            <label class="labels">Country</label>
+                                            <input type="text" class="form-control" value="" id="pgCountry"
+                                                name="pgCountry" formControlName="pgCountry">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                            <label class="labels">Specialization</label>
+                                            <input type="text" class="form-control" id="pgSpecialization"
+                                                name="pgSpecialization" formControlName="pgSpecialization">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                <div class="row mt-3">
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                        <button type="submit" class="btn btn-submit float-end">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

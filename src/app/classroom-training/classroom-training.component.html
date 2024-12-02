@@ -1,0 +1,51 @@
+<!-- <div class="container">
+<img src="./assets/images/762631650_1708508181.jpg" style="margin-top: 2%; margin-right: -5px;" height="10%" width="100%" alt="banner1">
+</div>
+<div class="container">
+    <img src="./assets/images/1507335185_1708508261.jpg" alt="banner2" style="margin-top: 2%;" height="10%" width="100%">
+    </div>
+    <div class="container">
+        <img src="./assets/images/1241318375_1708508355.jpg" alt="banner3" style="margin-top: 2%;" height="10%" width="100%">
+        </div>
+        <div class="container">
+            <img src="./assets/images/2032025260_1708508465.jpg" alt="banner4" style="margin-top: 2%;" height="10%" width="100%">
+            </div> -->
+
+<div class="container" *ngFor="let bannerPromotion of bannerPromotions">
+  <img src="../../assets/banner-promotions/{{ bannerPromotion.image }}" style="margin-top: 2%; margin-right: -5px;" height="10%" width="100%"
+    alt="banner">
+</div>
+
+<div class="container" style="margin-top: 2%;">
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">S.NO</th>
+          <th scope="col">COURSE</th>
+          <th scope="col">TRAINER</th>
+          <th scope="col">DATE</th>
+          <th scope="col">TIME(IST)</th>
+          <th scope="col">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let classRoomTraining of classRoomTrainings let i = index">
+          <td>{{ i+1 }}</td>
+          <td>{{ getCourseName(classRoomTraining.courseId) }}</td>
+          <td>{{ getTrainerName(classRoomTraining.trainerId) }}</td>
+          <td>{{ classRoomTraining.startDate | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ classRoomTraining.batchTimings }}</td>
+          <td><a type="button" class="btn btn-danger" [href]="classRoomTraining.whatsappLink" target="_blank">Register Now</a></td>
+        </tr>
+        <tr>
+          <td *ngIf="classRoomTrainings.length == 0" colspan="9" style="text-align:center;">Thank you for your interest,
+            but there are no classroom batches available at this time.<br> Please check back at another time.
+            <br> For any queries, do write us
+            <a href="mailto:info@ashokitech.com">info@ashokitech.com </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

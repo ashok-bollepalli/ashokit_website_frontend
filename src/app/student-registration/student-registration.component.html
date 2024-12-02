@@ -1,0 +1,140 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="row card-container">
+      <div class="col-md-6">
+        <div class="">
+          <h2>New to AshokIT ?</h2>
+          <div class="register">
+            <ul>
+              <li>One click apply using AshokIT profile.</li>
+              <li>Learn from experienced professionals.</li>
+              <li>Gain hands-on experience with real-world projects.</li>
+              <li>Earn a certificate upon successful course completion.</li>
+              <li>Get career counseling and job placement assistance.</li>
+            </ul>
+          </div>
+          <div class="row justify-content-center">
+            <img src="../../assets/images/studentRegister.jpeg" class="img-fluid" style="width: 50%"
+              alt="Register Image" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="!showOtpScreen">
+        <div class="">
+          <h1 class="registration"><i>Register Here</i></h1>
+          <hr />
+          <div *ngIf="isLoading" class="alert alert-info" role="alert">
+            <p>Processing your request, please wait ...</p>
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+            {{ errorMessage }}
+            <button type="button" class="btn-close" aria-label="Close" (click)="closeErrorMessage()"></button>
+          </div>
+          <div *ngIf="!isLoading">
+            <form [formGroup]="studentRegistrationForm" (ngSubmit)="onSubmit()">
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label for="fullName" class="form-label required-label"><b>Name</b></label>
+                <input type="text" id="fullName" class="form-control" formControlName="fullName" />
+                <div *ngIf="submitted && f['fullName'].errors" class="text-danger">
+                  Name is required
+                </div>
+              </div>
+
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label for="studentEmail" class="form-label required-label"><b>Email</b></label>
+                <small class="form-text text-muted mt-1" style="display: block;">
+                  Password will be sent to this email for login
+                </small>
+                <input type="email" id="studentEmail" class="form-control" formControlName="studentEmail" />
+               
+                <div *ngIf="submitted && f['studentEmail'].errors" class="text-danger">
+                  Email is required
+                </div>
+              </div>
+
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label for="gender" class="form-label required-label"><b>Gender</b></label>
+                <br />
+                <input type="radio" id="male" name="gender" class="form-check-input" formControlName="gender"
+                  value="Male" />
+                Male
+                <input type="radio" id="female" name="gender" class="form-check-input" formControlName="gender"
+                  value="Fe-Male" />
+                Female
+
+                <div *ngIf="submitted && f['gender'].errors" class="text-danger">
+                  Gender is required
+                </div>
+              </div>
+
+
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label for="countryCode" class="form-label required-label"><b>Country Code</b></label>
+                <select id="countryCode" class="form-select" formControlName="countryCode">
+                  <option value="0">-Select-</option>
+                  <option *ngFor="let countryCode of countryCodes" [value]="countryCode.countryCode">
+                    {{
+                    countryCode.countryName + " ( + " + countryCode.countryCode }} )
+                  </option>
+                </select>
+                <div *ngIf="submitted && f['countryCode'].errors" class="text-danger">
+                  Country Code is required
+                </div>
+              </div>
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label for="mobileNumber" class="form-label required-label"><b>WhatsApp Number</b></label>
+                <small class="form-text text-muted mt-1" style="display: block;">
+                  OTP will be sent in WhatsApp to this number for verification
+                </small>
+                <input type="tel" class="form-control" id="mobileNumber" maxlength="10" (input)="onInputChange($event)"
+                  title="Please enter a valid WhatsApp number" formControlName="mobileNumber" />
+                <div *ngIf="submitted && f['mobileNumber'].errors" class="text-danger">
+                  Please enter a valid WhatsApp number
+                </div>
+              </div>
+
+              <div class="text-center mb-5">
+                <button data-mdb-button-init data-mdb-ripple-init
+                  class="btn btn-submit btn-block gradient-custom-2 w-100" type="submit">
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-md-5" *ngIf="showOtpScreen">
+          <div class="">
+            <h1 class="registration"><i>Validate OTP</i></h1>
+            <hr />
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+              {{ errorMessage }}
+              <button type="button" class="btn-close" aria-label="Close" (click)="closeErrorMessage()"></button>
+            </div>
+            <form [formGroup]="studentRegOtpForm" (ngSubmit)="validateOtp()">
+              <div>
+                <span>OTP Sent to {{ selectedStudentRegistration.mobileNumber }} in
+                  WhatsApp</span>
+              </div>
+              <div id="selectedStudentRegistration.otp" name="selectedStudentRegistration.otp"
+                class="inputs d-flex mt-2">
+                <input type="number" id="otp" class="form-control" formControlName="otp" />
+              </div>
+
+              <div class="text-center mb-5">
+                <button data-mdb-button-init data-mdb-ripple-init
+                  class="btn btn-submit btn-block gradient-custom-2 w-100" type="submit">
+                  Validate OTP
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

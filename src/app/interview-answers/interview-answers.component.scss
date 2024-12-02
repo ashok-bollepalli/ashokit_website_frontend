@@ -1,0 +1,90 @@
+
+/* Styles for interview category heading */
+h1 {
+    color: #333;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+/* Styles for interview questions */
+.box {
+    margin-bottom: 20px;
+    max-width: 60%;
+    padding: auto;
+}
+
+h3 {
+    color: #555;
+}
+
+p {
+    color: #777;
+}
+
+/* Styles for registration form */
+.card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+.course-select {
+    margin-bottom: 20px; /* Add desired margin/padding between the course select and the message textarea */
+}
+
+.message-textarea {
+    margin-top: 20px; /* Add desired margin/padding between the course select and the message textarea */
+}
+
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+button.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Ensure the images are responsive and fit within their container */
+.img-responsive {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures the image covers the container area */
+}
+
+/* Style the image gallery */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust the gap between images */
+}
+
+/* Define a fixed height for images */
+.image-gallery img {
+    flex: 1 1 calc(50% - 10px); /* Adjust to fit 2 images per row */
+    height: 150px; /* Set a fixed height for images */
+    object-fit: cover; /* Crop the image to fit the container */
+}
+
+/* Ensure the layout works well on smaller screens */
+@media (max-width: 768px) {
+    .image-gallery img {
+        flex: 1 1 100%; /* Stack images on smaller screens */
+        height: 100px; /* Adjust height for smaller screens */
+    }
+}

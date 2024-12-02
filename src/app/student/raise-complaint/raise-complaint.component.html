@@ -1,0 +1,40 @@
+<div class=container-fluid>
+    <div class="row">
+        <div class="heading">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-center">
+                <div class="banner">
+                    <h1 class="customer_support ml-2 animate__animated animate__bounceIn"><b>Customer Support</b></h1>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                    <div class="customer_suppor">
+                        <img src="../../../assets/images/support2.png" alt="Image" class="img-fluid banner_image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+            <div class="customer_support">
+                <img src="../../../assets/images/support1.png" alt="Image" class="customer_support_image">
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+            <form [formGroup]="complaintForm" (ngSubmit)="onSubmit()">
+                <h1>Create Ticket Here</h1>
+                <div class="form-group">
+                    <select id="course name" class="form-select" name="course name" formControlName="batchCode">
+                        <option value="select">-Select-</option>
+                        <option *ngFor="let course of courses" [value]="course.batchCode">
+                            {{course.batchCode }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="complaintTxt" name="complaintTxt" placeholder="Write Your Complaint Here"
+                        formControlName="complaintTxt"></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

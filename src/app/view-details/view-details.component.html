@@ -1,0 +1,286 @@
+<div class="container-fluid">
+  <div class="row view-details-to-cont">
+    <div class="col-12 col-md-6">
+      <h1 class="course animate__animated animate__fadeInLeft">
+        <b>{{ course.courseName }}</b>
+      </h1>
+      <div class="sub-titles">
+        <ul>
+          <li>
+            <img src="https://www.ashokitech.com/assets/frontend/images/online.svg" />
+            Live Course
+          </li>
+          <li>
+            <img src="https://www.ashokitech.com/assets/frontend/images/installment.svg" />Free Preview Available
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="course-overview-cont">
+        <div class="pkg-cost-box" style="padding: 10px 30px">
+          <div>
+            <label class="card-text">Course Duration : {{ course.courseDuration }}</label>
+          </div>
+          <div>
+            <label class="card-text">Course Price : &#8377; {{ course.courseOfferFee }}</label>
+          </div>
+          <div>
+            <label class="card-text">Students Rating :
+              <ng-container *ngFor="let star of getStarArray(course.courseRating)">
+                <i class="fa fa-star star-icon"></i>
+              </ng-container>
+            </label>
+          </div>
+        </div>
+        <div class="mt-3">
+          <a [href]="course.demoVideoUrl" target="_blank"
+            class="btn btn-filled course-landing-buy_32846 animate__animated animate__fadeInUp"
+            style="width: 100%; margin-bottom: 5px"><i class="btn-loader fa fa-spinner fa-spin"
+              style="display: none"></i>
+            Watch Demo Class</a>
+          <a (click)="showFile(course)" target="_blank"
+            class="btn btn-filled open-signup-course-freepreview enrollFree enrollFree_32846 animate__animated animate__fadeInUp"
+            style="width: 100%">Download Course Content</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="accordion mb-3" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+          About the course
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+        <div class="accordion-body" [innerHTML]="course.aboutCourse"></div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+          Course Content
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <ul class="tabs-nav">
+                  <li *ngFor="let module of modules" [ngClass]="{
+                      'active-tab': activeTab === module.moduleName
+                    }" [class.active]="activeTab === module.moduleName" (click)="getAllSubModuleByModule(module)">
+                    <a>
+                      {{ module.moduleName }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12 col-md-6">
+                <ul class="sub-module-tabs">
+
+                  <li *ngFor="let subModule of subModules" [class.tab-active]="activeTab === subModule.subModuleName">
+                    <a [ngClass]="{
+                        'active-tab': activeTab === subModule.subModuleName
+                      }" [class.active]="activeTab === subModule.subModuleName">
+                      {{ subModule.subModuleName }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+          aria-controls="panelsStayOpen-collapseThree">
+          Pre-Requisites
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+        <div class="accordion-body" [innerHTML]="course.preRequisites"></div>
+      </div>
+    </div>
+
+    <!--<div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+          aria-controls="panelsStayOpen-collapseFour">
+          Learning Modules
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+        <div class="accordion-body" [innerHTML]="course.learningModules"></div>
+      </div>
+    </div>-->
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="container mt-3" style="background-color: #f8f9fa">
+      <h2 class="header mt-5 mb-3">Training Features</h2>
+      <div class="row">
+        <div class="row training-features ml-auto mr-auto">
+          <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-10 offset-md-1 ml-auto mr-auto">
+            <div class="row">
+              <div class="col-lg-4 col-md-6 wow animate__animated animate__fadeInLeft" style="visibility: visible">
+                <div class="item box-bg1" style="background-color: rgb(53, 204, 87)">
+                  <div class="ml-3">
+                    <img src="../../assets/images/learn_from_home.png" />
+                    <h3>Learn from home</h3>
+                    Stay safe indoors.
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 wow animate__animated animate__fadeInDown" style="visibility: visible">
+                <div class="item box-bg2" style="background-color: rgb(69, 137, 193)">
+                  <div class="ml-3">
+                    <img src="../../assets/images/beginner_friendly-1.png" />
+                    <h3>Beginner friendly</h3>
+                    No prior knowledge required
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 wow animate__animated animate__fadeInRight" style="visibility: visible">
+                <div class="item box-bg3" style="background-color: rgb(253, 126, 20)">
+                  <div class="ml-3">
+                    <img src="../../assets/images/doubt_clearing.png" />
+                    <h3>Doubt clearing</h3>
+                    Through Q&A forum
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-5">
+                <div class="col-lg-4 col-md-6 wow animate__animated animate__fadeInLeft" style="visibility: visible">
+                  <div class="item box-bg4" style="background-color: rgb(136, 100, 195)">
+                    <div class="ml-3">
+                      <img src="../../assets/images/projects.png" />
+                      <h3>Build a projects</h3>
+                      For hands-on practice.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow animate__animated animate__fadeInUp" style="visibility: visible">
+                  <div class="item box-bg5" style="background-color: rgb(226, 81, 24)">
+                    <div class="ml-4">
+                      <img src="../../assets/images/downloadable_content.png" />
+                      <h3>Downloadable content</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow animate__animated animate__fadeInRight" style="visibility: visible">
+                  <div class="item box-bg6" style="background-color: rgb(39, 171, 155)">
+                    <div class="ml-3">
+                      <img src="../../assets/images/beginner_friendly-1.png" />
+                      <h3>Course Completion Certificate from Ashok IT</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <span class="badge badge-pill badge-primary">Our Online Bootcamp</span>
+    <h1>An immersive learning experience</h1>
+    <div class="row">
+      <div class="col-md-3">
+        <img src="../../assets/images/v1.webp" alt="Image description" /><br />
+        <b>Develop skills for real career growth</b><br />
+        Cutting-edge curriculum designed in guidance with industry and academia
+        to develop job-ready skills
+      </div>
+      <div class="col-md-3">
+        <img src="../../assets/images/v2.webp" alt="Image description" /><br />
+        <b>Learn from experts active in their field, not out-of-touch
+          trainers</b><br />
+        Leading practitioners who bring current best practices and case studies
+        to sessions that fit into your work schedule.
+      </div>
+      <div class="col-md-3">
+        <img src="../../assets/images/v3.webp" alt="Image description" /><br />
+        <b>Learn by working on real-world problems</b><br />
+        Capstone projects involving real world data sets with virtual labs for
+        hands-on learning
+      </div>
+      <div class="col-md-3">
+        <img src="../../assets/images/v4.webp" alt="Image description" /><br />
+        <b>Structured guidance ensuring learning never stops</b><br />
+        24x7 Learning support from mentors and a community of like-minded peers
+        to resolve any conceptual doubts
+      </div>
+    </div>
+  </div>
+  <div class="container3 mt-5 mb-3">
+    <div class="mt-3">
+      <h1 class="faq mb-3">Frequently asked questions</h1>
+      <div class="row">
+        <div class="my-accordion mb-3">
+          <div class="card my-card mt-3">
+            <div class="card-header my-card-header" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+              <h4 class="mt-3">How can I practice?</h4>
+            </div>
+            <div id="collapseOne" class="collapse" data-bs-parent=".my-accordion">
+              <div class="card-body">
+                Students can benefit from our state-of-the-art lab
+                infrastructure facilities at all our training centers across the
+                city. Our lab facilities are available throughout the day on all
+                working days. For our online students, they can connect to our
+                servers and other lab facilities over the internet and practice.
+                These facilities are available 24X7.
+              </div>
+            </div>
+          </div>
+          <div class="card my-card mt-3">
+            <div class="card-header my-card-header" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+              <h4 class="mt-3">What if I miss one (or more) class?</h4>
+            </div>
+            <div id="collapseTwo" class="collapse" data-bs-parent=".my-accordion">
+              <div class="card-body">
+                If the student misses attending any session, he or she can
+                re-attend the session by:<br />
+                1. Attending the same session in another batch if the student is
+                attending a classroom-based session.<br />
+                2. For online sessions, recordings of the classes can be
+                accessed by the student at all times to help revisit and listen
+                to the missed sessions.
+              </div>
+            </div>
+          </div>
+          <div class="card my-card mt-3">
+            <div class="card-header my-card-header" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+              <h4 class="mt-3">
+                What are the modes of training offered for this course?
+              </h4>
+            </div>
+            <div id="collapseThree" class="collapse" data-bs-parent=".my-accordion">
+              <div class="card-body">
+                All training programs conducted by Ashok IT are available
+                in 3 modes: instructor-based classroom programs,
+                instructor-based live online training, and self-paced
+                video-based training. Students can choose according to their
+                preferences.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

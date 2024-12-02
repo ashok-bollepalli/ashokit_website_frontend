@@ -1,0 +1,30 @@
+ .active-tab {
+   color: white;
+   background-color: #212529;
+ }
+
+ .custom-btn {
+   border-color: #212529;
+ }
+
+ .mobile-table {
+   display: none;
+ }
+
+ .medium-table {
+   display: block;
+ }
+
+ @media screen and (max-width: 768px) {
+   .mobile-table {
+     display: block;
+   }
+
+   .medium-table {
+     display: none;
+   }
+ }
+
+ .txt-bold {
+   font-weight: 700;
+ }

@@ -1,0 +1,41 @@
+
+Sitemap: https://ashokit.in/sitemap.xml
+
+User-agent: WebDataStats/1.0
+Disallow: /admin
+
+User-agent: WebDataStats/1.0
+Disallow: /super-admin
+
+User-agent: WebDataStats/1.0
+Disallow: /counselor
+
+User-agent: WebDataStats/1.0
+Disallow: /
+
+User-agent: WebDataStats
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: SemrushBot-SA
+Disallow: /
+
+User-agent: SemrushBot-BA
+Disallow: /
+
+User-agent: SemrushBot-SI
+Disallow: /
+
+User-agent: SemrushBot-SWA
+Disallow: /
+
+User-agent: SemrushBot-CT
+Disallow: /
+
+User-agent: SemrushBot-BM
+Disallow: /
+
+User-agent: *
+Allow: /

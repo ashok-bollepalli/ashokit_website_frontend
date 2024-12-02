@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="heading">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 d-flex align-items-center justify-content-center">
+            <div class="banner">
+                <h1 class="interview_questions ml-2 animate__animated animate__bounceIn"><b>Interview Questions</b></h1>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                <div class="interview-image">
+                    <img src="../../assets/images/interview_qun_banner.png" alt="interview_qun_banner"
+                        class="img-fluid banner_image">
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                <div class="c-left">
+                    <ul class="tabs-nav  animate__animated animate__fadeInLeft">
+                        <li class="tab-active" *ngFor="let interviewCategory of interviewCategories; let i = index">
+                            <a  (click)="getInterviewQuestionByCategory(interviewCategory)"><i class="fas fa-question-circle" ></i>
+                              {{interviewCategory.name}}   
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md- col-sm-6 col-lg-6 col-xl-6">
+                <div class="card  animate__animated animate__fadeInRight">
+                    <h2>Register for Course</h2>
+                    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Full Name" name="name" formControlName="name">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" formControlName="email">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Mobile Number" formControlName="phoneNumber">
+                        </div>
+
+                        <div class="form-group">
+                            <select id="courseId" name="courseId" class="form-select" placeholder="Select Course" formControlName="courseId">
+                                <option value=""disabled select>Seclect Course</option>
+                                <option *ngFor="let course of courses" [value]="course.courseId">{{getCourseName(course.courseId) }}</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" id="msg" name="msg" placeholder="Message" formControlName="msg"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger">Register</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,162 @@
+<div id="carouselExampleControls" class="carousel banner-slide1" data-ride="carousel">
+  <div id="scrollUp" class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../../assets/images/interview_qun_banner.png" alt="Image" class="d-block w-100" />
+      <div class="carousel-caption d-flex flex-column justify-content-center align-items-start">
+        <h1>
+          <b>Interview Questions</b>
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-3 mb-3">
+    <div class="col-12 bg-light p-2 d-flex justify-content-flex-start align-items-center gap-2">
+      <button class="btn tab-custom-btn" [ngClass]="{ 'active-tab': activeTab === 'All' }"
+        [class.active]="activeTab === 'All'" (click)="getAllInterviewCategoriesBySubjects('All')">
+        All
+      </button>
+      <div *ngFor="let interviewCategorySubject of interviewCategorySubjects">
+        <button class="btn tab-custom-btn" [ngClass]="{
+            'active-tab': activeTab === interviewCategorySubject.subjectName
+          }" [class.active]="activeTab === interviewCategorySubject.subjectName"
+          (click)="getAllInterviewCategoriesBySubjects(interviewCategorySubject.subjectName)">
+          {{ interviewCategorySubject.subjectName }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="card-body col-md-6 col-sm-6 col-lg-96col-xl-6 mt-5 mb-2 border-end bg-light-grey-color overflow-auto">
+      <div class="col-md-4 col-sm-6" *ngFor="let interviewCategory of filteredInterviewCategories">
+        <a (click)="getInterviewQuestionByCategory(interviewCategory)" class="btn btn-link"><i
+            class="fas fa-question-circle"></i>
+          {{ interviewCategory.name }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!--
+<div class="container-fluid">
+  <div class="container">
+    <div class="row mt-5">    
+      <div class="col-md-6">
+        <div class="c-left">
+          <ul class="tabs-nav animate__animated animate__fadeInLeft">
+            <li class="tab-active" *ngFor="let interviewCategorySubject of interviewCategorySubjects;let i = index">
+              <a (click)="getInterviewQuestionByCategory(interviewCategorySubject)"><i class="fas fa-question-circle"></i>
+                {{ interviewCategorySubject.subjectName }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="c-left">
+          <ul class="tabs-nav animate__animated animate__fadeInLeft">
+            <li class="tab-active" *ngFor="let interviewCategory of interviewCategories;let i = index">
+              <a (click)="getInterviewQuestionByCategory(interviewCategory)"><i class="fas fa-question-circle"></i>
+                {{ interviewCategory.name }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card animate__animated animate__fadeInRight">
+          <h2>Register for Course</h2>
+          <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <input type="text" class="form-control required-label" id="fullName" placeholder="Full Name"
+                name="fullName" formControlName="fullName" />
+              <div *ngIf="submitted && f['fullName'].errors" class="text-danger">
+                Full Name is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control required-label" id="email" name="email" placeholder="Email"
+                formControlName="email" />
+              <div *ngIf="submitted && f['email'].errors" class="text-danger">
+                Email is required
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-3">
+                 
+                  <select class="form-select" id="countryCode" name="countryCode" formControlName="countryCode">
+                    <option value="0">--select--</option>
+                    <option *ngFor="let countryCode of countryCodes" [value]="countryCode.countryCode">
+                      {{
+                      countryCode.countryCode +
+                      " -
+                      " +
+                      countryCode.countryName
+                      }}
+                    </option>
+                  </select>
+                  <div *ngIf="submitted && f['countryCode'].errors" class="text-danger">
+                    Country Code is required
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                  <input type="text" class="form-control required-label" id="whatsappNumber" name="whatsappNumber"
+                    maxlength="10" (input)="onInputChange($event)" title="Please enter a valid 10-digit mobile number"
+                    placeholder="Mobile Number" formControlName="whatsappNumber" />
+                  <div *ngIf="submitted && f['whatsappNumber'].errors" class="text-danger">
+                    Phone Number is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <select id="CourseCategory" formControlName="courseCategoryId" class="form-select required-label"
+                (change)="findCourseByCategory($event)">
+                <option value="" disabled select>Select CourseCategory</option>
+                <option *ngFor="let courseCategory of courseCategories" [value]="courseCategory.courseCategoryId">
+                  {{ courseCategory.courseCategoryName }}
+                </option>
+              </select>
+              <div *ngIf="submitted && f['courseCategoryId'].errors" class="text-danger">
+                Category is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <select id="courseId" name="courseId" class="form-select required-label" placeholder="Select Course"
+                formControlName="courseId">
+                <option value="" disabled select>Seclect Course</option>
+                <option *ngFor="let course of courses" [value]="course.courseId">
+                  {{ getCourseName(course.courseId) }}
+                </option>
+              </select>
+              <div *ngIf="submitted && f['courseId'].errors" class="text-danger">
+                Course Name is required
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control required-label" id="message" name="message" placeholder="Message"
+                formControlName="message"></textarea>
+              <div *ngIf="submitted && f['message'].errors" class="text-danger">
+                Message is required
+              </div>
+            </div>
+            <button type="submit" class="btn btn-danger">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->

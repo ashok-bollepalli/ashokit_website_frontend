@@ -1,0 +1,44 @@
+<div class=" card-body">
+  <div class="heading">
+    <h1 class="mt-4"><b> Update Class Notes</b></h1>
+    <form [formGroup]="updateUploadNotesForm" (ngSubmit)="onSubmit()">
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-3">
+        <label for="courseStatus" class="form-label required-label"><b>Batch Status</b></label>
+        <select id="courseStatus" class="form-select" formControlName="courseStatus" (change)="filterBatchByStatus()">
+          <option value="In-Progress">In-Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mr-6 mb-3">
+        <label for="batchCode" class="form-label required-label"><b>Batch Name</b></label>
+        <select id="batchCode" class="form-select" formControlName="batchCode" name="batchCode">
+          <option *ngFor="let batch of batches; let i = index" [value]="batch.batchCode">{{batch.batchCode}}</option>
+        </select>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mr-6 mb-3">
+        <label for="topicName" class="form-label"><b>Topic Name</b></label>
+        <input type="text" id="topicName" name="topicName" placeholder="Topic Name" class="form-control"
+          formControlName="topicName">
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mr-6 mb-3">
+        <label for="comments" class="form-label"><b>Comments</b></label>
+        <input type="text" id="comments" name="comments" placeholder="comments" class="form-control"
+          formControlName="comments">
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mr-6 mb-3">
+          <label for="uploadProfile" class="form-label">
+            <h4><b>Select File</b></h4>
+          </label>
+          <input type="file" id="formControlName" name="uploadProfile" formControlName="formControlName"
+            (change)="onFileChange($event, 'image')"  class="form-control mt-3">
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mr-5 ml-2">
+          <button type="submit" class="btn btn-submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

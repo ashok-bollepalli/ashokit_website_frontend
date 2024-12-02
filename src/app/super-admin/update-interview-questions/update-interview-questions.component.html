@@ -1,0 +1,34 @@
+<div class="p-3 mt-5" style="box-shadow:  5px 5px 10px 5px rgb(212, 218, 219);">
+    <h1><b>Update Interview Questions</b></h1>
+</div>
+<div class="card-body mt-5 mb-5 p-5">
+  <!--  <div class="col-md col-sm-12 col-lg-12 col-xl-12 mb-3">
+        <label for="courseName" class="form-label required-label"><b>Category Name</b></label>
+        <input type="text" id="courseName" name="courseName" class="form-control"
+            [(ngModel)]=" interviewQuestion.courseName">
+    </div> -->
+    <div class="col-md col-sm-12 col-lg-12 col-xl-12 mb-3">
+        <label for="categoryId" class="form-label  required-label"><b>Interview Category Name</b> </label>
+           <select id="categoryId" formControlName="categoryId" class="form-select" [(ngModel)]=" interviewQuestion.categoryId">
+               <option *ngFor="let interviewCategory of interviewCategorys; let i = index"  [value]="interviewCategory.categoryId" >{{interviewCategory.name}}</option>
+           </select>
+       </div>
+    <div class="col-md col-sm-12 col-lg-12 col-xl-12 mb-3">
+        <label for="question" class="form-label required-label"><b>Question</b></label>
+        <input type="text" id="question" name="question" class="form-control" [(ngModel)]=" interviewQuestion.question">
+    </div>
+    <div class="col-md col-sm-12 col-lg-12 col-xl-12 mb-3">
+        <label for="answer" class="form-label required-label"><b>Answer</b></label>
+        <ckeditor [editor]="Editor"  tagName="textarea"  [(ngModel)]="interviewQuestion.answer" data="<p>Hello, world!</p>"></ckeditor>
+    </div>
+    <div class="col-md col-sm-12 col-lg-12 col-xl-12 mb-3">
+        <label for="coverImage" class="form-label "><b>Image</b></label>
+        <input type="file" id="coverImage" name="coverImage" class="form-control ">
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+            <button type="submit" class="btn-submit float-end" (click)="onSubmit()">update</button>
+        </div>
+    </div>
+
+</div>

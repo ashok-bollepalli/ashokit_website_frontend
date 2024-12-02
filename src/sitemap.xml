@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://ashokit.in/</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ashokit.in/login</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ashokit.in/register</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/services</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/placements</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/mock-interviews</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/software-development</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses-offering</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/training-schedule</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/careers</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/software-job-openings</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/internships</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/interview-questions</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/course-registration</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/events</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/about-us</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/contact-us</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/java_fullstack_developer</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/springboot_microservices_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/java-realtime-project-online-training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/devops-with-aws-online-training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/python-fullstack-developer-online-training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/software-testing-course-in-hyderabad</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/ui-fullstack-development-online-training/</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/react-js-online-training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/angular-online-training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/data-structures-algorithms-online-training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://www.ashokit.in/courses/generative_ai_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/oracle-online-training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/aws-cloud-online-training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/linux_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/microservices_design_patterns_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/azure_devops_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/web_development_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/python_boot_camp_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/adv_java_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/docker_kubernetes_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+<url>
+  <loc>https://www.ashokit.in/courses/aws_bootcamp_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/azure_bootcamp_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashokit.in/courses/gcp_bootcamp_online_training</loc>
+  <lastmod>2022-10-15T06:12:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+</urlset>

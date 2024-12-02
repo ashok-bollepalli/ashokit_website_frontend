@@ -1,0 +1,87 @@
+<div class="container-fluid mb-4">
+  <div class="row">
+    <div class="text-center mt-4 mb-4">
+      <h1 class="display-4"><b>Course Enrollment</b></h1>
+    </div>
+  </div>
+  <div class="row bg-light p-4 mb-4 rounded shadow-sm">
+    <div class="col-12 d-flex flex-wrap justify-content-start gap-3 align-items-center">
+      <div class="form-group">
+        <div class="radio-group d-flex flex-wrap gap-3">
+          <div *ngFor="let courseCategory of courseCategories" class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="courseCategory"
+              [id]="courseCategory.courseCategoryId"
+              [value]="courseCategory.courseCategoryId"
+              (change)="getScheduledBatchesByCategoryId(courseCategory.courseCategoryId)"
+            />
+            <label class="form-check-label" [for]="courseCategory.courseCategoryId">
+              <b> {{ courseCategory.courseCategoryName }}</b>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Uncomment and use these dropdowns if needed -->
+      <!--
+      <div class="dropdown ms-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Select Training Mode
+        </button>
+        <ul class="dropdown-menu">
+          <a class="dropdown-item" (click)="getScheduledBatchesByScheduleType('Classroom')">Class Room Training</a>
+          <a class="dropdown-item" (click)="getScheduledBatchesByScheduleType('Online')">Online Training</a>
+          <a class="dropdown-item" (click)="getScheduledBatchesByScheduleType('Free')">Free Training</a>
+          <a class="dropdown-item" (click)="getScheduledBatchesByScheduleType('e_Learning')">e_Learning</a>
+        </ul>
+      </div>
+
+      <div class="dropdown ms-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Select Course By Trainer
+        </button>
+        <ul class="dropdown-menu">
+          <li *ngFor="let trainer of trainers">
+            <a class="dropdown-item" (click)="getAllCourseByTrainer(trainer)">{{ trainer.trainerName }}</a>
+          </li>
+        </ul>
+      </div>
+      -->
+    </div>
+  </div>
+  <div class="row">
+    <main class="col-12">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let course of courses">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="../../../assets/uploads/course/{{ course.coverImage }}" class="card-img-top" alt="Image" />
+              <!-- Add labels for image -->
+              <div class="badge new-badge" *ngIf="course.scheduleName === 'Free'">Free Batch</div>
+            </div>
+            <div class="card-body">
+              <h3 class="me-3"><b>Course Name : {{ course.courseName }}</b></h3>
+              <hr>
+              <p class="card-text">
+                <span class="text-primary me-3"><b>Trainer : </b> {{ course.trainerName }}</span>
+                <br />
+                <span class="text-danger me-3"><b>Course Fee : </b> <del>&#8377;{{ course.courseFee }}</del></span>
+                <br />
+                <span class="text-success"><b>Offer Fee : </b> &#8377;{{ course.courseOfferFee }} INR</span>
+              </p>
+            </div>
+            <div class="card-footer text-center">
+              <button class="btn btn-success" (click)="enroll(course.batchId)">
+                Click Here To Enroll Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <h1 *ngIf="courses.length == 0" class="text-center">No Records Found</h1>
+      </div>
+    </main>
+  </div>
+</div>

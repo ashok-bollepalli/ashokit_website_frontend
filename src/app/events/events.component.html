@@ -1,0 +1,69 @@
+<div id="carouselExampleControls" class="carousel banner-slide1" data-ride="carousel">
+  <div id="scrollUp" class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../../assets/images/interview_qun_banner.png" alt="Image" class="d-block w-100" />
+      <div class="carousel-caption d-flex flex-column justify-content-center align-items-start">
+        <h1>
+          <b>Free Master Classes</b>
+        </h1>       
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-3 mb-3">
+    <div class="col-12 bg-light p-2 d-flex justify-content-flex-start align-items-center gap-2">
+      <button class="btn tab-custom-btn" [ngClass]="{ 'active-tab': activeTab === 'All' }"
+        [class.active]="activeTab === 'All'" (click)="getEventByEventCategory('All')">
+        All
+      </button>
+      <div *ngFor="let eventCategory of eventCategories">
+        <button class="btn tab-custom-btn" [ngClass]="{
+            'active-tab': activeTab === eventCategory.eventCategoryname
+          }" [class.active]="activeTab === eventCategory.eventCategoryname"
+          (click)="getEventByEventCategory(eventCategory)">
+          {{ eventCategory.eventCategoryname }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <!--<div class="totalStudents">
+    <div class="card-container">
+      <img src="https://uploads-ssl.webflow.com/5fa298c0bded9141021f03fa/607e6bbcb234b25aff3f81b5_best-employee.svg"
+        class="card-img" alt="Image" />
+      <h3 class="mt-3">
+        <b>Total Registered Students :</b> {{ totalRegisteredStudents }}
+      </h3>
+    </div>
+  </div>-->
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-md-4 col-lg-4 mb-5" *ngFor="let event of events">
+      <div class="card">
+        <img src="../../assets/events/{{ event.eventThumbnail }}" class="card-image" alt="Image" />
+        <div class="card-body">
+          <h3 class="card-title" style="color: red;">
+            <b>{{ event.eventName }}</b>
+          </h3>
+          <hr/>
+          <p class="card-text">
+            <b>Start Date:</b>: {{ event.eventStartDate | date: 'dd-MMM-yyyy' }}<br />
+            <b> Class Time:</b> {{ event.eventStartTime }} {{ event.startMeridianType }} (IST)<br /><br />
+            <b>End Date:</b> {{ event.eventEndDate | date: 'dd-MMM-yyyy'}}<br />
+            <b>End Time:</b> {{ event.eventEndTime }} {{ event.endMeridianType }} (IST) <br /><br />
+            <b>Class Mode:</b> {{ event.eventVenue }}
+          </p>
+          <hr />
+          <div class="mt-4">
+            <span style="color: red;">{{ event.registeredCount }} Students Already Registered</span>
+            <hr />
+            <button type="submit" class="btn custom-btn float-end" (click)="eventDetails(event)">
+              Register Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

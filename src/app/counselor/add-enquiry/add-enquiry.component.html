@@ -1,0 +1,96 @@
+<div class="container">
+    <section class="add_enquiries">
+        <div class="card-header mt-5 p-2">
+            <h1 class="mt-3"><b>Add Enquiries</b></h1>
+        </div>
+    </section>
+    <div class="card-body mt-5 mb-5 p-5">
+        <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="FullName" class="form-label required-label"><b>Name</b></label>
+                    <input type="text" id="fullName" formControlName="fullName" class="form-control">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="Email" class="form-label required-label"><b>Email</b></label>
+                    <input type="email" id="email" formControlName="email" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="countryCode" class="form-label required-label"><b>Country Code</b></label>
+                    <select id="countryCode" class="form-select" formControlName="countryCode">
+                        <option>-Select-</option>
+                        <option *ngFor="let countryCode of countryCodes" [value]="countryCode.countryCode">{{ countryCode.countryCode+" - "+countryCode.countryName }}</option>
+                    </select>
+                </div>               
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="mobilNumber" class="form-label required-label"><b>Whatsapp Number</b></label>
+                    <input type="number" class="form-control" id="mobilNumber" formControlName="mobilNumber"
+                        placeholder="Enter Whatsapp Number" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="CourseCategory" class="form-label  required-label"><b> Category</b> </label>
+                    <select id="courseCategory" class="form-select" formControlName="courseCategoryId"
+                    (change)="filterCourseByCategory()">
+                    <option>- Select -</option>
+                    <option *ngFor="let courseCategory of courseCategories; let i = index"
+                        [value]="courseCategory.courseCategoryId">
+                        {{courseCategory.courseCategoryName}}</option>
+                </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="courseId" class="form-label required-label"><b>Course Name</b></label>
+                    <select id="course" class="form-select" formControlName="courseId">
+                        <option>- Select -</option>
+                        <option *ngFor="let course of filteredCourses; let i = index" [value]="course.courseId">
+                            {{course.courseName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">  
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="trainingMode" class="form-label required-label"><b>Training Mode</b></label>
+                    <select id="trainingMode" class="form-select" formControlName="trainingMode">
+                        <option>-Select-</option>
+                         <option *ngFor="let trgModes of trainingModes" [value]="trgModes.trainingType">
+		                    {{ trgModes.trainingType }}
+	                    </option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="comment" class="form-label required-label"><b>Message</b></label>
+                    <textarea class="form-control" id="comment" name="comment" formControlName="comment"></textarea>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label class="status" class="form-label"><b>Enquiry Source</b></label>
+                    <select id="enqSource" name="enqSource" class="form-select" formControlName="enqSource">
+                        <option>-Select-</option>
+                        <option value="WhatsApp">WhatsApp</option>
+                        <option value="Phone">Phone Call</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Walkin">Walk-In</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label class="status" class="form-label"><b>Status</b></label>
+                    <select id="status" name="status" class="form-select" formControlName="status">
+                        <option value="Open">Open</option>
+                        <option value="Closed">Closed</option>
+                        <option value="Lost">Lost</option>
+                    </select>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                        <button type="submit" class="btn btn-info float-end">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

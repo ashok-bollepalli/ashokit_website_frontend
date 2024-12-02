@@ -1,0 +1,130 @@
+<title>Ashok IT : Class Materials</title>
+<div class="container">
+    <div class="card-body">
+        <h1 class="m-4">Class Information</h1>
+        <!-- Responsive Table for Class Information -->
+        <div class="medium-table table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Zoom Link</th>
+                        <th>Backup Videos</th>
+                        <th>Workspace</th>
+                        <th>Course Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{classNotes[0].courseName}}</td>
+                        <td *ngIf="classNotes[0].courseStatus === 'In-Progress'"><a href="{{classNotes[0].zoomRegLink}}"
+                                class="btn btn-success" target="_blank">Join Live Class</a></td>
+                        <td *ngIf="classNotes[0].courseStatus === 'Completed'">N/A</td>                       
+                        <td><a href="{{classNotes[0].videoLink}}" class="btn btn-secondary" target="_blank">Watch Backup
+                                Videos</a></td>
+                        <td><a href="{{classNotes[0].gitRepo}}" class="btn btn-info" target="_blank">Access Git Repo</a></td>
+                        <td><span class="btn btn-danger">{{classNotes[0].courseStatus}}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h1 class="m-4">View Class Notes</h1>
+
+        <div class="mobile-table">
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <td class="txt-bold">Course Name</td>
+                        <td>{{classNotes[0].courseName}}</td>
+                    </tr>
+                    <tr *ngIf="classNotes[0].courseStatus === 'In-Progress'">
+                        <td class="txt-bold">Zoom Link</td>
+                        <td><a href="{{classNotes[0].zoomRegLink}}" class="btn btn-success" target="_blank">Join Live
+                                Class</a></td>
+                    </tr>
+                    <tr>
+                        <td class="txt-bold">Backup Videos</td>
+                        <td><a href="{{classNotes[0].videoLink}}" class="btn btn-secondary" target="_blank">Watch Backup
+                                Videos</a></td>
+                    </tr>
+                    <tr>
+                        <td class="txt-bold">Workspace</td>
+                        <td><a href="{{classNotes[0].gitRepo}}" class="btn btn-info" target="_blank">Access Git Repo</a></td>
+                    </tr>
+                    <tr>
+                        <td class="txt-bold">Course Status</td>
+                        <td><span class="btn btn-danger">{{classNotes[0].courseStatus}}</span></td>
+                    </tr>
+                    <tr>
+                        <br />
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- Responsive Table for Class Notes -->
+        <div class="medium-table table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Topic Name</th>
+                        <th>Class Notes</th>
+                        <th>Backup Videos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngIf="isTopicNameValid; else noRecords">
+                        <tr *ngFor="let classNote of classNotes; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{classNote.topicName}}</td>
+                            <td>
+                                <a (click)="showFile(classNote)" class="btn btn-primary">Download</a>
+                            </td>
+                            <td><a [href]="classNote.videoLink" target="_blank">Watch Video</a></td>
+                        </tr>
+                    </ng-container>
+                    <ng-template #noRecords>
+                        <tr>
+                            <td colspan="4">No Records Found</td>
+                        </tr>
+                    </ng-template>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mobile-table">
+            <table class="table table-bordered table-striped">
+                <tbody *ngFor="let classNote of classNotes; let i = index">
+                    <ng-container *ngIf="isTopicNameValid; else noRecords">
+                        <tr>
+                            <td class="txt-bold">S.No</td>
+                            <td>{{ i + 1 }}</td>
+                        </tr>
+                        <tr>
+                            <td class="txt-bold">Topic Name</td>
+                            <td>{{classNote.topicName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="txt-bold">Class Notes</td>
+                            <td>
+                                <a (click)="showFile(classNote)" class="btn btn-primary">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="txt-bold">Backup Videos</td>
+                            <td><a [href]="classNote.videoLink" target="_blank">Watch Video</a></td>
+                        </tr>
+                        <tr>
+                            <br />
+                        </tr>
+                    </ng-container>
+                    <ng-template #noRecords>
+
+                    </ng-template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

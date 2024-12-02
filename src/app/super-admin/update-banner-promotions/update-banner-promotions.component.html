@@ -1,0 +1,46 @@
+<p>update-banner-promotions works!</p>
+<div class="container">
+    <div class="p-3" style="box-shadow:  5px 10px 15px 5px rgb(212, 218, 219);">
+        <h1>Update Banner Promotion</h1>
+    </div>
+    <div class="box">
+        <div class="card-body mt-5 mb-5 p-5">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label for="title" class="dropbtn required-label"><b>title</b></label>
+                    <input type="text" id="title" name="title" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="displayBannerType" class="form-label required-label"><b>Dispaly Banner</b></label>
+                <select id="displayBannerType" name="displayBannerType" class="form-control">
+                    <option value="Banner">Select Disply Banner</option>
+                    <option value="Online Trainng">Online Trainng</option>
+                    <option value="Class Room Training">Class Room Training</option>
+                    <option value="Weekend workShops">Weekend workShops</option>
+                    <option value="Free Trainng">Free Trainng</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-top: 20px;">
+                <label><b>Cover Image</b></label><br>
+                <div class="cover-image-box">
+                    <input type="file" name="coverImage" id="coverImage" class="form-control-file"
+                        (change)="onFileChange($event)">
+
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-info float-end" (click)="onSubmit()">Submit</button>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+</div>

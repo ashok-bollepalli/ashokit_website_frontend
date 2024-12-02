@@ -1,0 +1,160 @@
+<div class="container">  
+  <div id="carouselExampleControls" class="carousel banner-slide1" data-ride="carousel">
+    <div id="scrollUp" class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../assets/images/services221.png" alt="Java Full Stack Developer Course in Hyderabad" class="d-block w-100" />
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-start">
+          <h1 class="container-heading">Online Training</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="course-details">
+      <div class="row">
+        <div class="card-body col-md-6 col-sm-6 col-lg-6 col-xl-6 mt-3 mb-5 p-5" *ngIf="!showOtpValidateScreen">
+          <h2 class="text-center">Register Now</h2>
+
+          <form [formGroup]="courseRegistrationForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                <label for="fullName" class="form-label required-label"><b>Name</b></label>
+                <input type="text" id="fullName" name="fullName" formControlName="fullName" class="form-control" />
+                <div *ngIf="submitted && f['fullName'].errors" class="text-danger">
+                  Name is required
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                <label for="email" class="form-label required-label"><b>Email</b></label>
+                <input type="text" id="email" name="email" formControlName="email" class="form-control" />
+                <div *ngIf="submitted && f['email'].errors" class="text-danger">
+                  <div *ngIf="f['email'].errors">Email is required</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3 mt-2">
+                <label for="CourseCategory" class="form-label required-label"><b>Select Category</b></label>
+                <select id="CourseCategory" formControlName="courseCategoryId" class="form-select"
+                  (change)="findCourseByCategory($event)">
+                  <option value="0">-Select-</option>
+                  <option *ngFor="let courseCategory of courseCategories" [value]="courseCategory.courseCategoryId">
+                    {{ courseCategory.courseCategoryName }}
+                  </option>
+                </select>
+                <div *ngIf="submitted && f['courseCategoryId'].errors" class="text-danger">
+                  Category is required
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3 mt-2">
+                <label for="CourseName" class="form-label required-label"><b>Course Name</b></label>
+                <select id="CourseName" class="form-select" formControlName="courseId">
+                  <option value="0">-Select-</option>
+                  <option *ngFor="let course of courses" [value]="course.courseId">
+                    {{ course.courseName }}
+                  </option>
+                </select>
+                <div *ngIf="submitted && f['courseId'].errors" class="text-danger">
+                  Course Name is required
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                <label for="countryCode" class="form-label required-label"><b>Country Code</b></label>
+                <select class="form-select" id="countryCode" name="countryCode" formControlName="countryCode">
+                  <option value="0">-Select-</option>
+                  <option *ngFor="let countryCode of countryCodes" [value]="countryCode.countryCode">
+                    {{
+                    countryCode.countryCode +
+                    " -
+                    " +
+                    countryCode.countryName
+                    }}
+                  </option>
+                </select>
+                <div *ngIf="submitted && f['countryCode'].errors" class="text-danger">
+                  Country Code is required
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                <label for="mobilNumber" class="form-label required-label"><b>WhatsApp Number</b></label>
+                <input type="tel" class="form-control" id="mobilNumber" formControlName="mobilNumber"
+                  (input)="onInputChange($event)" title="Please enter a valid mobile number"
+                  placeholder="Enter mobile number" />
+                <div *ngIf="submitted && f['mobilNumber'].errors" class="text-danger">
+                  Please enter a valid mobile number
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                <button type="submit" class="btn btn-submit float-end">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+        <div class="col-md-5" *ngIf="showOtpValidateScreen">
+          <div class="">
+            <h1 class="registration"><i>Validate OTP</i></h1>
+            <hr />
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+              {{ errorMessage }}
+              <button type="button" class="btn-close" aria-label="Close"></button>
+            </div>
+            <form [formGroup]="courseRegOTPForm" (ngSubmit)="validateOtp()">
+              <div>
+                Enter OTP Recieved In WhatsApp
+              </div>
+
+              <div id="selectedStudentRegistration.otp" name="selectedStudentRegistration.otp"
+                class="inputs d-flex mt-2">
+                <input type="number" id="otp" class="form-control" formControlName="otp" />
+              </div>
+
+              <div class="text-center mb-5">
+                <button data-mdb-button-init data-mdb-ripple-init
+                  class="btn btn-submit btn-block gradient-custom-2 w-100" type="submit">
+                  Validate OTP
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="sidebar-right">
+      <h2>Latest Updates</h2>
+      <ul>
+        <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">New Course Available:
+            Web Development Basics</a></li>
+        <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">Enroll Now: Advanced
+            Python Programming</a></li>
+        <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">Early Bird
+            Registration Discount!</a></li>
+        <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">Upcoming Webinar:
+            Mastering Data Science</a></li>
+        <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">Check Out Our New
+            Course Platform</a></li>
+      </ul>
+    </aside>
+    <aside class="sidebar-right">
+      <h2>Follow Us in Social Media</h2>
+      <ul>
+        <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/ashokitschool/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.youtube.com/c/AshokIT?sub_confirmation=1" target="_blank">YouTube</a></li>
+        <li><a href="https://www.facebook.com/ashokitschool" target="_blank">Facebook</a></li>
+        <li><a href="https://www.linkedin.com/company/ashokit/?viewAsMember=true" target="_blank">LinkedIn</a></li>
+      </ul>
+    </aside>
+  </div>
+</div>

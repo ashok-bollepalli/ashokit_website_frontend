@@ -1,0 +1,77 @@
+
+
+.heading {
+    background-color: #38588b;
+    max-width: 100%;
+    height: 100%;
+}
+
+.banner {
+    text-align: center;
+}
+
+.banner_image {
+    max-width: 300%;
+    height: auto;
+}
+.interview_questions {
+    color: white;
+    font-size: 30px;
+}
+
+.tabs-nav {
+    list-style-type: none;
+    padding: 0;
+}
+.row{
+    margin-bottom: 30px;
+}
+
+.tabs-nav li {
+    background-color : #002147;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    color: white;
+    font-size: 15px;
+
+}
+.tabs-nav li a {
+    color: white;
+    text-decoration: none;
+}
+
+.card {
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width:70%;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color:red;
+}
+

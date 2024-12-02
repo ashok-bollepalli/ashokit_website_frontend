@@ -1,0 +1,34 @@
+<div class="container">
+  <h1 class="m-4"><b> Enrolled Courses</b></h1>
+
+  <h1 *ngIf="batches.length == 0">You have not enrolled for any course as of now <a routerLink="/student/home"
+      title="nav-link">please click here to enroll now</a></h1>
+  <!-- Courses -->
+  <div class="row">
+    <div class="col-md-8 col-sm-8 col-lg-8 col-xl-8">
+      <div class="row">
+        <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4" *ngFor="let batch of batches">
+          <div class="card mt-2 mb-2">
+            <img src="../../../assets/uploads/course/{{batch.image}}" class="coverImage" alt="Training Image">
+            <div class="card-body">
+             <p class="card-text"><b>Start Date :</b> {{ batch.startDate | date : 'dd-MMM-yyyy'}}</p>
+              <p class="card-text"><b>Class Timing :</b> {{ batch.batchTimings }} {{ batch.meridianType }} (IST)</p>
+              <p class="card-text">
+                <a *ngIf="batch.courseStatus === 'In-Progress'" href="{{batch.zoomRegLink}}"
+                  class="btn btn-icon btn-success" target="_blank">Join Live Class</a>
+              </p>
+              <hr>
+              <p class="card-text" *ngIf="batch.courseStatus === 'Completed'" class="text-danger">This batch got completed.</p>
+
+              <p class="card-text">
+                <button class="btn btn-icon btn-success" (click)="viewNotes(batch.batchCode)">
+                  View Class Notes
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

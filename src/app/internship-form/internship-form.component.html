@@ -1,0 +1,71 @@
+<div class="heading">
+    <h1><b>Apply For Internship</b></h1>
+</div>
+<div class="card-body  col-lg-8 col-xl-8 col-md-8 col-sm-6 p-2 mb-4">
+    <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+        <div class="row mt-3">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
+                <div class="Name">
+                    <label for="name" class="form-label required-label" ><b>Name</b></label>
+                    <input type="text" id="name" name="name" placeholder="Full Name" class="form-control"
+                        formControlName="name">
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <div class="Email">
+                    <label for="email" class="form-label required-label"><b>Email</b></label>
+                    <input type="email" id="email" name="email" placeholder="Email" class="form-control"
+                        formControlName="email">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <div class="PhoneNumber">
+                    <label for="phoneNumber"  class="form-label required-label"><b>Phone Number</b></label>
+                    <input type="tel" id="phone" name="phone" placeholder="PhoneNumber" class="form-control"
+                        formControlName="phone">
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <div class="Qualification">
+                    <label for="Qualification"  class="form-label required-label"><b>Qualification</b></label>
+                    <input type="text" id="qualification" name="qualification" placeholder="Qualification"
+                        class="form-control" formControlName="qualification">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <div class="select-Positions">
+                    <label for="select-positions"  class="form-label required-label"><b>Select Positions</b></label>
+                    <select id="role" name="role" class="form-select" formControlName="role">
+                        <option value="Internship">Internship</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <div class="Resume">
+                    <label for="resume" class="form-label required-label"><b>Resume</b></label>
+                    <input type="file" id="resume" name="resume" class="form-control" formControlName="resume">
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                
+                    <label for="description"></label>
+                    <textarea id="description" id="userComment" name="userComment" class="form-control"
+                        placeholder="more abour your self.." formControlName="userComment"></textarea>
+                
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                <button type="submit" class="btn btn-primary float-end" >Submit</button>
+            </div>
+        </div>
+           
+    </form>
+</div>

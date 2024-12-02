@@ -1,0 +1,100 @@
+<!--
+<div class="container">
+    <div class="col-md-12 mb-4 mt-4">
+        <h1 class="section-heading mb-4 text-center"><b>Teaching Courses</b></h1>
+    </div>
+    <div class="card-body mt-5 mb-5 p-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                <form [formGroup]="uploadNotesForm" (ngSubmit)="onSubmit()">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 mb-3">
+                        <label for="courseStatus" class="form-label required-label"><b>Batch Status</b></label>
+                        <select id="courseStatus" class="form-select" formControlName="courseStatus"
+                            (change)="filterBatchByStatus()">
+                            <option value="In-Progress">In-Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 mb-3">
+                        <label for="batchCode" class="form-label required-label"><b>Batch Name</b></label>
+                        <select id="batchCode" class="form-select" formControlName="batchCode">
+                            <option value="">-Select-</option>
+                            <option *ngFor="let batch of filteredBatches; let i = index" [value]="batch.batchCode">
+                                {{batch.batchCode}}</option>
+                        </select>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 mb-3">
+                        <label for="topicName" class="form-label"><b>Topic Name</b></label>
+                        <input type="text" id="topicName" name="topicName" placeholder="Topic Name" class="form-control"
+                            formControlName="topicName">
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 mb-3">
+                        <label for="comments" class="form-label"><b>Comments</b></label>
+                        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control"
+                            formControlName="comments">
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 mb-3">
+                        <label for="uploadProfile" class="form-label">
+                            <h4><b>Select File</b></h4>
+                        </label>
+                        <input type="file" id="uploadProfile" name="uploadProfile" formControlName="uploadProfile"
+                            (change)="onFileChange($event, 'image')" class="form-control">
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 text-center mt-5">
+                        <button type="submit" class="btn btn-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>-->
+<div class="container">
+    <div class="col-12 mb-4 mt-4">
+        <h1 class="section-heading mb-4 text-center"><b>Upload Class Notes</b></h1>
+    </div>
+    <div class="card-body mt-5 mb-5 p-3 p-md-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12">
+                <form [formGroup]="uploadNotesForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                        <label for="courseStatus" class="form-label required-label"><b>Batch Status</b></label>
+                        <select id="courseStatus" class="form-select" formControlName="courseStatus"
+                            (change)="filterBatchByStatus()">
+                            <option value="In-Progress">In-Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="batchCode" class="form-label required-label"><b>Batch Name</b></label>
+                        <select id="batchCode" class="form-select" formControlName="batchCode">
+                            <option value="">-Select-</option>
+                            <option *ngFor="let batch of filteredBatches; let i = index" [value]="batch.batchCode">
+                                {{batch.batchCode}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="topicName" class="form-label required-label"><b>Topic Name</b></label>
+                        <input type="text" id="topicName" name="topicName" placeholder="Topic Name" class="form-control"
+                            formControlName="topicName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="comments" class="form-label"><b>Comments</b></label>
+                        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control"
+                            formControlName="comments">
+                    </div>
+                    <div class="mb-3">
+                        <label for="uploadProfile" class="form-label">
+                            <h4><b>Select File</b></h4>
+                        </label>
+                        <input type="file" id="uploadProfile" name="uploadProfile" formControlName="uploadProfile"
+                            (change)="onFileChange($event, 'image')" class="form-control required-label">
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-submit btn-primary w-100">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

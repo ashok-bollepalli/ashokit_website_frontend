@@ -1,0 +1,40 @@
+<!-- Assuming trainerPayments is an object of TrainerPaymentDTO -->
+<div class="container">
+    <section class="add_courses">
+        <div class="card-header mt-5 p-2"> 
+           <h1 class="mt-3"><b>Update Trainer Payment Details</b></h1>
+       </div>
+   </section>
+
+   <div class="card-body mt-5 mb-5 p-5" >
+        <div class="row mb-3">
+            <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                <label for="amount" class="form-label required-label"><b>Amount</b></label>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="text" id="paidAmount" name="paidAmount" class="form-control" placeholder="Enter Amount" [(ngModel)]="trainerPayment.paidAmount">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                <label for="paymentDate" class="form-label required-label"><b>Payment Date</b></label>
+                <input type="date" id="paymentDate" name="paymentDate"  class="form-control" [(ngModel)]="trainerPayment.paymentDate">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                <label for="comment" class="form-label"><b>Comment</b></label>
+                <textarea id="comments" name="comments" class="form-control" rows="4" [(ngModel)]="trainerPayment.comments"></textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 offset-md-6">
+                <button type="submit" class="btn-submit float-end" (click)="onSubmit()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

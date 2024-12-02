@@ -1,0 +1,39 @@
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+<form [formGroup]="googleSeoFormSubmitForm">
+    <mat-tab label="Google Analytics">
+      <div class="example-small-box mat-elevation-z4">
+        <div class="m-4">
+          <h1 class="m-4">Google Analytics</h1>
+    
+          <!-- Google Analytics Script -->
+          <div class="mt-2 mb-2">
+            <label for="googleAnalyticsScript" class="form-label"><b>Google Analytics Script *</b></label>
+            <ckeditor [editor]="Editor" tagName="textarea" formControlName="analytics" data="<p>Hello, world!</p>"></ckeditor>
+          </div>
+    
+          <div class="mt-2 mb-2">
+            <button type="button" (click)="googleSeoFormSubmit()" class="btn btn-primary text-white float-end btn-custom">Update Google Analytics</button>
+          </div>
+          
+        </div>
+      </div>
+    </mat-tab>
+</form>
+<form [formGroup]="webSiteMetaKeywordsForm">
+  <mat-tab label="Website Meta Keywords">
+    <div class="example-small-box mat-elevation-z4">
+      <div class="m-4">
+       <h1>Website Meta Keywords</h1>
+        <div class="mt-2 mb-2">
+          <label for="Google Analytics Script" class="form-label"><b>Website Meta Keywords Script *</b></label>
+          <ckeditor [editor]="Editor" tagName="textarea" formControlName="metaKeyword" data="<p>Hello, world!</p>"></ckeditor>
+        </div>
+        <div class="mt-2 mb-2">
+          <button type="button" (click)="webSiteMetaKeywordsFormSubmit()"  class="btn btn-primary text-white float-end btn-custom">Update Meta Keywords</button>
+        </div>
+        
+      </div>
+    </div>
+  </mat-tab>
+  </form>
+</mat-tab-group>

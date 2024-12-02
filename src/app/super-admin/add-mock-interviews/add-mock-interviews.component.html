@@ -1,0 +1,56 @@
+<div class="container">
+    <section class="add_courses">
+        <div class="card-header mt-5 p-2">
+            <h1 class="mt-3"><b>Add Mock Interviews</b></h1>
+        </div>
+    </section>
+    <div class="card-body mt-5 mb-5 p-5">
+        <form [formGroup]="mockInterviewsForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="category" class="form-label  required-label"> <b>Category</b></label>
+                    <select id="category" name="category" formControlName="category" class="form-select">
+                        <option selected disabled>Select Category</option>
+                        <option value="testimonial 1">testimonial 1</option>
+                        <option value="meet your interviews">meet your interviews</option>
+
+                        <option value="Why take mock interviews with interviewers">Why take mock interviews with
+                            interviewers</option>
+                        <option value="Hear what our customer have to say">Hear what our customer have to say</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="FullName" class="form-label required-label"><b>Full Name</b></label>
+                    <input type="text" id="fullName" name="fullName" formControlName="fullName" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                    <label for="Content" class="form-label required-label"><b>Content</b></label>
+                    <!-- <input type="text" id="content" name="content" formControlName="content" class="form-control">-->
+                    <ckeditor [editor]="Editor" tagName="textarea" formControlName="content"
+                        data="<p>Hello, world!</p>"></ckeditor>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="ProfileImage" class="form-label required-label"><b>Profile Image</b></label>
+                    <input type="file" id="profileImage" name="profileImage" (change)="onFileChange($event, 'profileImage')" accept="image/*" class="form-control mt-3">
+                </div>
+
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="CompanyLogo" class="form-label required-label"><b>Company Logo</b></label>
+                    <input type="file" id="companyLogo" name="companyLogo" (change)="onFileChange($event, 'companyLogo')" accept="image/*" class="form-control mt-3">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                    <button type="submit" class="btn btn-submit float-end" >Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

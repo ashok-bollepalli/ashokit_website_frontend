@@ -1,0 +1,64 @@
+<div class="card-header">
+    <h1 class="m-4">Create JOB Posting</h1>
+    <div class="card-body">
+        <form [formGroup]="jobPostingForm"  (ngSubmit)="onSubmit()">
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                    <label for="jobTitle" class="required-label">Job Title</label>
+                    <input type="text" id="jobTitle" formControlName="jobTitle" class="form-control" required>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                    <label for="companyName" class="required-label">Company Name</label>
+                    <input type="text" id="companyName" formControlName="companyName" class="form-control" required>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                    <label for="jobLocation" class="required-label">Job Location</label>
+                    <input type="text" id="jobLocation" formControlName="jobLocation" class="form-control" required>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                    <label for="package" class="required-label">Package</label>
+                    <input type="text" id="package" formControlName="packageOffering" class="form-control" required>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                    <label for="slug" class="required-label">Slug</label>
+                    <input type="text" id="slug" formControlName="slug" class="form-control" required>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                    <label for="eligibility" class="required-label">Eligibility</label>
+                    <ckeditor [editor]="Editor" tagName="textarea" formControlName="eligibility" class="">
+                    </ckeditor>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                    <label for="qualification" class="required-label">Qualification</label>
+                    <ckeditor [editor]="Editor" tagName="textarea" formControlName="qualifications" class="">
+                    </ckeditor>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                    <label for="companyImage" class="form-label">Image</label>
+                    <input type="file" id="companyImage" name="companyImage" (change)="onFileChange($event)" accept="image/*"  formControlName="companyImage" class="form-control">
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                    <label for="jobType" class="required-label">Type</label>
+                    <select id="jobType" formControlName="jobType" class="form-select" required>
+                        <option value="Job">Job</option>
+                        <option value="Internship">Internship</option>
+                    </select>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                    <label for="linkToApply" class="required-label">Link To Apply</label>
+                    <input type="url" id="link" formControlName="link" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-5">
+                <button type="submit" class="btn btn-submit float-end">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

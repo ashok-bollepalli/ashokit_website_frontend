@@ -1,0 +1,54 @@
+<div class="interview">
+
+    <h1>{{interviewCategory.name}}</h1>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="box animate__animated animate__fadeInLeft">
+            <div class="col-md-9 col-sm-9 col-lg-9 col-xl-9" *ngFor="let interviewQuestion of interviewQuestions; let i = index">
+                <h3><b>{{ i + 1 }}.{{interviewQuestion.question}}</b></h3>
+                <p>{{interviewQuestion.answer}}</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3">
+            <div class="card  animate__animated animate__fadeInRight">
+                <h2>Register for Course</h2>
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" placeholder="Full Name" name="name"
+                            formControlName="name">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                            formControlName="email">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
+                            placeholder="Mobile Number" formControlName="phoneNumber">
+                    </div>
+
+                    <div class="form-group course-select">
+                        <select id="courseId" name="courseId" class="form-select" placeholder="Select Course"
+                            formControlName="courseId">
+                            <option value="" disabled select>Seclect Course</option>
+                            <option *ngFor="let course of courses" [value]="course.courseId">
+                                {{getCourseName(course.courseId) }}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group message-textarea">
+                        <textarea class="form-control" id="msg" name="msg" placeholder="Message"
+                            formControlName="msg"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-danger">Register</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+    <section class="add_courses">
+        <div class="card-header mt-5 p-2">
+            <h1 class="mt-3"><b>Update Banner Promotion</b></h1>
+        </div>
+    </section>
+    <div class="card-body mt-5 mb-5 p-5">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                <label for="url" class="form-label required-label"><b>Url</b></label>
+                <input type="text" id="title" name="title" class="form-control" [(ngModel)]="bannerPromotion.url">
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+            <label for="displayBannerType" class="form-label required-label"><b>Display Banner</b></label>
+            <select id="displayBannerType" name="displayBannerType" class="form-control"
+                [(ngModel)]="bannerPromotion.displayBannerType">
+                <option value="">Select Display Banner</option>
+                <option value="Online Training">Online Training</option>
+                <option value="Class Room Training">Class Room Training</option>
+                <option value="Weekend Workshops">Weekend Workshops</option>
+                <option value="Free Training">Free Training</option>
+            </select>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+            <label for="coverImage" class="form-label"><b>Cover Image</b></label><br>
+            <input type="file" name="coverImage" id="coverImage" class="form-control-file" (change)="onFileChange($event)" accept="image/*">
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                <button type="submit" class="btn-submit float-end" (click)="onSubmit()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+.heading {
+    text-align: center;
+}
+
+.card-body {
+    margin: 20px;
+    padding: 20px;
+
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.view-notes-link {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.page-item.active .page-link {
+    background-color: rgb(36, 110, 253);
+    color: white;
+}
+
+.page-item.disabled .page-link {
+    pointer-events: none;
+    color: #6c757d;
+}
+
+.page-item .page-link {
+    transition: none;
+}

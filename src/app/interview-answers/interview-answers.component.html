@@ -1,0 +1,163 @@
+<div class="interview">
+    <h1><b>{{title}}</b></h1>
+    <hr>
+</div>
+<div class="container">
+    <div class="row">
+        <!-- Main Content Section -->
+        <div class="col-md-8">
+            <div *ngFor="let interviewQuestion of interviewQuestions; let i = index"
+                class="box animate__animated animate__fadeInLeft">
+                <h3><b>Q - {{ i + 1 }} ) {{interviewQuestion.question}} </b></h3>
+                <div [innerHTML]="interviewQuestion.answer"></div>
+                <div *ngIf="interviewQuestion.coverImage">
+                    <img [src]="'../../assets/interview-questions/' + interviewQuestion.coverImage" alt="coverImage"
+                        class="img-fluid">
+                </div>
+                <hr />
+            </div>
+        </div>
+        <!-- Image Section -->
+        <div class="col-md-4">
+            <div class="image-gallery">
+                <div class="row">
+                    <a href="https://www.youtube.com/c/AshokIT?sub_confirmation=1" target="_blank">
+                        <img src="../../assets/images/free-software-training-tutorials.jpg" alt="Image 1"
+                            class="img-responsive">
+                    </a>
+                </div>
+
+                <div class="row">
+                    <a href="https://www.instagram.com/ashokitschool/" target="_blank">
+                        <img src="../../assets/images/instagram.png" alt="Image 2" class="img-responsive">
+                    </a>
+                </div>
+
+                <div class="row">
+                    <a href="https://bit.ly/49wCWje" target="_blank">
+                        <img src="../../assets/images/sia-whatsapp.jpg" alt="Image 3" class="img-responsive">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Registration Form Section -->
+
+<!--
+        <div class="col-md-6">
+            <div class="card animate__animated animate__fadeInRight" style="position: sticky; top: 0;">
+                <h2>Register for Course</h2>
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <input type="text" class="form-control  required-label" id="fullName" placeholder="Full Name"
+                            name="fullName" formControlName="fullName">
+                        <div *ngIf="submitted && f['fullName'].errors" class="text-danger">Full Name is required
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control  required-label" id="email" name="email"
+                            placeholder="Email" formControlName="email">
+                        <div *ngIf="submitted && f['email'].errors" class="text-danger">Email is required</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                               
+                                <select class="form-select" id="countryCode" name="countryCode"
+                                    formControlName="countryCode">
+                                    <option value="0">--select--</option>
+                                    <option *ngFor="let countryCode of countryCodes" [value]="countryCode.countryCode">
+                                        {{ countryCode.countryCode+" -
+                                        "+countryCode.countryName }}</option>
+                                </select>
+                                <div *ngIf="submitted && f['countryCode'].errors" class="text-danger">Country Code is
+                                    required</div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                                <input type="text" class="form-control  required-label" id="whatsappNumber"
+                                    name="whatsappNumber" maxlength="10"
+                                    title="Please enter a valid 10-digit mobile number" (input)="onInputChange($event)"
+                                    placeholder="Mobile Number" formControlName="whatsappNumber">
+
+                                <div *ngIf="submitted && f['whatsappNumber'].errors" class="text-danger">Phone Number is
+                                    required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <select id="CourseCategory" formControlName="courseCategoryId"
+                            class="form-select  required-label" (change)="findCourseByCategory($event)">
+                            <option value="" disabled select>Select CourseCategory</option>
+                            <option *ngFor="let courseCategory of courseCategories"
+                                [value]="courseCategory.courseCategoryId">
+                                {{courseCategory.courseCategoryName}}</option>
+                        </select>
+                        <div *ngIf="submitted && f['courseCategoryId'].errors" class="text-danger">Category is
+                            required
+                        </div>
+                    </div><br>
+                    <div class="form-group">
+                        <select id="courseId" name="courseId" class="form-select  required-label"
+                            placeholder="Select Course" formControlName="courseId">
+                            <option value="" disabled select>Seclect Course</option>
+                            <option *ngFor="let course of courses" [value]="course.courseId">
+                                {{getCourseName(course.courseId) }}</option>
+                        </select>
+                        <div *ngIf="submitted && f['courseId'].errors" class="text-danger">Course Name is required
+                        </div>
+                    </div><br>
+                    <div class="form-group">
+                        <textarea class="form-control  required-label" id="message" name="message" placeholder="Message"
+                            formControlName="message"></textarea>
+                        <div *ngIf="submitted && f['message'].errors" class="text-danger">Message is required</div>
+                    </div><br>
+                    <button type="submit" class="btn btn-danger">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div #myModal class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title justify-content-center align-items-center">Verified OTP</h2>
+                <button type="button" class="btn-close ms-auto" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="container height-100 d-flex justify-content-center align-items-center">
+                <div class="position-relative">
+                    <div class="p-2 text-center">
+                        <h6>Please enter the one time password <br> to verify your account</h6>
+                        <div><span>A code has been sent to</span>
+                            <small>
+                                <p><b>Mobile:</b> {{selectedCourseRegistration.mobileNumber}}</p>
+                            </small>
+                            <small>
+                                <p><b>Email:</b> {{selectedCourseRegistration.email}}</p>
+                            </small>
+                        </div>
+                        <div id="selectedStudentRegistration.otp" name="selectedStudentRegistration.otp"
+                            class="inputs d-flex flex-row justify-content-center mt-2">
+                            <input [(ngModel)]="otpNumber" class="m-2 text-center form-control rounded" type="text"
+                                id="first" maxlength="4" />
+                        </div>
+                        <div class="mt-4"><button class="btn btn-danger px-4 validate"
+                                (click)="validateOtp(selectedCourseRegistration)">Validate</button></div>
+                    </div>
+                    <div class="card-2">
+                        <div class="content d-flex justify-content-center align-items-center"><span>Didn't get the
+                                code</span> <a href="#" class="text-decoration-none ms-3">Resend(1/3)</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->

@@ -1,0 +1,60 @@
+<div id="carouselExampleControls" class="carousel banner-slide1" data-ride="carousel">
+  <div id="scrollUp" class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../../assets/images/career-banner01.png" alt="Image" class="d-block w-100" />
+      <div class="carousel-caption d-flex flex-column justify-content-center align-items-start">
+        <h1>
+          <b>Software Courses</b>
+        </h1>
+        <p>Explore new and trending courses.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-left: 20px; margin-right: 20px">
+  <div class="row">
+    <div class="card-body col-md-3 col-sm-3 col-lg-3 col-xl-3 mt-5 mb-2">
+      <ul class="tabs-nav">
+        <li class="tab-active">
+          <a [ngClass]="{ 'active-tab': activeTab === 'All' }" [class.active]="activeTab === 'All'"
+            (click)="getAllCourses('All')">All Courses</a>
+        </li>
+        <li class="tab-active" *ngFor="let courseCategory of courseCategories">
+          <a [ngClass]="{
+              'active-tab': activeTab === courseCategory.courseCategoryName
+            }" [class.active]="activeTab === courseCategory.courseCategoryName"
+            (click)="getCourseByCourseCategory(courseCategory)">{{ courseCategory.courseCategoryName }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body col-md-9 col-sm-9 col-lg-9 col-xl-9 mt-5 mb-2 border-end bg-light-grey-color overflow-auto">
+      <div class="row coures">
+        <div class="col-md-4 col-sm-6" *ngFor="let course of courses">
+          <div class="card mb-3">
+            <img src="../../../assets/uploads/course/{{ course.coverImage }}" alt="Image" />
+            <div class="card-body">
+              <p class="card-text">
+                <b>Duration:</b> {{ course.courseDuration }}
+              </p>
+              <p class="card-text">
+                <span class="text-primary"><b>Offer Price : </b> &#8377; {{ course.courseOfferFee }}</span>
+                <span class="text-muted"><b></b>&nbsp;<del>&#8377; {{ course.courseFee }}</del></span>
+                <br>
+                <span class="ms-3 text-muted">
+                  Rating :
+                  <ng-container *ngFor="let star of getStarArray(course.courseRating)">
+                    <i class="fa fa-star star-icon"></i>
+                  </ng-container>
+                </span>
+              </p>
+              <div class="button-container">
+                <a class="btn view_details_btn" (click)="edit(course)"><i class="fas fa-eye"></i> View More </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

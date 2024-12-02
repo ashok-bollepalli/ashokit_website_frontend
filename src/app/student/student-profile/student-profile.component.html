@@ -1,0 +1,329 @@
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px"
+                    src="{{socialUser?.photoUrl}}">
+                <span class="font-weight-bold">{{socialUser?.name}}</span>
+                <span class="text-black-50">{{socialUser?.email}}</span>
+                <!-- <span class="text-black-50">{{socialUser?.mobileNumber}}</span> -->
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right"><b>Profile Settings</b></h4>
+                </div>
+                <!-- Personal Details Accordion -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="personalDetailsHeader">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#personalDetailsCollapse" aria-expanded="false"
+                            aria-controls="personalDetailsCollapse">
+                            <b>Personal Details</b> <span class="mr-3"></span> <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </h2>
+                    <div id="personalDetailsCollapse" class="accordion-collapse collapse"
+                        aria-labelledby="personalDetailsHeader" data-bs-parent=".accordion-item">
+                        <div class="accordion-body">
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="labels">Name</label>
+                                    <input type="text" class="form-control" placeholder="first name" [value]="socialUser?.firstName">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Surname</label>
+                                    <input type="text" class="form-control" value="" placeholder="surname" [value]="socialUser?.lastName">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="labels">Email</label>
+                                    <input type="email" class="form-control" value="" placeholder="email" [value]="socialUser?.email">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Gender</label>
+                                    <select class="form-control">
+                                        <option value="select Gender disbled">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="labels">Country Code</label>
+                                    <select class="form-control">
+                                        <option value="+91">+91 (India)</option>
+                                        <option value="+1">+1 (USA)</option>
+                                        <option value="+44">+44 (UK)</option>
+                                        <option value="+61">+61 (Australia)</option>
+                                        
+                                    </select>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="labels">Mobile Number</label>
+                                    <input type="tel" class="form-control" placeholder="mobile number" >
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="labels">Address</label>
+                                    <input type="text" class="form-control" placeholder="enter address" value="">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Pincode</label>
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="labels">State</label>
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Country</label>
+                                    <input type="number" class="form-control" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Change Password Accordion -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="changePasswordHeader">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#changePasswordCollapse" aria-expanded="false"
+                            aria-controls="changePasswordCollapse">
+                            <b>Change Password</b> <span class="mr-3"></span> <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </h2>
+                    <div id="changePasswordCollapse" class="accordion-collapse collapse"
+                        aria-labelledby="changePasswordHeader" data-bs-parent=".accordion-item">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="labels">Current Password</label>
+                                    <input type="password" class="form-control" value="" placeholder="Current Password">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <label class="labels">New Password</label>
+                                    <input type="password" class="form-control" value="" placeholder="New Password">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <label class="labels">Confirm Password</label>
+                                    <input type="password" class="form-control" value="" placeholder="Confirm Password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Educational Details Accordion -->
+<div class="accordion-item">
+    <h2 class="accordion-header" id="educationalDetailsHeader">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#educationalDetailsCollapse" aria-expanded="false"
+            aria-controls="educationalDetailsCollapse">
+            <b>Educational Details</b> <span class="mr-3"></span> <i class="fas fa-chevron-down"></i>
+        </button>
+    </h2>
+    <div id="educationalDetailsCollapse" class="accordion-collapse collapse"
+        aria-labelledby="educationalDetailsHeader" data-bs-parent=".accordion-item">
+        <div class="accordion-body">
+            <!-- Sub-accordion for Schooling Details -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="schoolingDetailsHeader">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#schoolingDetailsCollapse" aria-expanded="false"
+                        aria-controls="schoolingDetailsCollapse">
+                        Schooling Details <span class="mr-3"></span> <i class="fas fa-chevron-down"></i>
+                    </button>
+                </h2>
+                <div id="schoolingDetailsCollapse" class="accordion-collapse collapse"
+                    aria-labelledby="schoolingDetailsHeader" data-bs-parent=".accordion-item">
+                    <div class="accordion-body">
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Shcool Name</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">City</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Percentage</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">State</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="labels">Student Passing Year</label>
+                            <input type="text" class="form-control" value="">
+                        </div><div class="col-md-6">
+                            <label class="labels">Country</label>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sub-accordion for Intermediate Details -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="intermediateDetailsHeader">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#intermediateDetailsCollapse" aria-expanded="false"
+                        aria-controls="intermediateDetailsCollapse">
+                        Intermediate Details <span class="mr-3"></span> <i class="fas fa-chevron-down"></i>
+                    </button>
+                </h2>
+                <div id="intermediateDetailsCollapse" class="accordion-collapse collapse"
+                    aria-labelledby="intermediateDetailsHeader" data-bs-parent=".accordion-item">
+                    <div class="accordion-body">
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">College Name</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">City</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Percentage</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">State</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="labels">Student Passing Year</label>
+                            <input type="text" class="form-control" value="">
+                        </div><div class="col-md-6">
+                            <label class="labels">Country</label>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sub-accordion for Graduation Details -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="graduationDetailsHeader">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#graduationDetailsCollapse" aria-expanded="false"
+                        aria-controls="graduationDetailsCollapse">
+                        Graduation Details <span class="mr-3"></span> <i class="fas fa-chevron-down"></i>
+                    </button>
+                </h2>
+                <div id="graduationDetailsCollapse" class="accordion-collapse collapse"
+                    aria-labelledby="graduationDetailsHeader" data-bs-parent=".accordion-item">
+                    <div class="accordion-body">
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">College Name</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">City</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Percentage</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">State</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="labels">Student Passing Year</label>
+                            <input type="text" class="form-control" value="">
+                        </div><div class="col-md-6">
+                            <label class="labels">Country</label>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sub-accordion for Post Graduation Details -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="postGraduationDetailsHeader">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#postGraduationDetailsCollapse" aria-expanded="false"
+                        aria-controls="postGraduationDetailsCollapse">
+                        Post Graduation Details <span class="mr-3"></span> <i class="fas fa-chevron-down"></i>
+                    </button>
+                </h2>
+                <div id="postGraduationDetailsCollapse" class="accordion-collapse collapse"
+                    aria-labelledby="postGraduationDetailsHeader" data-bs-parent=".accordion-item">
+                    <div class="accordion-body">
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">College Name</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">City</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Percentage</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">State</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="labels">Student Passing Year</label>
+                            <input type="text" class="form-control" value="">
+                        </div><div class="col-md-6">
+                            <label class="labels">Country</label>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                <!-- Save Profile Button -->
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" type="button">Save Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

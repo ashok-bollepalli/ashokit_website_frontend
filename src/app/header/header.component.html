@@ -1,0 +1,118 @@
+<div>
+  <nav class="navbar navbar-expand-lg justify-content-center">
+    <div class="container-fluid">
+      <div class="logo md-ms-lg-auto">
+        <a class="navbar-brand" routerLink="/">
+          <img src="../../assets/images/logo2.jpg" alt="Ashok IT Logo" class="img-fluid logo-img" />
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Content -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0">
+          <ng-container *ngIf="isLoggedIn()">
+            <li *ngIf="getRole() === 'STUDENT'" class="nav-item">
+              <a class="nav-link" routerLink="/student/home">
+                <i class="fas fa-user-graduate"></i> Student Home
+              </a>
+            </li>
+            <li *ngIf="getRole() === 'STUDENT'" class="nav-item">
+              <a class="nav-link" routerLink="/student/class-note">Class Notes</a>
+            </li>
+          </ng-container>
+          <li *ngIf="isLoggedIn() && getRole() === 'COUNSELOR'" class="nav-item">
+            <a class="nav-link" routerLink="/counselor/home">Counselor Home</a>
+          </li>
+          <li *ngIf="isLoggedIn() && getRole() === 'TRAINER'" class="nav-item">
+            <a class="nav-link" routerLink="/trainer/home">
+              <i class="fas fa-dumbbell"></i> Trainer Home
+            </a>
+          </li>
+          <li *ngIf="isLoggedIn() && getRole() === 'ADMIN'" class="nav-item">
+            <a class="nav-link" routerLink="/admin/home">
+              <i class="fas fa-user-shield"></i> Admin Home
+            </a>
+          </li>
+          <li *ngIf="isLoggedIn() && getRole() === 'SUPERADMIN'" class="nav-item">
+            <a class="nav-link" routerLink="/super-admin/home">Super admin Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" routerLink="/services" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" (click)="scrollTo('onlineItTraining')">Online Training</a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="scrollTo('classroomTraining')">Classroom Training</a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="scrollTo('corporateTraining')">Corporate Training</a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="Placements()">Placements</a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="scrollTo('internships')">Internship Programs</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/mock-interviews">Mock-Interviews</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/software-development">Software Development</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/courses-offering">Courses Offering</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/training-schedule">Training Schedule</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" routerLink="/careers" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">Careers</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" routerLink="/software-job-openings">Software Jobs</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/internships">Internship</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/interview-questions">Interview Questions</a>
+              </li>
+              <li>
+                <a class="dropdown-item"  routerLink="/course-registration">Course Registration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/events">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about-us">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact-us">Contact Us</a>
+          </li>
+          <li class="nav-item" *ngIf="!isLoggedIn()">
+            <a class="nav-link btn-nav" routerLink="/login">Login</a>
+          </li>
+          <li *ngIf="isLoggedIn()" class="nav-item">
+            <a class="nav-link" (click)="logout()" data-bs-toggle="tooltip" title="Logout">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

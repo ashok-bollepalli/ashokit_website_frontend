@@ -1,0 +1,35 @@
+.container {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.heading {
+  text-align: center;
+  color: red;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.btn-success {
+  background-color: green;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: green;
+}
+

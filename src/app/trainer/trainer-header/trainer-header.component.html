@@ -1,0 +1,46 @@
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" routerLink="/trainer/home"
+        ><i class="fas fa-home" style="color: red; margin-left: 10px"></i
+      ></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-center"
+        id="navbarNavDropdown"
+      >
+        <ul class="navbar-nav">
+          <!-- Example for student role 
+          <li *ngIf="isLoggedIn() && getRole() === 'TRAINER'" class="nav-item">
+            <a class="nav-link" routerLink="/trainer/home"><i class="fas fa-home" style="margin-right: 5px;"></i>Home</a>
+          </li> -->
+          <li *ngIf="isLoggedIn() && getRole() === 'TRAINER'" class="nav-item">
+            <a class="nav-link" routerLink="/trainer/dashboard"><i class="fas fa-desktop" style="margin-right: 5px;"></i>DashBoard</a>
+          </li>
+          <li *ngIf="isLoggedIn() && getRole() === 'TRAINER'" class="nav-item">
+            <a class="nav-link" routerLink="/trainer/upload-notes"> <i class="fa fa-cloud-upload"></i> Upload Notes</a>
+          </li>
+          <li class="nav-item" *ngIf="!isLoggedIn()">
+            <a class="nav-link" routerLink="login">Login</a>
+          </li>
+        <li *ngIf="isLoggedIn()" class="nav-item">
+          <a class="nav-link"   (click)="logout()">
+            <i class="fas fa-user"></i> 
+          </a>
+        </li>
+       
+        </ul>
+      </div>
+    </nav>
+  </div>
+  

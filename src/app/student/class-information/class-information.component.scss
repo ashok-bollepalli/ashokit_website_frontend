@@ -1,0 +1,73 @@
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.heading {
+    text-align: center;
+}
+
+.card-body {
+    margin: 20px;
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.table th {
+    background-color: rgb(12, 12, 60);
+    font-weight: normal;
+    color: white;
+}
+
+.view-notes-link {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.icons i {
+    margin-right: 10px;
+    color: blue;
+    cursor: pointer;
+}
+
+.mobile-table {
+    display: none;
+}
+
+.medium-table {
+    display: block;
+}
+
+.txt-bold {
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-table {
+        display: block;
+    }
+
+    .medium-table {
+        display: none;
+    }
+}

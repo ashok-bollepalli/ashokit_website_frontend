@@ -1,0 +1,20 @@
+<div class="container">
+    <section class="update_module">
+        <div class="card-header mt-5 p-2">
+            <h1 class="mt-3"><b>Update Module</b></h1>
+        </div>
+    </section>
+    <div class="card-body mt-5 mb-5 p-5">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-3">
+                <label for="moduleName" class="form-label required-label"><b>Module Name</b></label>
+                <input id="moduleName" name="moduleName" [(ngModel)]="module.moduleName" class="form-control">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                <button type="submit" (click)="onSubmit()" class="btn-submit float-end">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

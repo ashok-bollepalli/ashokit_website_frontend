@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 mb-4 mt-4">
+        <h1 class="section-heading mb-4 text-center"> <b> Placement Details </b> </h1>
+    </div>
+    <form [formGroup]="studentCompanyRegistrationForm" (ngSubmit)="onSubmit()">
+        <div class="card-body mt-5 mb-5 p-5">
+            <div class="row mt-2">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="lookingForJob" class="form-label required-label"><b>Are You Looking For Job ?</b></label>
+                    <select id="lookingForJob" name="lookingForJob" class="form-control" formControlName="lookingForJob"
+                         [(ngModel)]="student.lookingForJob">
+                        <option value="">-Select-</option>
+                        <option value="YES">YES</option>
+                        <option value="NO">NO</option>
+                    </select>
+
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="jobTrialsAs" class="form-label required-label"><b>Job Trails As ?</b></label>
+                    <select id="jobTrialsAs" name="jobTrialsAs" class="form-control" formControlName="jobTrialsAs"
+                         [(ngModel)]="student.jobTrialsAs">
+                        <option value="">-Select-</option>
+                        <option value="Fresher">Fresher</option>
+                        <option value="Experienced">Experienced</option>
+                    </select>
+                </div>
+            </div>
+             <div class="row mt-2">                
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="skills" class="form-label required-label"><b>Job Title</b></label>
+                    <select id="skills" name="skills" class="form-control" formControlName="skills" [(ngModel)]="student.skills">
+                        <option value="">--Select--</option>
+                        <option value="Java">Java Fullstack</option>
+                        <option value="Python">Python Fullstack</option>
+                        <option value="UI">UI Fullstack</option>
+                        <option value="DevOps">DevOps Engineer</option>
+                        <option value="Cloud">Cloud Engineer</option>
+                        <option value="Testing">Software Testing</option>
+                        <option value="datascience">Data Science</option>
+                        <option value="data_analytics">Data Analytics</option>
+                        <option value="data_analytics">Power BI</option>
+                        <option value="data_analytics">Mulesoft</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="skills" class="form-label required-label"><b>Enter Tech Skills</b></label>
+                    <input type="text" id="techSkills" name="techSkills" class="form-control"
+                    formControlName="techSkills" [(ngModel)]="student.techSkills">
+                </div>               
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="trainingStatus" class="form-label required-label"><b>Training Status</b></label>
+                    <select id="trainingStatus" name="trainingStatus" class="form-control" formControlName="trainingStatus"  
+                        [(ngModel)]="student.trainingStatus">
+                        <option value="">-Select-</option>
+                        <option value="Completed">Completed</option>
+                        <option value="In_Progress">In_Progress</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="companyName" class="form-label"><b>Your Company Name</b></label>
+                    <input type="text" id="companyName" name="companyName" class="form-control"
+                        formControlName="companyName" [(ngModel)]="student.companyName">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="salary" class="form-label"><b>Your Current Package</b></label>
+                    <input type="text" class="form-control" id="salary" name="salary" formControlName="salary"
+                        [(ngModel)]="student.salary">
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="exp" class="form-label"><b>Work Experience</b></label>
+                    <input type="text" class="form-control" id="exp" name="exp" formControlName="exp"
+                        [(ngModel)]="student.exp">
+                </div>
+            </div>
+            <div class="row mt-2">               
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-2 mt-2">
+                    <label for="linkedinProfile" class="form-label required-label"><b>Linkedin Profile URL</b></label>
+                    <input type="text" class="form-control" id="linkedinProfile" name="linkedinProfile" formControlName="linkedinProfile"
+                        [(ngModel)]="student.linkedinProfile">
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                        <button type="submit" class="btn btn-submit float-end">Save Data</button>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </form>
+</div>

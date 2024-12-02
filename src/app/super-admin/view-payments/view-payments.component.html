@@ -1,0 +1,149 @@
+<div class="container">
+    <h1 class="mt-3"><b> View Enrollments </b></h1>
+    <div class="card-header mt-5 mb-5 p-3">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 mb-3">
+                <!-- <form action="#"> -->
+                    <label for="Show" class="form-label"><b>Show</b></label>
+                <select name="show" class="form-select" [(ngModel)]="pageSize">
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="30">30</option>
+                    <option value="60">60</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                </select>
+                <!-- </form> -->
+            </div>
+            <div class="col-md-4 col-sm-4 mb-3" *ngIf="trainers && trainers.length > 0">
+                <label for="trainerName" class="form-label"><b>Trainer Name</b></label>
+                <select id="trainerId" class="form-select" [(ngModel)]="viewPayment.trainerId" name="trainerId">
+                    <option *ngFor="let trainer of trainers" [ngValue]="trainer.trainerId">{{ trainer.trainerName }}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-4 col-sm-4 mb-3">
+                <label for="status" class="form-label"><b>Batch Status</b></label>
+                <select name="status" id="status" class="form-control" [(ngModel)]="viewPayment.status" (change)="findBatchByCourseStatus($event)">
+                    <option value="In-Progress">In-Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Aborted">Aborted</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 mb-3">
+                <label for="batchCode" class="form-label"><b>Batch Code</b></label>
+                <select id="batchCode" class="form-select" [(ngModel)]="viewPayment.batchCode" name="batchCode">
+                    <option value="">-Select-</option>
+                    <option *ngFor="let batch of selectedBatches" [ngValue]="batch.batchCode">{{ batch.batchCode }}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-4 col-sm-4 mb-3">
+                <label for="email" class="form-label"><b>Email</b></label>
+                <input name="email" id="email" class="form-control" placeholder=" " type="search"
+                    [(ngModel)]="viewPayment.email">
+            </div>
+            <div class="col-md-4 col-sm-4 mb-3">
+                <label for="from_date" class="form-label"><b>From Date</b></label>
+                <input type="date" id="from_date" name="from_date" class="form-control"  [(ngModel)]="viewPayment.fromdate">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <label for="from_date" class="form-label"><b>To Date</b></label>
+                <input type="date" id="to_date" name="to_date" class="form-control"  [(ngModel)]="viewPayment.todate">
+            </div>
+
+            <div class="col-md-4 col-sm-4 mb-3">
+                <label for="status" class="form-label"><b>Due Available</b></label>
+                <select name="status" id="status" class="form-control" [(ngModel)]="viewPayment.dueAvailable">
+                    <option value="">-Select-</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+
+            <div class="col-md-4 col-sm-4 mt-4">
+                <button type="button" class="btn btn-dark text-white" (click)="applyFilters()">Filter</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row justify-content-end">
+                <div class="col-md-4 col-sm-4">
+                    <label for="Export Data" class="form-label"></label>
+                    <section class="Export Data">
+                        <button class="btn bg-dark float-end text-white" (click)="generateExcel()">
+                            <i class="fas fa-file-excel fa-sm me-2"></i>
+                            Export Data</button>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped table-hover mt-5">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Student Name</th>
+                    <th>Trainer Name</th>
+                    <th>Email</th>
+                    <th>Batch Code</th>
+                    <th>Phone</th>
+                    <th>Amount Paid</th>
+                    <th>Due Amount</th>   
+                    <th>Action</th>               
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="let payment of filteredPayments.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+                    <td>{{i + 1 + (currentPage - 1) * pageSize}}</td>
+                    <td>{{payment.studentName}}</td>
+                    <td>{{getTrainerName(payment.trainerId)}}</td>              
+                    <td>{{payment.studentEmail}}</td>
+                    <td>{{payment.batchCode}}</td>
+                    <td>{{payment.phoneNumber}}</td>
+                    <td>{{payment.paidAmount}}</td>
+                    <td>{{payment.dueAmount}}</td>
+                    <td>
+                        <button class="btn btn-icon btn-success" (click)="updateStudentPayment(payment)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </td>
+                    <td (click)="confirmDelete(payment.paymentId)">
+                        <button class="btn btn-icon btn-danger">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td *ngIf="payments.length == 0" colspan="9" style="text-align:center">No records
+                        found
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-end">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" aria-label="Previous" (click)="onPageChange(currentPage - 1)">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li *ngFor="let page of getPageArray()" class="page-item" [class.active]="page === currentPage">
+                <a class="page-link">{{ page }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+                <a class="page-link" aria-label="Next" (click)="onPageChange(currentPage + 1)">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <li class="page-item pt-2"> Total Records: {{ totalItems }}</li>
+        </ul>
+    </nav>
+</div>

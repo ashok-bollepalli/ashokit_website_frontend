@@ -1,0 +1,98 @@
+<div class="container">
+    <section class="card-header">
+        <div class="card-header mt-5 p-2">
+            <h1 class="mt-3"><b>Add Student To Course</b></h1>
+        </div>
+    </section>
+    <div *ngIf="isLoading" class="alert alert-info" role="alert">
+        <p>Processing your request, please wait ...</p>
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    
+    <div class="card-body mt-5 mb-5 p-5" *ngIf="!isLoading">
+        <form [formGroup]="studentPaymentForm" (ngSubmit)="onSumbit()">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="trainer" class="form-label required-label"><b>Trainer</b></label>
+                    <select id="trainerId" class="form-select" [(ngModel)]="trainerId" formControlName="trainerId">
+                        <option selected disabled>-Select-</option>
+                        <option *ngFor="let trainer of trainers" [value]="trainer.trainerId">
+                            {{ trainer.trainerName }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="courseStatus" class="form-label required-label"><b>Batch Status</b></label>
+                    <select id="courseStatus" class="form-select" [(ngModel)]="courseStatus"
+                        formControlName="courseStatus" (click)="findBatchByCourseStatus($event)">
+                        <option selected disabled>Select Batch Status</option>
+                        <option value="In-Progress">In-Progress</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Aborted">Aborted</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="batchId" class="form-label required-label"><b>Select Batch</b></label>
+                    <select id="batchId" class="form-select" formControlName="batchId">
+                        <option selected>--Select--</option>
+                        <option *ngFor="let batch of selectedBatches; let i = index" [value]="batch.id">
+                            {{batch.batchCode}}
+                        </option>
+                    </select>
+                </div>
+                <!--
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="enrollCourse" class="form-label required-label"><b>Teachable Course</b></label>
+                    <select id="teachableCourseId" class="form-select" formControlName="teachableCourseId">
+                        <option *ngFor="let teachableCourse of teachableCourses; let i = index"
+                            [value]="teachableCourse.id">{{teachableCourse.name}}
+                        </option>
+                    </select>
+                </div>-->
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="amountPaid" class="form-label required-label"><b>Amount Paid</b></label>
+                    <input type="text" class="form-control" id="amountPaid" name="amountPaid"
+                        formControlName="amountPaid">
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="dueAmount" class="form-label required-label"><b>Due Amount</b></label>
+                    <input type="text" class="form-control" id="dueAmount" name="dueAmount" formControlName="dueAmount">
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                    <label for="videosAccess" class="form-label required-label"><b>Video Access</b></label>
+                    <select id="videosAccess" class="form-select" formControlName="videosAccess">
+                        <option selected>--Select--</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mb-3">
+                        <label for="classType" class="form-label required-label"><b>Training Mode</b></label>
+                        <select id="classType" class="form-select" formControlName="classType">
+                            <option>-Select-</option>
+                            <option *ngFor="let trgModes of trainingModes" [value]="trgModes.trainingType">
+                                {{ trgModes.trainingType }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                    <button type="submit" class="btn btn-submit float-end">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

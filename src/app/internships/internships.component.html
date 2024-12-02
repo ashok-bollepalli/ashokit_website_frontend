@@ -1,0 +1,55 @@
+<div id="carouselExampleControls" class="carousel banner-slide1" data-ride="carousel">
+  <div id="scrollUp" class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../../assets/images/career-banner01.png" alt="Image" class="d-block w-100" />
+      <div class="carousel-caption d-flex flex-column justify-content-center align-items-start">
+        <h1>
+          <b>Internships</b>
+        </h1>
+        <!-- <p>Your subheading here</p> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 mb-5">
+  <div *ngIf="jobPostings.length == 0" >
+    Thank you for your interest, currently no internship programs found..!!
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-md-4 col-lg-4 mb-5" *ngFor="let jobPosting of jobPostings">
+      <div class="card">
+        <img src="../../assets/uploads/job-postings/{{ jobPosting.companyImage }}" class="card-image" alt="Image" />
+        <div class="card-body">
+          <h3 class="card-title mb-3">
+            <b>{{ jobPosting.companyName }}</b>
+          </h3>
+          <p class="card-text">Job Title: {{ jobPosting.jobType }}<br /></p>
+          <p class="card-text">
+            Package Offering: {{ jobPosting.packageOffering }}<br />
+          </p>
+          <div class="card-text-container">
+            <div class="card-text">Qualification:</div>
+            <div class="card-text">
+              <span [innerHTML]="jobPosting.qualifications"></span>
+            </div>
+          </div>
+          <div class="card-text-container">
+            <div class="card-text">Eligibility:</div>
+            <div class="card-text">
+              <span [innerHTML]="jobPosting.eligibility"></span>
+            </div>
+          </div>
+          <p class="card-text">
+            <a class="link" [href]="jobPosting.link" target="_blank"><b>Link</b></a>
+          </p>
+          <div class="applyNow">
+            <button type="submit" class="btn custom-btn float-end" (click)="applyNow()">
+              Apply Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

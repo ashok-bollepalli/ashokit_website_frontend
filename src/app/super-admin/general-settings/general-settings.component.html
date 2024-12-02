@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="card-header mt-5 p-2">
+        <h1 class="mt-3"><b>General Settings</b></h1>
+    </div>
+    <div class="card-body mt-5 mb-5 p-5">
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-2 col-lg-2 required-label"><b>Logo
+                        Dark</b></label>
+                <div class="col-sm-12 col-md-4">
+                    <input type="file" id="logoDark" name="logoDark" class="form-control"
+                        [(ngModel)]="generalSetting.logoDark" (change)="onFileChange($event, 'logoDark')" accept=".pdf,.jpg,.png"   class="form-control mt-3" >
+                </div>
+                <label class="col-form-label text-md-right col-12 col-md-2 col-lg-2 required-label"><b>Logo Image
+                        Dark</b></label>
+                <div class="col-sm-12 col-md-4">
+                    <img [src]="generalSetting.logoImageDark" alt="Logo Image Dark" style="width: 100px; height: auto;">
+                </div>
+            </div>
+            <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-2 col-lg-2 required-label"><b>Fav
+                        Icon</b></label>
+                <div class="col-sm-12 col-md-4">
+                    <input type="file" id="favIcon" name="favIcon" class="form-control"
+                        [(ngModel)]="generalSetting.favIcon" (change)="onFileChanges($event, 'favIcon')" accept=".pdf,.jpg,.png"   class="form-control mt-3">
+                </div>
+                <label class="col-form-label text-md-right col-12 col-md-2 col-lg-2 required-label"><b>Fav Icon
+                        Image</b></label>
+                <div class="col-sm-12 col-md-4">
+                    <img src={{generalSetting.favIconImage}} alt="Fav Icon Image" style="width: 100px; height: auto;">
+                </div>
+            </div>
+            <div class="form-group row mb-4">
+                <label
+                    class="col-form-label text-md-right col-12 col-md-2 col-lg-2 required-label"><b>Footer</b></label>
+                <div class="col-sm-12 col-md-4">
+                    <input type="text" id="footer" name="footer" class="form-control"
+                        [(ngModel)]="generalSetting.footer">
+                </div>
+                <label
+                    class="col-form-label text-md-right col-12 col-md-2 col-lg-2 required-label"><b>Address</b></label>
+                <div class="col-sm-12 col-md-4">
+                    <textarea type="text" id="address" name="address" value="address" class="form-control" [(ngModel)]="generalSetting.address" ></textarea>
+                </div>
+            </div>
+            <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-2 col-lg-2 required-label"><b>Phone</b></label>
+                <div class="col-sm-12 col-md-4">
+                    <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control"
+                        [(ngModel)]="generalSetting.phoneNumber">
+                </div>
+                <label class="col-form-label text-md-right col-12 col-md-2 col-lg-2 required-label"><b>Email</b></label>
+                <div class="col-sm-12 col-md-4">
+                    <input type="text" id="email" name="email" class="form-control"
+                        [(ngModel)]="generalSetting.email">
+                </div>
+            </div>
+            <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-2 col-lg-2 required-label"><b>Company
+                        Name</b></label>
+                <div class="col-sm-12 col-md-4">
+                    <input type="text" id="companyName" name="companyName" class="form-control"
+                        [(ngModel)]="generalSetting.companyName">
+                </div>
+                <label class="col-form-label text-md-right col-12 col-md-2 col-lg-2 required-label"><b>Color
+                        Code</b></label>
+                <div class="col-sm-12 col-md-4">
+                    <input type="color" id="colorCode" name="colorCode" class="form-control"
+                        [(ngModel)]="generalSetting.colorCode">
+                </div>
+            </div>
+            <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-2 col-lg-2 required-label"><b>GST</b></label>
+                <div class="col-sm-12 col-md-4">
+                    <input type="text" id="gst" name="gst" class="form-control" [(ngModel)]="generalSetting.gst">
+                </div>
+            </div>
+            <div class="form-group row mb-4">
+                <input type="hidden" name="uid" value="1">
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                <div class="row mt-3">
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <button type="submit" class="btn-submit float-end">Update</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

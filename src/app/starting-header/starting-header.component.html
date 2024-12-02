@@ -1,0 +1,51 @@
+<!-- <div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-4 col-sm-12 mt-2 text-center text-md-left">
+            <div class="inquiry mt-2">
+                <b>For Course Enquiry : <i class="fas fa-phone mr-3"></i> +91 {{generalSettings.phoneNumber}}</b>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 mt-2 text-center text-md-left">
+            <div class="mail mt-2">
+                <b>Mail : <i class="fas fa-envelope mr-3"></i> {{generalSettings.email}}</b>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 d-flex justify-content-center justify-content-md-end mt-2">
+            <div class="rounded-social-buttons">
+                <div *ngFor="let social of socialSettings">
+                    <ng-container *ngIf="social.name.toLocaleLowerCase().includes('whatsapp')">
+                        <a [href]="social.link"><i class="fab fa-whatsapp social-icon whatsapp-icon"></i></a>
+                    </ng-container>
+                    <ng-container *ngIf="social.name.toLocaleLowerCase().includes('facebook')">
+                        <a [href]="social.link"> <i class="fab fa-facebook social-icon facebook-icon"></i></a>
+                    </ng-container>
+                    <ng-container *ngIf="social.name.toLocaleLowerCase().includes('twitter')">
+                        <a [href]="social.link"> <i class="fab fa-twitter social-icon twitter-icon"></i></a>
+                    </ng-container>
+                    <ng-container *ngIf="social.name.toLocaleLowerCase().includes('instagram')">
+                        <a [href]="social.link"> <i class="fab fa-instagram social-icon instagram-icon"></i></a>
+                    </ng-container>
+                    <ng-container *ngIf="social.name.toLocaleLowerCase().includes('youtube')">
+                        <a [href]="social.link"><i class="fab fa-youtube social-icon youtube-icon"></i></a>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container-fluid">
+    <div class="d-flex flex-row justify-content-end align-items-center">
+        <div class="inquiry">
+            <b>For Enquiry : <i class="fas fa-phone mr-1"></i> +91 - 9985396677</b>
+        </div>
+        <div class="mail a">
+            <a href="https://www.youtube.com/c/AshokIT?sub_confirmation=1" target="_blank">
+                <b><i class="fab fa-youtube social-icon youtube-icon mr-1"></i> Our Free Tutorials </b>
+            </a>
+        </div>
+    </div>
+</div>

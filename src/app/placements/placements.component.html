@@ -1,0 +1,69 @@
+<header>
+  <title>
+    Java Fullstack Course in Hyderabad | Master Java Fullstack with Expert Training
+  </title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110479729755479"
+     crossorigin="anonymous"></script>
+</header>
+
+<body>
+  <div id="carouselExampleControls" class="carousel banner-slide1" data-ride="carousel">
+    <div id="scrollUp" class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../assets/images/career-banner01.png" alt="Image" class="d-block w-100" />
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-start">
+          <h1>
+            <b>Software Jobs</b>
+          </h1>
+          <!-- <p>Your subheading here</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5 mb-5">
+  
+    <div *ngIf="jobPostings.length == 0">
+      Thank you for your interest, currently no placements data found..!!
+    </div>
+  
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-md-4 col-lg-4 mb-5" *ngFor="let jobPosting of jobPostings">
+        <div class="card">
+          <img src="../../assets/uploads/job-postings/{{ jobPosting.companyImage }}" class="card-image" alt="Image" />
+          <div class="card-body">
+            <h3 class="card-title mb-3" style="color: red;" >
+              <b>{{ jobPosting.companyName }} Hiring</b>
+            </h3>
+            <h3 class="card-title mb-3" style="color: blue;">
+              <b>{{ jobPosting.jobTitle }}</b>
+            </h3>         
+            <p class="card-text">
+              <b> Package Offering :</b> {{ jobPosting.packageOffering }}<br />
+            </p>
+            <p class="card-text">
+              <b> Job Location :</b> {{ jobPosting.jobLocation }}<br />
+            </p>
+            <div class="applyNow">
+              <button type="submit" class="btn custom-btn" (click)="applyNow(jobPosting)">
+                Apply Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110479729755479"
+     crossorigin="anonymous"></script>
+<!-- first-add -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4110479729755479"
+     data-ad-slot="3032680458"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</body>
+

@@ -1,0 +1,91 @@
+<div class="container">
+    <h1 class="mt-4">Counsellor Dashboard</h1>
+    <div class="card-header mt-5 mb-5 p-3">
+        <div class="row">
+            <div class="col-md-3 mt-2"> <!-- Adjusted mt-4 to mt-2 -->
+                <label for="startDate" class="form-label"><b>Start Date</b></label>
+                <div class="input-group">
+                    <input type="date" id="startDate" name="startDate" class="form-control rounded-start">
+                </div>
+            </div>
+            <div class="col-md-3 mt-2"> <!-- Adjusted mt-4 to mt-2 -->
+                <label for="endDate" class="form-label"><b>End Date</b></label>
+                <div class="input-group">
+                    <input type="date" id="endDate" name="endDate" class="form-control rounded-end">
+                </div>
+            </div>
+       
+        <div class="col-md-3 mt-2">
+            <label for="filter" class="form-label"></label>
+            <section class="filter">
+                <button class="btn btn-primary">Filter</button>
+            </section>
+        </div>   
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card h-100">
+                <div class="card-body d-flex align-items-center">
+                    <div class="card-icon total-enquiries p-2 mr-2 d-flex justify-content-center align-items-center"
+                        style="width: 70px; height: 70px;">
+                        <i class=" fa fa-users fa-2x text-white"></i>
+                    </div>
+                    <div>
+                        <p class="m-4 mb-6"><b>Total Enquiries</b><br>{{totalEnquiries}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card h-100">
+                <div class="card-body d-flex align-items-center">
+                    <div class="card-icon open-enquiries p-2 mr-2 d-flex justify-content-center align-items-center"
+                        style="width: 70px; height: 70px;">
+                        <i class="fa fa-users fa-2x text-white"></i>
+                    </div>
+                    <div>
+                        <p class="m-4 mb-6"><b>Total Open Enquiries</b><br>{{totalOpenEnquiries}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card h-100">
+                <div class="card-body d-flex align-items-center">
+                    <div class="card-icon closed-enquiries p-2 mr-2 d-flex justify-content-center align-items-center"
+                        style="width: 70px; height: 70px;">
+                        <i class="fa fa-users fa-2x text-white"></i>
+                    </div>
+                    <div>
+                        <p class="m-3 mb-4"><b>Total closed
+                            Enquiries</b><br>{{totalClosedEnquiries}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card h-100">
+                <div class="card-body d-flex align-items-center">
+                    <div class="card-icon lost-enquiries p-2 mr-2 d-flex justify-content-center align-items-center"
+                        style="width: 70px; height: 70px;">
+                        <i class="fa fa-users fa-2x text-white"></i>
+                    </div>
+                    <div>
+                        <p class="m-4 mb-6"><b>Total Lost Enquiries</b><br>{{totalLostEnquiries}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+<div class="row">
+    <h2>My Responsibilities :</h2>
+    <div class="col-md-12 col-lg-6 mb-6">
+     <div  [innerHTML]="counsellor.responsibilities"></div>
+    </div>
+</div>
+</div>
