@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DataLoaderService } from '../services/data-loader.service';
@@ -22,12 +22,14 @@ export class EventsComponent implements OnInit {
     private router: Router,
     private dataLoaderService: DataLoaderService,
     private dataServiceService: DataServiceService,
-    private meta: Meta, private titleService: Title
+    private meta: Meta, private titleService: Title,
+    private render:Renderer2
 
   ) { }
 
   ngOnInit(): void {
     this.setMetaTags();
+    //this.addAdsenseScript();
     this.getAllEvents();
     this.getEventCategories();
     this.events = this.dataServiceService.eventDatas;
@@ -94,4 +96,13 @@ export class EventsComponent implements OnInit {
       }
     );
   }
+
+  addAdsenseScript(): void {
+    const script = this.render.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110479729755479';
+    this.render.appendChild(document.body, script);
+  }
+
 }

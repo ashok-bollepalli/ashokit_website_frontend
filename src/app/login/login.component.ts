@@ -155,7 +155,7 @@ export class LoginComponent implements OnInit {
   }
 
   getAllCoursePopUp() {
-    this.dataLoaderService.getAllCoursePopUp().subscribe(
+    this.dataLoaderService.getAllCoursePopUps().subscribe(
       (res) => {
         this.coursePopUps = res.data[0];
         if(this.coursePopUps!=null){

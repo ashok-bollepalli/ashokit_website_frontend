@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataLoaderService } from '../services/data-loader.service';
 import { CareerDTO } from '../dto/CareerDTO';
@@ -14,12 +14,14 @@ export class PlacementsComponent implements OnInit {
 
   constructor(private router: Router,
     private dataLoaderService: DataLoaderService,
-    private meta: Meta, private titleService: Title
+    private meta: Meta, private titleService: Title,
+    private render: Renderer2
   ) { }
 
   ngOnInit(): void {
     // this.getAllCareers();
     this.setMetaTags();
+    this.addAdsenseScript();
     this.getAllJobPostings('Job');
   }
 
@@ -35,14 +37,14 @@ export class PlacementsComponent implements OnInit {
   }
 
 
-  
 
-  applyNow(jobPosting:any) {
-    console.log("slug :: "+ jobPosting.slug);
-    this.router.navigate(['/software-jobs/'+jobPosting.slug]);
+
+  applyNow(jobPosting: any) {
+    console.log("slug :: " + jobPosting.slug);
+    this.router.navigate(['/software-jobs/' + jobPosting.slug]);
   }
 
-  getAllJobPostings(jobType:string) {
+  getAllJobPostings(jobType: string) {
     this.dataLoaderService.getJobPostingsByJobType(jobType).subscribe((res: any) => {
       this.jobPostings = res.data;
     },
@@ -50,5 +52,13 @@ export class PlacementsComponent implements OnInit {
         console.log('Error fetching jobPostings: ', error);
       })
   }
+
+  addAdsenseScript(): void {
+    const script = this.render.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110479729755479';
+    this.render.appendChild(document.body, script);
+  }
 
 }

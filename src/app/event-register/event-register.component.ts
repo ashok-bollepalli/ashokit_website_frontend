@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { DataLoaderService } from '../services/data-loader.service';
 import { EventDTO } from '../dto/EventDTO';
 import { DataServiceService } from '../services/data-service.service';
@@ -50,11 +50,13 @@ export class EventRegisterComponent implements OnInit {
     private dataLoaderService: DataLoaderService,
     private dataServiceService: DataServiceService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private render: Renderer2
   ) { }
   @ViewChild('myModal') myModal!: ElementRef;
 
   ngOnInit(): void {
+    //this.addAdsenseScript();
     this.event = this.dataServiceService.eventData;
 
     if (this.event == null) {
@@ -106,7 +108,7 @@ export class EventRegisterComponent implements OnInit {
           this.toastrService.success('Registration Success, Please check your Email for Event Details');
           this.router.navigate(['/registration-success']);
         } else if (this.selectedEventRegister.otpStatus == 'Verified') {
-          this.eventRegisterForm.reset();        
+          this.eventRegisterForm.reset();
           this.toastrService.success('Registration Success, Please check your Email for Event Details');
           this.router.navigate(['/registration-success']);
         }
@@ -166,6 +168,14 @@ export class EventRegisterComponent implements OnInit {
   onInputChange(event: any) {
     const input = event.target as HTMLInputElement;
     input.value = input.value.replace(/[^0-9]/g, ''); // This line ensures only numeric characters are allowed
+  }
+
+  addAdsenseScript(): void {
+    const script = this.render.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110479729755479';
+    this.render.appendChild(document.body, script);
   }
 
 }

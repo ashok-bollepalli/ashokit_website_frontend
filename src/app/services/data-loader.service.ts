@@ -471,7 +471,7 @@ export class DataLoaderService {
     return this.http.post<any>(this.rootUrl + "/generateOTP", data, { headers });
   }
 
-  getAllCoursePopUp(): Observable<any> {
+  getAllCoursePopUps(): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Basic ashokit`
     });

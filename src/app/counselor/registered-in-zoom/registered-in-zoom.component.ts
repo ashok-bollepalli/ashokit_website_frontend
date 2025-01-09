@@ -197,9 +197,9 @@ export class RegisteredInZoomComponent implements OnInit {
   }
 
   updateStatus() {
-    this.studentBulkUploadService.updateZoomRegisteredStatus(this.zoomRegDto.id, this.zoomRegDto.status).subscribe((res) => {
+    this.studentBulkUploadService.updateZoomRegisteredStatus(this.zoomRegDto.id, this.zoomRegDto.status, this.zoomRegDto.comment).subscribe((res) => {
       this.closeModal();
-      this.getAllZoomRegisters();
+      //this.getAllZoomRegisters();
     });
   }
 }

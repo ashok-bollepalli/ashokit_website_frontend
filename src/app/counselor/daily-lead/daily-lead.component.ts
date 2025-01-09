@@ -78,7 +78,6 @@ export class DailyLeadComponent implements OnInit {
     this.getAllDailyLeads();
     this.getCourseCategories();
     this.getAllCounsellors();
-
   }
 
   closeModal(): void {
@@ -100,7 +99,7 @@ export class DailyLeadComponent implements OnInit {
     this.usersResponseService.updateDailyLeadStatus(this.selectedDailyLead.id, this.selectedDailyLead.status, this.selectedDailyLead.comment).subscribe((res) => {
       this.closeModal();
       //this.getAllDailyLeads();
-      this.getAllDailyLeadsWithFilter();
+      //this.getAllDailyLeadsWithFilter();
     });
   }
 

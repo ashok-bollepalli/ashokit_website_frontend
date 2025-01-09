@@ -5,8 +5,8 @@
             <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-3">
                 <label class="Show" class="form-label"><b>Show</b></label>
                 <select id="#" name="show" class="form-select" [(ngModel)]="pageSize">
-                    <option value="5">10</option>
-                    <option value="30">50</option>
+                    <option value="10">10</option>
+                    <option value="35">50</option>
                     <option value="100">100</option>
                     <option value="200">300</option>
                     <option value="500">500</option>
@@ -17,6 +17,7 @@
             <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-3">
                 <label for="trainerName" class="form-label"><b>Trainer Name</b></label>
                 <select id="trainerName" class="form-select" [(ngModel)]="zoomRegDto.trainerId" name="trainerName">
+                    <option value="0">-Select-</option>
                     <option *ngFor="let trainer of trainers" [ngValue]="trainer.trainerId">{{ trainer.trainerName }}
                     </option>
                 </select>
@@ -26,16 +27,12 @@
                 <label class="status" class="form-label"><b>Batch Status</b></label>
                 <select id="status" name="status" class="form-select" [(ngModel)]="status"
                     (change)="findBatchByTrainerAndCourseStatus($event)">
-                    <option value="0">-Select-</option>
+                    <option value="">-Select-</option>
                     <option value="In-Progress">In-Progress</option>
                     <option value="Completed">Completed</option>
                     <option value="Aborted">Aborted</option>
                 </select>
             </div>
-
-        </div>
-
-        <div class="row">
             <div class="col-md-3 col-sm-3 col-lg-3 col mb-3">
                 <label class="form-label"><b>Batch Code</b></label>
                 <select id="scheduleName" class="form-select" name="scheduleName" [(ngModel)]="zoomRegDto.batchId">
@@ -44,10 +41,15 @@
                     </option>
                 </select>
             </div>
+
+        </div>
+
+        <div class="row">
+
             <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-3">
                 <label class="leadStatus" class="form-label"><b>Lead Status</b></label>
                 <select id="leadStatus" name="leadStatus" class="form-select" [(ngModel)]="zoomRegDto.status">
-                    <option value="0">-Select-</option>
+                    <option value="">-Select-</option>
                     <option value="Open">Open</option>
                     <option value="Closed">Closed</option>
                     <option value="Answered">Answered</option>
@@ -58,16 +60,37 @@
                     <option value="Not Intrested">Not Intrested</option>
                 </select>
             </div>
+
+            <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-3">
+                <label class="enrollmentStatus" class="form-label"><b>Enrollment Status</b></label>
+                <select id="enrollmentStatus" name="enrollmentStatus" class="form-select"
+                    [(ngModel)]="zoomRegDto.enrollmentStatus">
+                    <option value="">-Select-</option>
+                    <option value="Enrolled">Enrolled</option>
+                    <option value="Not-Enrolled">Not Enrolled</option>
+                </select>
+            </div>
+
+
+            <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-3">
+                <label for="phone" class="form-label"><b>Phone</b></label>
+                <input type="phone" id="phone" name="phone" class="form-control" [(ngModel)]="zoomRegDto.phone">
+            </div>
+            
+
             <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-3">
                 <label for="from_date" class="form-label"><b>From Date</b></label>
                 <input type="date" id="from_date" name="from_date" class="form-control"
                     [(ngModel)]="zoomRegDto.createdDate">
             </div>
 
-            <!--  <div class="col-md-4 col-sm-4 col-lg-4 col mb-3">
-                <label for="from_date" class="form-label"><b>To Date</b></label>
-                <input type="date" id="to_date" name="to_date" class="form-control">
-            </div>-->
+
+        </div>
+
+        <div class="row">
+
+          
+
             <div class="col-md-4 col-sm-4 col-lg-4 col  mt-4">
                 <button type="button" class="btn btn-dark text-white" (click)="applyFilter()">Filter</button>
             </div>
@@ -175,7 +198,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
                         <label class="selectedEnquiry.status" class="form-label"><b>Comment</b></label>
-                        <input name="text" class="form-control" id="comment" name="comment" placeholder="comment"
+                        <input type="text" class="form-control" id="comment" name="comment" placeholder="comment"
                             [(ngModel)]="zoomRegDto.comment">
                     </div>
 

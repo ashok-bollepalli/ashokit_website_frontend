@@ -89,7 +89,7 @@ export class HomeComponent {
         id: 1,
         name: 'Preethi',
         image: '../../assets/mockInterviews/developer_Preethi.jpg',
-        designation: 'Web Developer',
+        designation: 'Fullstack Developer',
         description:
           '“I am a full-time employee at an IT solutions company. I took multiple online IT training courses. The course material was thorough and impressive. The teachers are also very supportive. I was easily able to update my skills concurrently with my job. Thank you Ashok IT expert teaching team for all your support and guidance.”',
         role: '',
@@ -101,7 +101,7 @@ export class HomeComponent {
         id: 2,
         name: 'Shiva Krishna',
         image: '../../assets/testimonial/Shiva Photo.jpg',
-        designation: 'Marketing Specialist',
+        designation: 'DevOps Engineer',
         description:
           '“I consider my experience at Ashok IT to be incredibly important in my growth as a competent professional. During my time at Ashok IT, I had the opportunity to learn through both books and practice and develop a large variety of essential technical skills. Thank you Ashok IT .”',
         role: '',
@@ -113,43 +113,7 @@ export class HomeComponent {
         id: 3,
         name: 'Soumya',
         image: '../../assets/mockInterviews/developer_soumya.jpg',
-        designation: 'Graphic Designer',
-        description:
-          '“I have completed multiple certification courses from Ashok IT including Java, cloud computing, and data structures and algorithm. I was greatly impressed by the commendable teaching methodologies and experienced and insightful tutors who were able to simplify the process of learning various complex technologies.”',
-        role: '',
-        star: '5',
-        status: 'Active',
-        message: '',
-      },
-      {
-        id: 4,
-        name: 'Sparsha',
-        image: '../../assets/testimonial/Sparsha Photo.jpg',
-        designation: 'Technical Specialist',
-        description:
-          '“I am a full-time employee at an IT solutions company. I took multiple online IT training courses. The course material was thorough and impressive. The teachers are also very supportive. I was easily able to update my skills concurrently with my job. Thank you Ashok IT expert teaching team for all your support and guidance.”',
-        role: '',
-        star: '5',
-        status: 'Active',
-        message: '',
-      },
-      {
-        id: 5,
-        name: 'Mahesh',
-        image: '../../assets/mockInterviews/developer_mahesh_1.jpg',
-        designation: 'Software Developer',
-        description:
-          '“I consider my experience at Ashok IT to be incredibly important in my growth as a competent professional. During my time at Ashok IT, I had the opportunity to learn through both books and practice and develop a large variety of essential technical skills. Thank you Ashok IT .”',
-        role: '',
-        star: '5',
-        status: 'Active',
-        message: '',
-      },
-      {
-        id: 6,
-        name: 'Shreyanshika',
-        image: '../../assets/testimonial/Preethi Padma photo.jpg',
-        designation: 'Graphic Designer',
+        designation: 'Java Developer',
         description:
           '“I have completed multiple certification courses from Ashok IT including Java, cloud computing, and data structures and algorithm. I was greatly impressed by the commendable teaching methodologies and experienced and insightful tutors who were able to simplify the process of learning various complex technologies.”',
         role: '',

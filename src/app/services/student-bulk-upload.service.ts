@@ -103,11 +103,11 @@ export class StudentBulkUploadService {
       );
   }
 
-  updateZoomRegisteredStatus(zoomRegisteredId: number, status: string) {
+  updateZoomRegisteredStatus(zoomRegisteredId: number, status: string, comment: string) {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.userStorageService.getToken()}`
     });
-    return this.http.get<any>(this.rootUrl + "/updateZoomRegisteredStatus/" + zoomRegisteredId + "/" + status, { headers });
+    return this.http.get<any>(this.rootUrl + "/updateZoomRegisteredStatus/" + zoomRegisteredId + "/" + status + "/" + comment, { headers });
   }
 
 }

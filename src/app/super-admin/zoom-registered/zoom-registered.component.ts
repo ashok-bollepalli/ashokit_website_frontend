@@ -182,7 +182,7 @@ export class ZoomRegisteredComponent implements OnInit {
         this.selectedFilteredZoom.status,
       this.selectedFilteredZoom.comment).subscribe((res) => {
       this.closeModal();
-      this.getAllZoomRegisters();
+      //this.getAllZoomRegisters();
     });
   }
 }

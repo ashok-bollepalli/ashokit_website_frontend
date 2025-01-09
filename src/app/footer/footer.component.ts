@@ -39,7 +39,7 @@ socialSettings: SocialSettingsDTO[] = [];
     
   ) {}
   ngOnInit(): void {
-    this.getAllGeneralSettings();
+    //this.getAllGeneralSettings();
     this.getAllSocialSettings();
   }
 

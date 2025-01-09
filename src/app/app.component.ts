@@ -97,4 +97,8 @@ export class AppComponent {
   resetCloseTimer() {
     clearTimeout(this.closeTimeout);
   }
+
+  disableRightClick(event: MouseEvent){
+      event.preventDefault();
+  }
 }

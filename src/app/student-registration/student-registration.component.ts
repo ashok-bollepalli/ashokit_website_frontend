@@ -60,9 +60,8 @@ export class StudentRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.setMetaTags();
-    this.getAllStudents();
+   // this.getAllStudents();
     this.getAllCountryCodes();
-
   }
 
   setMetaTags() {

@@ -1,116 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
+    <header>
+        <h1><b>{{job.companyName}} Hiring {{job.jobTitle}}</b></h1>
+    </header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Job Openings | Ashok IT</title>
-</head>
+    <div class="main-content">
+        <aside class="sidebar-left">
+            <img src="../../assets/uploads/job-postings/{{ job.companyImage }}" class="card-image"
+                alt="Company Image" />
+        </aside>
 
-<body>
-    <div class="container">
-        <header>
-            <h1><b>{{job.companyName}} Hiring {{job.jobTitle}}</b></h1>
-        </header>
+        <div class="job-details">
+            <section class="job-details">
+                <h2>Job Details</h2>
 
-        <div class="main-content">
-            <aside class="sidebar-left">
-                <img src="../../assets/uploads/job-postings/{{ job.companyImage }}" class="card-image"
-                    alt="Company Image" />
-            </aside>
-
-            <div class="job-details">
-                <section class="job-details">
-                    <h2>Job Details</h2>
-
-                    <div class="detail">
-                        <h3><b>Eligibility Criteria</b></h3>
-                        <div [innerHTML]="job.eligibility"></div>
-                    </div>
-                    <hr>
-
-                    <div class="detail">
-                        <h3><b>Qualifications</b></h3>
-                        <div [innerHTML]="job.qualifications"></div>
-                    </div>
-
-                    <h4>
-                        <a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">
-                            <i class="fab fa-whatsapp social-icon whatsapp-icon mr-1"></i> Follow Us in WhatsApp Channel
-                            For More Job Updates
-                        </a>
-                    </h4>
-                    <hr>
-                    <div class="detail">
-                        <h3><b>Package Offering : </b> {{job.packageOffering}}</h3>
-                    </div>
-
-                    <h4>
-                        <a href="https://www.instagram.com/ashokitschool/" target="_blank">
-                            <i class="fab fa-instagram social-icon instagram-icon mr-1"></i> Follow Us in Instagram For
-                            More Technology Updates
-                        </a>
-                    </h4>
-                    <hr>
-
-                    <div class="detail">
-                        <h3><b>Job Location : </b>{{job.jobLocation}}</h3>
-                    </div>
-
-                    <h4>
-                        <a href="https://www.youtube.com/c/AshokIT?sub_confirmation=1" target="_blank">
-                            <i class="fab fa-youtube social-icon youtube-icon mr-1"></i> Subscribe to our Youtube
-                            channel to access our free tutorials
-                        </a>
-                    </h4>
-                    <hr>
-                    <div>
-                        <a href="{{job.link}}" target="_blank" class="btn btn-danger">Apply Now</a>
-                    </div>
-                </section>
-            </div>
-
-            <aside class="sidebar-right">
-                <h2>Follow Us On Social Media To Get More Job Updates</h2>
+                <div class="detail">
+                    <h3><b>Eligibility Criteria</b></h3>
+                    <div [innerHTML]="job.eligibility"></div>
+                </div>
                 <hr>
-                <ul>
-                    <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">WhatsApp</a>
-                    </li>
-                    <li><a href="https://www.instagram.com/ashokitschool/" target="_blank">Instagram</a></li>
-                    <li><a href="https://www.youtube.com/c/AshokIT?sub_confirmation=1" target="_blank">YouTube</a></li>
-                    <li><a href="https://www.facebook.com/ashokitschool" target="_blank">Facebook</a></li>
-                    <li><a href="https://www.linkedin.com/company/ashokit/?viewAsMember=true"
-                            target="_blank">LinkedIn</a></li>
-                </ul>
-            </aside>
 
-            <aside class="sidebar-right">
-                <h2>Recent Job Updates</h2>
+                <div class="detail">
+                    <h3><b>Qualifications</b></h3>
+                    <div [innerHTML]="job.qualifications"></div>
+                </div>
+
+                <h4>
+                    <a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">
+                        <i class="fab fa-whatsapp social-icon whatsapp-icon mr-1"></i> Follow Us in WhatsApp Channel
+                        For More Job Updates
+                    </a>
+                </h4>
                 <hr>
-                <ul>
-                    <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">TCS Hiring
-                            Java Freshers</a></li>
-                    <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">Infosys
-                            Hiring DevOps Engineers</a></li>
-                    <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">HCL Hiring
-                            UI UX Developers</a></li>
-                    <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">Deloitte
-                            Hiring AWS Engineers</a></li>
-                    <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">Wallmart
-                            Hiring Java Leads</a></li>
-                </ul>
-            </aside>
+                <div class="detail">
+                    <h3><b>Package Offering : </b> {{job.packageOffering}}</h3>
+                </div>
+
+                <h4>
+                    <a href="https://www.instagram.com/ashokitschool/" target="_blank">
+                        <i class="fab fa-instagram social-icon instagram-icon mr-1"></i> Follow Us in Instagram For
+                        More Technology Updates
+                    </a>
+                </h4>
+                <hr>
+
+                <div class="detail">
+                    <h3><b>Job Location : </b>{{job.jobLocation}}</h3>
+                </div>
+
+                <h4>
+                    <a href="https://www.youtube.com/c/AshokIT?sub_confirmation=1" target="_blank">
+                        <i class="fab fa-youtube social-icon youtube-icon mr-1"></i> Subscribe to our Youtube
+                        channel to access our free tutorials
+                    </a>
+                </h4>
+                <hr>
+                <div>
+                    <a href="{{job.link}}" target="_blank" class="btn btn-danger">Apply Now</a>
+                </div>
+            </section>
         </div>
+
+        <aside class="sidebar-right">
+            <h2>Follow Us On Social Media To Get More Job Updates</h2>
+            <hr>
+            <ul>
+                <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">WhatsApp</a>
+                </li>
+                <li><a href="https://www.instagram.com/ashokitschool/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.youtube.com/c/AshokIT?sub_confirmation=1" target="_blank">YouTube</a></li>
+                <li><a href="https://www.facebook.com/ashokitschool" target="_blank">Facebook</a></li>
+                <li><a href="https://www.linkedin.com/company/ashokit/?viewAsMember=true" target="_blank">LinkedIn</a>
+                </li>
+            </ul>
+        </aside>
+
+        <aside class="sidebar-right">
+            <h2>Recent Job Updates</h2>
+            <hr>
+            <ul>
+                <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">TCS Hiring
+                        Java Freshers</a></li>
+                <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">Infosys
+                        Hiring DevOps Engineers</a></li>
+                <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">HCL Hiring
+                        UI UX Developers</a></li>
+                <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">Deloitte
+                        Hiring AWS Engineers</a></li>
+                <li><a href="https://www.whatsapp.com/channel/0029Va9NnSdCHDyqwAoeIB1G" target="_blank">Wallmart
+                        Hiring Java Leads</a></li>
+            </ul>
+        </aside>
     </div>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110479729755479"
-        crossorigin="anonymous"></script>
-    <!-- job-desc-page -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4110479729755479" data-ad-slot="1831279422"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</body>
-
-</html>
+</div>

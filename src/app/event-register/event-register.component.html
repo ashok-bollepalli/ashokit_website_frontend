@@ -79,7 +79,7 @@
                                 <label for="email"><b>Email:</b> </label>
                                 <small class="form-text text-muted mt-1" style="display: block;">
                                     Password will be sent to this email for login
-                                  </small>
+                                </small>
                                 <input type="email" class="form-control" id="email" name="email"
                                     placeholder="Enter Valid Email Address" formControlName="email">
                                 <div *ngIf="submitted && f['email'].invalid" class="text-danger">* Email is required
@@ -89,7 +89,7 @@
                             <div class="form-group mb-3">
                                 <label for="countryCode"><b>Select Country Code:</b> </label>
                                 <select class="form-select" id="countryCode" name="countryCode"
-                                    formControlName="countryCode">                                 
+                                    formControlName="countryCode">
                                     <option *ngFor="let countryCode of countryCodes" [value]="countryCode.countryCode">
                                         {{ countryCode.countryName + " ( +" + countryCode.countryCode }} )</option>
                                 </select>
@@ -102,7 +102,7 @@
                                 <label for="mobileNumber"><b>WhatsApp Number:</b> </label>
                                 <small class="form-text text-muted mt-1" style="display: block;">
                                     OTP will be sent in WhatsApp to this number for verification
-                                  </small>
+                                </small>
                                 <input type="tel" id="mobileNumber" name="mobileNumber" class="form-control"
                                     placeholder="Enter WhatsApp Number" formControlName="mobileNumber" maxlength="10"
                                     (input)="onInputChange($event)" title="Please enter a valid WhatsApp number">
@@ -142,8 +142,7 @@
                         </div>
 
                         <div class="text-center mb-5">
-                            <button data-mdb-button-init data-mdb-ripple-init
-                                class="btn btn-primary" type="submit">
+                            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary" type="submit">
                                 Validate OTP
                             </button>
                         </div>

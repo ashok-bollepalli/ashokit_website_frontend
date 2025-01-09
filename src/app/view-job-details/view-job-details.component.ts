@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataLoaderService } from '../services/data-loader.service';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-view-job-details',
@@ -14,14 +15,30 @@ export class ViewJobDetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.setMetaTags();
+    this.addAdsenseScript();
     this.jobSlug = this.route.snapshot.paramMap.get('jobSlug');
     this.getJobPostingBySlug(this.jobSlug!);
   }
 
   constructor(
+    private meta: Meta, private titleService: Title,
     private dataLoaderService: DataLoaderService,
+    private render: Renderer2,
     private route: ActivatedRoute) {
 
+  }
+
+  
+  setMetaTags() {
+    // Set the title
+    this.titleService.setTitle('Java Fullstack Course in Hyderabad | Master Java Fullstack with Expert Training');
+
+    // Set meta description
+    this.meta.updateTag({ name: 'description', content: 'Enroll in the best Java Fullstack course in Hyderabad and gain expertise in Java programming. Our course offers comprehensive training from basics to advanced concepts, hands-on projects, and job placement assistance.' });
+
+    // Set meta keywords
+    this.meta.updateTag({ name: 'keywords', content: 'Java Fullstack Course Hyderabad, Java Programming Training, Java Classes Hyderabad, Learn Java in Hyderabad, Java Certification Course, Java Programming Course Hyderabad, Best Java Course Hyderabad' });
   }
 
   getJobPostingBySlug(jobSlug: string) {
@@ -29,5 +46,13 @@ export class ViewJobDetailsComponent implements OnInit {
       this.job = res.data;
     })
   }
+
+  addAdsenseScript(): void {
+    const script = this.render.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110479729755479';
+    this.render.appendChild(document.body, script);
+  }
 
 }

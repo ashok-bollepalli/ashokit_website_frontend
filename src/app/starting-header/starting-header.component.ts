@@ -18,7 +18,7 @@ export class StartingHeaderComponent {
 
   ) { }
   ngOnInit(): void {
-    this.getAllSocialSettings();
+    //this.getAllSocialSettings();
     this.getAllGeneralSettings();
   }
   getAllSocialSettings(): void {

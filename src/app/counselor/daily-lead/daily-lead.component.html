@@ -54,10 +54,40 @@
       </div>
 
       <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+        <label class="selectedDailyLead.status" class="form-label"><b>Lead Source</b></label>
+        <select id="selectedDailyLead.enqSource" name="selectedDailyLead.enqSource" class="form-select"
+          [(ngModel)]="selectedDailyLead.enqSource">
+          <option value="">-Select-</option>
+          <option value="WhatsApp">WhatsApp</option>
+          <option value="Phone">Phone Call</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Walkin">Walk-In</option>
+          <option value="Website">Website</option>
+        </select>
+      </div>
+
+      <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-4">
+        <label class="enrollmentStatus" class="form-label"><b>Enrollment Status</b></label>
+        <select id="enrollmentStatus" name="enrollmentStatus" class="form-select"
+          [(ngModel)]="selectedDailyLead.paymentStatus">
+          <option value="">-Select-</option>
+          <option value="Enrolled">Enrolled</option>
+          <option value="Not-Enrolled">Not Enrolled</option>
+        </select>
+      </div>
+
+      <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
+        <label for="whatsappNumber" class="form-label"><b>WhatsApp Number</b></label>
+        <input type="text" id="whatsappNumber" name="whatsappNumber" class="form-control"
+          [(ngModel)]="selectedDailyLead.whatsappNumber">
+      </div>
+
+      <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
         <label for="from_date" class="form-label"><b>From Date</b></label>
         <input type="date" id="from_date" name="from_date" class="form-control"
           [(ngModel)]="selectedDailyLead.createdAt">
       </div>
+
       <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 mb-3">
         <label for="filter" class="form-label"></label>
         <section class="Filter">
@@ -73,9 +103,11 @@
             <th scope="col">S.No</th>
             <th scope="col">Name</th>
             <th scope="col">Course Name</th>
-            <th scope="col">Lead Status</th>
+            <th scope="col">Status</th>
             <th scope="col">WhatsApp Num</th>
             <th scope="col">Created By</th>
+            <th scope="col">Lead Source</th>
+            <th scope="col">Enrollment Status</th>
             <th scope="col">Created Date</th>
             <th scope="col">Action</th>
             <th scope="col">Send Msg</th>
@@ -98,6 +130,8 @@
             </td>
             <td>{{ dailyLead.mobilNumber }}</td>
             <td>{{ getCounsellorName(dailyLead.counsellorId) }}</td>
+            <td>{{ dailyLead.enqSource }}</td>
+            <td>{{ dailyLead.paymentStatus }}</td>
             <td>{{ dailyLead.createdAt | date: 'dd-MMM-yyyy' }}</td>
             <td>
               <button class="btn btn-sm btn-outline-primary" (click)="openModal(dailyLead)">
